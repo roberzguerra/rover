@@ -1,0 +1,94 @@
+{% extends "pages/page.html" %}
+{% load mezzanine_tags i18n %}
+
+{% block main %}
+    {{ block.super }}
+    <strong class="tt-escotismo">
+        {{ page.title }} <span class="titles-bgs ir liss">{{ page.title }}</span>
+    </strong>
+    {% editable page.scoutgrouppage.content %}
+        {{ page.scoutgrouppage.content|richtext_filters|safe }}
+    {% endeditable %}
+
+    {% if page.scoutgrouppage.type == page.scoutgrouppage.TYPE_GROUP_ALPHA %}
+        {% with page.scoutgrouppage.get_scout_groups_type_alpha as scout_group_list %}
+            {% include 'scout_group/scoutgrouppage_content.html' %}
+        {% endwith %}
+    {% elif page.scoutgrouppage.type == page.scoutgrouppage.TYPE_GROUP_NUMBER %}
+        {% with page.scoutgrouppage.get_scout_groups_type_number as scout_group_list %}
+            {% include 'scout_group/scoutgrouppage_content.html' %}
+        {% endwith %}
+    {% elif page.scoutgrouppage.type == page.scoutgrouppage.TYPE_GROUP_DISTRICT %}
+        {% with page.scoutgrouppage.get_scout_groups_type_district as district_list %}
+            {% include 'scout_group/scoutgrouppage_list_district.html' %}
+        {% endwith %}
+    {% elif page.scoutgrouppage.type == page.scoutgrouppage.TYPE_GROUP_ONLY_DISTRICT %}
+        {% with page.scoutgrouppage.get_scout_groups_type_district as district_list %}
+            {% with True as district_only %}
+                {% include 'scout_group/scoutgrouppage_list_district.html' %}
+            {% endwith %}
+        {% endwith %}
+    {% endif %}
+
+
+    {% comment %}
+    <ul class="lista-distritos clearfix">
+        <li>
+            <a href="" title="1º Distrito Escoteiro" class="content-img">
+                {% if person.mugshot %}
+                    <img src="{{ MEDIA_URL }}{% thumbnail person.mugshot 182 182 %}" alt="Pessoa">
+                {% else %}
+                    <img src="{{ STATIC_URL }}institution/img/img-02.jpg" alt="Distritos Escoteiros">
+                {% endif %}
+            </a>
+            <div class="content-infos">
+                <div class="content">
+                    <a href="distritos-detalhe.html" title="1º Distrito Escoteiro"><strong>1º Distrito Escoteiro</strong></a>
+                    <b>Cidade(s) de abrangência:</b>
+                    <p>Porto Alegre</p>
+                </div>
+            </div>
+        </li>
+  </ul>
+  {% endcomment %}
+
+{% comment %}
+    {% if page.team.categories.count > 0  %}
+        <ul class="lista-diretoria clearfix">
+        {% for category in page.team.categories.all %}
+            {% for person in category.people.all %}
+                <li>
+                    <div class="content-img">
+                        {% if person.mugshot %}
+                            <img src="{{ MEDIA_URL }}{% thumbnail person.mugshot 182 182 %}" alt="Pessoa">
+                        {% else %}
+                            <img src="{{ STATIC_URL }}institution/img/img-02.jpg" alt="Pessoa">
+                        {% endif %}
+                    </div>
+                    <div class="content-infos">
+                        <div class="content">
+                            <strong>{{ person.full_name }}</strong>
+                            <span>{{ person.job_title }}</span>
+                            {% if person.email %}
+                                <span><a href="mailto:{{ person.email }}" title="Enviar um e-mail">{{ person.email }}</a></span>
+                            {% endif %}
+                            {% if person.bio %}
+                                <p>{{ person.bio|safe }}</p>
+                            {% endif %}
+                            {% if person.personlink_set.count > 0 %}
+                                <p>
+                                {% for link in person.personlink_set.all %}
+                                    {{ link.name }} - {{ link.url }} <br>
+                                {% endfor %}
+                                </p>
+                            {% endif %}
+
+                        </div>
+                    </div>
+                </li>
+            {% endfor %}
+        {% endfor %}
+        </ul>
+    {% endif %}
+{% endcomment %}
+{% endblock %}

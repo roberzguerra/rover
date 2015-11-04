@@ -1,0 +1,31 @@
+// ==========================================================================
+// Variables
+// ==========================================================================
+
+$main-font-size: 16px;
+$main-font-family: Tahoma, Geneva, sans-serif;
+$main-text-color: #333;
+
+$column-width: 60px;
+$gutter-width: 20px;
+$columns: 12;
+
+// Set $total-width to 100% for a fluid layout
+$total-width: 1000px;
+
+.btn{
+    background: url('../img/buttons.png') no-repeat 0 0 transparent;
+}
+
+.titles-bgs{
+    background: url('../img/bg-titles.png') no-repeat 0 0 transparent;
+    font-size: em(34px);
+    line-height: 41px;
+    color: #FFF;
+    margin-bottom: 20px;
+    font-weight: normal;
+}
+
+//colors
+$blue: #004A8D;
+$green: #00853E;

@@ -1,0 +1,288 @@
+.gallery{
+    position: relative;
+    padding-top: 450px;
+    margin-bottom: 40px;
+}
+
+#slideshow,
+#loading{
+    width: 100%;
+    height: 350px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+
+    .advance-link{
+        display: block;
+        line-height: 0px;
+        text-decoration: none;
+        text-align: center;
+    }
+
+    img{
+        width: auto;
+        max-height: 100%;
+    }
+
+    .current{
+        position: absolute;
+        top: 0;
+        left: 50%;
+        margin-left: -310px;
+    }
+}
+
+#caption{
+    width: 100%;
+    height: 80px;
+    position: absolute;
+    padding: 10px;
+    left: 0;
+    top: 350px;
+
+    p{
+        font-size: em(16px);
+        line-height: 21px;
+        color: #000;
+        height: 70px;
+        text-align: center;
+    }
+
+    .num{
+        font-size: em(18px);
+        line-height: 23px;
+        font-weight: bold;
+        margin-top: 20px;
+    }
+
+    .current{
+        position: absolute;
+        top: 0;
+        left: 0;
+        padding: 10px;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+#thumbs{
+    width: 100%;
+    height: 140px;
+    margin-top: 20px;
+    position: relative;
+    display: none !important;
+
+    ul {
+        padding: 0;
+        margin-bottom: 0;
+    }
+
+    li{
+        width: 140px;
+        height: 140px;
+        float: left;
+        margin-right: 20px;
+        list-style: none;
+
+        &.last{
+            margin-right: 0;
+        }
+
+        &.selected{
+            opacity: .8;
+        }
+    }
+}
+
+#controls{
+    width: 100%;
+    height: 70px;
+    position: relative;
+    margin-top: -20px;
+}
+
+.pageLink,
+.nav-controls a{
+    display: none;
+    width: 66px;
+    height: 66px;
+    cursor: pointer;
+    border-radius: 33px;
+    background-color: transparent;
+    border: 2px solid #CCC;
+    position: absolute;
+    top: 50%;
+    left: -100px;
+    margin-top: -32px;
+    transition: background-color .2s linear;
+
+    &:hover{
+        background-color: rgba(56,56,56,.1);
+    }
+    &.prev{
+        background-position: 0px -374px;
+    }
+    &.next{
+        background-position: -65px -374px;
+        left: auto;
+        right: -100px;
+    }
+}
+
+.nav-controls a{
+    display: block;
+    left: 10px;
+    top: 0;
+    margin-top: 0;
+
+    &.next{
+        background-position: -65px -374px;
+        left: auto;
+        right: 10px;
+    }
+}
+
+@media screen and (max-width: em(640px)) {
+    #slideshow .current,
+    #loading .current {
+        left: 0;
+        margin: 0;
+    }
+
+    #slideshow img {
+        max-width: 100%;
+        height: auto;
+    }
+}
+
+@media screen and (max-width: em(450px)) {
+    #slideshow, #loading {
+        height: 320px;
+    }
+
+    #caption {
+        top: 260px;
+    }
+
+    #gallery {
+        padding-top: 380px;
+    }
+
+}
+
+@media screen and (max-width: em(350px)) {
+    #slideshow, #loading {
+        height: 250px;
+    }
+
+    #gallery {
+        padding-top: 320px;
+    }
+
+    #caption {
+        top: 180px;
+    }
+
+    #controls {
+        margin-top: -110px;
+    }
+}
+
+@media screen and (min-width: em(1024px)) {
+
+    .gallery{
+        padding-top: 530px;
+    }
+
+    #slideshow,
+    #loading{
+        height: 530px;
+
+        img{
+            width: auto;
+            max-height: 100%;
+        }
+
+        .current{
+            position: absolute;
+            top: 0;
+            left: 0;
+            margin-left: -0;
+        }
+    }
+
+    #caption{
+        background-color: rgba(0,0,0,.8);
+        padding: 0 30px !important;
+        width: 100% !important;
+        height: 80px !important;
+        top: 450px !important;
+
+        p{
+            width: 800px !important;
+            float: left;
+            color: #FFF;
+            height: auto;
+            text-align: left;
+        }
+
+        .num{
+            float: left;
+            width: 70px !important;
+            text-align: right;
+            margin-top: 0;
+        }
+
+        .image-caption{
+            display: table;
+            height: 100% !important;
+            width: 100% !important;
+            min-width: 940px !important;
+        }
+
+        .current{
+            padding: 0 30px;
+        }
+
+        .caption{
+            display: table-cell;
+            vertical-align: middle;
+            height: 100% !important;
+            width: 100% !important;
+        }
+    }
+
+    #controls{
+        margin-top: 10px;
+    }
+
+    .touch{
+        #caption{
+            p{
+                width: 730px !important;
+            }
+
+            .num{
+                width: 70px !important;
+            }
+
+            .image-caption{
+                width: 100% !important;
+                min-width: 940px !important;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: em(1280px)) {
+    #thumbs{
+        display: block !important;
+    }
+    #controls{
+        display: none;
+    }
+    .pageLink{
+        display: block;
+    }
+}

@@ -1,0 +1,119 @@
+{% extends 'institution/home.html' %}
+
+{% block extra_head_css %}
+    <link rel="stylesheet" href="{{ STATIC_URL }}institution/css/diretoria-regional.css">
+{% endblock extra_head_css %}
+
+{% block content_main %}
+    <div class="inner-banner">
+        <img src="http://placehold.it/1920x300" alt="Banner">
+    </div>
+
+    <div class="center">
+        {% include 'institution/head_social.html' %}
+
+        <div class="box-main">
+            <strong class="tt-diretoria">
+                Diretoria Regional
+                <span class="titles-bgs ir">Diretoria Regional</span>
+            </strong>
+
+            <p class="descricao">A Diretoria Regional é o órgão executivo da Região do Rio Grande do Sul e se compõe por
+                membros eleitos na Assembléia Regional e membros designados, formando assim o quadro executivo da
+                região.</p>
+
+            <p class="descricao last">Esta irá promover o pleno desenvolvimento do Movimento Escoteiro no estado.</p>
+
+            <ul class="lista-diretoria clearfix">
+                <li>
+                    <div class="content-img">
+                        <img src="{{ STATIC_URL }}institution/img/img-pessoa-1.jpg" alt="Pessoa">
+                    </div>
+
+                    <div class="content-infos">
+                        <div class="content">
+                            <strong>Márcio Sequeira da Silva</strong>
+                            <span>Presidente</span>
+                            <a href="mailto:dir.presidente@escoteirosrs.org.br" title="Enviar um e-mail">dir.presidente@escoteirosrs.org.br</a>
+                        </div>
+                    </div>
+                </li>
+
+                <li>
+                    <div class="content-img">
+                        <img src="{{ STATIC_URL }}institution/img/img-pessoa-1.jpg" alt="Pessoa">
+                    </div>
+
+                    <div class="content-infos">
+                        <div class="content">
+                            <strong>Márcio Sequeira da Silva</strong>
+                            <span>Presidente</span>
+                            <a href="mailto:dir.presidente@escoteirosrs.org.br" title="Enviar um e-mail">dir.presidente@escoteirosrs.org.br</a>
+                        </div>
+                    </div>
+                </li>
+
+                <li>
+                    <div class="content-img">
+                        <img src="{{ STATIC_URL }}institution/img/img-pessoa-1.jpg" alt="Pessoa">
+                    </div>
+
+                    <div class="content-infos">
+                        <div class="content">
+                            <strong>Márcio Sequeira da Silva</strong>
+                            <span>Presidente</span>
+                            <a href="mailto:dir.presidente@escoteirosrs.org.br" title="Enviar um e-mail">dir.presidente@escoteirosrs.org.br</a>
+                        </div>
+                    </div>
+                </li>
+
+                <li>
+                    <div class="content-img">
+                        <img src="{{ STATIC_URL }}institution/img/img-pessoa-2.jpg" alt="Pessoa">
+                    </div>
+
+                    <div class="content-infos">
+                        <div class="content">
+                            <strong>Ricardo Silva de Freitas</strong>
+                            <span>Presidente</span>
+                            <a href="mailto:dir.presidente@escoteirosrs.org.br" title="Enviar um e-mail">dir.financeiro@escoteirosrs.org.br</a>
+                        </div>
+                    </div>
+                </li>
+
+                <li>
+                    <div class="content-img">
+                        <img src="{{ STATIC_URL }}institution/img/img-pessoa-2.jpg" alt="Pessoa">
+                    </div>
+
+                    <div class="content-infos">
+                        <div class="content">
+                            <strong>Ricardo Silva de Freitas</strong>
+                            <span>Presidente</span>
+                            <a href="mailto:dir.presidente@escoteirosrs.org.br" title="Enviar um e-mail">dir.financeiro@escoteirosrs.org.br</a>
+                        </div>
+                    </div>
+                </li>
+
+                <li>
+                    <div class="content-img">
+                        <img src="{{ STATIC_URL }}institution/img/img-pessoa-2.jpg" alt="Pessoa">
+                    </div>
+
+                    <div class="content-infos">
+                        <div class="content">
+                            <strong>Ricardo Silva de Freitas</strong>
+                            <span>Presidente</span>
+                            <a href="mailto:dir.presidente@escoteirosrs.org.br" title="Enviar um e-mail">dir.financeiro@escoteirosrs.org.br</a>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+{% endblock content_main %}
+
+{% block end_scripts %}
+    <script src="{{ STATIC_URL }}institution/js/diretoria-regional.js"></script>
+{% endblock end_scripts %}

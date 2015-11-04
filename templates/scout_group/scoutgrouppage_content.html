@@ -1,0 +1,9 @@
+{% load mezzanine_tags i18n %}
+
+<ul class="lista-distritos clearfix">
+    {% for scout_group in scout_group_list %}
+        <li>
+            {% include 'scout_group/scout_group.html' %}
+        </li>
+    {% endfor %}
+</ul>

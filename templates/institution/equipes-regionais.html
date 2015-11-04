@@ -1,0 +1,87 @@
+{% extends 'institution/home.html' %}
+
+
+{% block extra_head_css %}
+    <link rel="stylesheet" href="{{ STATIC_URL }}institution/css/equipes-regionais.css">
+{% endblock extra_head_css %}
+
+{% block content_main %}
+    <div class="inner-banner">
+        <img src="http://placehold.it/1920x300" alt="Banner">
+    </div>
+    <div class="center">
+        {% include 'institution/head_social.html' %}
+
+        <div class="box-main">
+            <strong class="tt-equipes">
+                Equipe Regional de Condecorações e Homenagens
+                <span class="titles-bgs ir">Equipe Regional de Condecorações e Homenagens</span>
+            </strong>
+
+            <p class="descricao last">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh
+                euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis
+                nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat..</p>
+
+            <ul class="lista-diretoria clearfix">
+                <li>
+                    <div class="content-img">
+                        <img class="equipe-photo" src="{{ STATIC_URL }}institution/img/img-02.jpg" alt="Pessoa">
+                    </div>
+
+                    <div class="content-infos">
+                        <div class="content">
+                            <strong>Nome Completo do Usuário</strong>
+                            <span>Cargo Função</span>
+                            <a href="mailto:usuario.cargo@instituicao.com.br" title="Enviar um e-mail">usuario.cargo@instituicao.com.br</a>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="content-img">
+                        <img class="equipe-photo" src="{{ STATIC_URL }}institution/img/img-02.jpg" alt="Pessoa">
+                    </div>
+
+                    <div class="content-infos">
+                        <div class="content">
+                            <strong>Nome Completo do Usuário</strong>
+                            <span>Cargo Função</span>
+                            <a href="mailto:usuario.cargo@instituicao.com.br" title="Enviar um e-mail">usuario.cargo@instituicao.com.br</a>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="content-img">
+                        <img class="equipe-photo" src="{{ STATIC_URL }}institution/img/img-02.jpg" alt="Pessoa">
+                    </div>
+
+                    <div class="content-infos">
+                        <div class="content">
+                            <strong>Nome Completo do Usuário</strong>
+                            <span>Cargo Função</span>
+                            <a href="mailto:usuario.cargo@instituicao.com.br" title="Enviar um e-mail">usuario.cargo@instituicao.com.br</a>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="content-img">
+                        <img class="equipe-photo" src="{{ STATIC_URL }}institution/img/img-02.jpg" alt="Pessoa">
+                    </div>
+
+                    <div class="content-infos">
+                        <div class="content">
+                            <strong>Nome Completo do Usuário</strong>
+                            <span>Cargo Função</span>
+                            <a href="mailto:usuario.cargo@instituicao.com.br" title="Enviar um e-mail">usuario.cargo@instituicao.com.br</a>
+                        </div>
+                    </div>
+                </li>
+
+            </ul>
+        </div>
+
+    </div>
+{% endblock content_main %}
+
+{% block end_scripts %}
+    <script src="{{ STATIC_URL }}institution/js/equipes-regionais.js"></script>
+{% endblock end_scripts %}

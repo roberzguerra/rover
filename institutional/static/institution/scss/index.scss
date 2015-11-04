@@ -1,0 +1,24 @@
+@import 'scaffold/_layout';
+
+@import 'modules/_header';
+@import 'index/_banner';
+@import 'index/_about';
+@import 'index/_moviment';
+@import 'index/_informations';
+@import 'index/_store';
+@import 'modules/_footer';
+
+// ==========================================================================
+// Main
+// ==========================================================================
+
+// ==========================================================================
+// Media queries
+// ==========================================================================
+
+// Media queries for mobile first
+// Add rules as needed
+@media only screen and (min-width: em(768px)),
+only screen and (min-width: em(768px)) and (-webkit-min-device-pixel-ratio: 2) {
+
+}

@@ -1,0 +1,213 @@
+{% extends "base.html" %}
+
+{% comment %}
+    {% load mezzanine_tags keyword_tags %}
+
+    {% block meta_title %}{{ page.meta_title }}{% endblock %}
+
+    {% block meta_keywords %}{% metablock %}
+    {% keywords_for page as keywords %}
+    {% for keyword in keywords %}
+        {% if not forloop.first %}, {% endif %}
+        {{ keyword }}
+    {% endfor %}
+    {% endmetablock %}{% endblock %}
+
+    {% block meta_description %}{% metablock %}
+    {{ page.description }}
+    {% endmetablock %}{% endblock %}
+
+    {% block title %}
+    {% editable page.title %}{{ page.title }}{% endeditable %}
+    {% endblock %}
+
+    {% block main %}
+    {% endblock %}
+{% endcomment %}
+
+
+
+{% block extra_head_css %}
+    <link rel="stylesheet" href="{{ STATIC_URL }}institution/css/escotismo.css">
+{% endblock extra_head_css %}
+
+{% block content_main %}
+    <div class="inner-banner">
+        <img src="http://placehold.it/1920x300" alt="Banner">
+    </div>
+
+    <div class="center">
+        {% include "institution/head_social.html" %}
+
+        <div class="box-main">
+            <strong class="tt-escotismo">
+                Escotismo
+                <span class="titles-bgs ir">Escotismo</span>
+            </strong>
+
+            <p class="description">Saiba mais sobre o maior movimento juvenil do mundo e junte-se a nós</p>
+
+            <p class="sub-tt">O Escotismo, fundado por Lorde Robert Stephenson Smyth Baden-Powell, em 1907, é um
+                movimento mundial, educacional, voluntariado, apartidário, sem fins lucrativos. A sua proposta é o
+                desenvolvimento do jovem, por meio de um sistema de valores que prioriza a honra, baseado na Promessa e
+                na Lei escoteira, e através da prática do trabalho em equipe e da vida ao ar livre, fazer com que o
+                jovem assuma seu próprio crescimento, tornar-se um exemplo de fraternidade, lealdade, altruísmo,
+                responsabilidade, respeito e disciplina.</p>
+
+            <div class="video">
+                <iframe src="//www.youtube.com/embed/C4eHJ8ZJgG4?wmode=transparent" frameborder="0"
+                        allowfullscreen></iframe>
+            </div>
+
+            <div class="box-promessa">
+                <ul class="clearfix">
+                    <li>
+                        <strong>Promessa Escoteira</strong>
+
+                        <p>A promessa escoteira sintetiza o embasamento moral do Movimento Escoteiro. No momento da
+                            Promessa, os membros do Movimento comprometem-se voluntariamente a conduzirem-se de acordo
+                            com a orientação moral do Movimento, reconhecendo a existência de deveres que têm de ser
+                            cumpridos. Os elementos da Promessa Escoteira estão contidos nos Princípios do Movimento
+                            Escoteiro.</p>
+                    </li>
+                    <li>
+                        <strong>Lei Escoteira</strong>
+                        <b>Conceitos inerentes à Lei Escoteira</b>
+
+                        <p>Honra, integridade, lealdade, presteza, amizade, cortesia, respeito e proteção da natureza,
+                            responsabilidade, disciplina, coragem, ânimo, bom-senso, respeito pela propriedade e
+                            auto-confiança.</p>
+
+                        <p>Quando Baden-Powell idealizou a Lei Escoteira, decidiu não estabelecer leis proibitivas, mas
+                            conceitos para formação de pessoas benévolas, para que, desta forma, o jovem escoteiro
+                            tivesse onde se espelhar e pudesse se orientar.</p>
+                    </li>
+
+                    <li class="box-lei-escoteira">
+                        <strong>Os dez artigos da Lei Escoteira</strong>
+                        <b>1. O escoteiro tem uma só palavra; sua honra vale mais do que a própria vida.</b>
+
+                        <p>“A honra para um escoteiro é ser digno de toda confiança. Como um escoteiro, nenhuma
+                            tentação, por maior que seja, e embora seja secreta, irá persuadi-lo a praticar uma ação
+                            desonesta ou escusa, mesmo muito pequena. Você não voltará atrás a uma promessa, uma vez
+                            feita. A palavra de um escoteiro equivale a um contrato; para um escoteiro, a verdade, e
+                            nada mais que a verdade.” Baden-Powell.</p>
+
+                        <b>2. O escoteiro é leal.</b>
+
+                        <p>“O escoteiro é leal à pátria, à igreja, às autoridades do governo, aos seus pais, seus
+                            chefes, seus patrões e aos que trabalham como seus subordinados. Como um bom cidadão, você é
+                            de uma equipe, jogando o jogo honestamente, para o bem do conjunto. Você merece a confiança
+                            do governo de sua pátria, do movimento escoteiro, dos seus amigos e companheiros de
+                            patrulha, de seus patrões ou de seus empregados, que esperam que você seja correto, fazendo
+                            o melhor possível, em benefício deles, ainda quando eles não correspondem sempre bem ao que
+                            você espera deles. Além disso, você é leal também a si mesmo; você não quer diminuir seu
+                            respeito a si mesmo jogando mal de propósito; nem vai querer decepcionar ou ficar em falta
+                            com outro homem, nem, tampouco, com outra mulher.” Baden-Powell.</p>
+
+                        <b>3. O escoteiro está sempre alerta para ajudar o próximo e pratica diariamente uma boa
+                            ação.</b>
+
+                        <p>“O dever do escoteiro é ser útil e ajudar a todos. Como escoteiro, seu mais alto objetivo é
+                            servir. Você deve merecer a confiança de que, em qualquer ocasião, estará pronto para
+                            sacrificar tempo, trabalho, ou, se necessário, a própria vida pelos demais. O sacrifício é o
+                            sal do serviço.” Baden-Powell.</p>
+
+
+                        <b>4. O escoteiro é amigo de todos e irmão dos demais escoteiros.</b>
+
+                        <p>“É amigo ou irmão, não importando a que país, classe ou credo o outro possa pertencer. Como
+                            escoteiro, você reconhece as demais pessoas como sendo, com você, filhos do mesmo pai, e não
+                            faz caso de suas diferenças de opinião, casta, credo ou país, quaisquer que elas sejam. Você
+                            domina os próprios preconceitos e procura encontrar as boas qualidades que tenham; o defeito
+                            deles qualquer um pode criticar. Se você põe em prática esse amor pelas pessoas de outros
+                            países e ajuda a fazer surgir a paz e a boa vontade internacionais, isto será o reino de
+                            Deus na terra. O mundo inteiro é uma fraternidade.” Baden-Powell.</p>
+
+                        <b>5. O escoteiro é cortês.</b>
+
+                        <p>“Como os antigos cavaleiros, você, sendo um escoteiro, é, sem dúvida, polido e atencioso com
+                            as mulheres, velhos e crianças. Mas, além disso, você é polido mesmo com aqueles que estão
+                            contra você. Aqueles que têm razão, não precisam perder a calma; aqueles que não têm razão,
+                            não podem se dar ao luxo de perdê-la.” Baden-Powell.</p>
+
+                        <b>6. O escoteiro é bom para o animais e as plantas.</b>
+
+                        <p>“Você reconhecerá como companheiras as outras criaturas de Deus, postas, como você, neste
+                            mundo, durante certo tempo, para gozar suas existências. Maltratar um animal é, portanto, um
+                            desserviço ao Criador. Um escoteiro deve ter um grande coração.” Baden-Powell.</p>
+
+
+                        <b>7. O escoteiro é obediente e disciplinado.</b>
+
+                        <p>“O escoteiro obedece, de boa vontade, sem vacilar, às ordens de seus pais, monitores e
+                            chefes. Como escoteiro, você se disciplina e põe-se, profunda e voluntariamente, às ordens
+                            das autoridades constituídas, para o bem geral. A comunidade mais feliz é a comunidade mais
+                            disciplinada; a disciplina, porém, deve vir do íntimo, e nunca ser imposta de fora. Por
+                            isso, tem um grande valor o exemplo que você der aos demais nesse sentido.”
+                            Baden-Powell.</p>
+
+                        <b>8. O escoteiro é alegre e sorri nas dificuldades.</b>
+
+                        <p>“Como escoteiro, você será visto como o homem que não perde a cabeça e que aguenta qualquer
+                            crise com ânimo alegre, coragem e otimismo.” Baden-Powell.</p>
+
+                        <b>9. O escoteiro é econômico e respeita o bem alheio.</b>
+
+                        <p>“Como escoteiro, você olhará para o futuro e não irá dissipar tempo e dinheiro com prazeres
+                            do momento, mas, ao contrário, fará uso das oportunidades do momento tendo em vista o futuro
+                            sucesso. Você fará isso com a idéia de não ser um ônus, mas uma ajuda para os demais.”
+                            Baden-Powell.</p>
+
+                        <b>10. O escoteiro é limpo de corpo e alma.</b>
+
+                        <p class="last">“O escoteiro é limpo em pensamento, palavra e ação. Como escoteiro, espera-se
+                            que você tenha não só uma mente limpa, como também uma vontade limpa; seja capaz de
+                            controlar quaisquer tendências intemperadas do sexo; dê um exemplo aos demais sendo puro,
+                            franco, honesto em tudo que pensa, diz ou faz.” Baden-Powell.</p>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="box-visao">
+                <strong>Valores do movimento Escoteiro</strong>
+                <b>Missão</b>
+
+                <p>A missão do Escotismo é contribuir para a educação do jovem, baseado em sistema de valores, na
+                    Promessa e na Lei Escoteira, ajudando a construir um mundo melhor onde se valorize a realização
+                    individual e a participação construtiva em sociedade.</p>
+                <b>Visão</b>
+
+                <p>O Movimento Escoteiro é um movimento global que produz uma real contribuição na criação de um mundo
+                    melhor.</p>
+
+                <b>Princípios do Escotismo</b>
+
+                <p class="tt">A Organização Mundial do Movimento Escoteiro define como Princípios do Escotismo:</p>
+                <ol class="clearfix">
+                    <li>Dever para com Deus (crença e vivência de uma fé, independentemente de qual seja);</li>
+                    <li>Dever para com os outros (participação na sociedade, boa ação, serviço ao próximo);</li>
+                    <li>Dever para consigo próprio (crescimento saudável e auto desenvolvimento).</li>
+                </ol>
+                <b>Desenvolvimento físico</b>
+
+                <p>Proporcionar o desenvolvimento físico do jovem por meio de jogos ao ar livre, exercícios, excursões e
+                    acampamentos.</p>
+
+                <b>Desenvolvimento moral</b>
+
+                <p>A finalidade é o caráter com um propósito, e o propósito é que essa geração seja sadia no futuro,
+                    para desenvolver a mais alta forma de compreensão e dever para com Deus, pátria e próximo.</p>
+
+                <b>Desenvolvimento intelectual</b>
+
+                <p class="last">Dá-se uma preparação adequada pelo conhecimento adquirido em cada uma das etapas como
+                    cozinha; campismo, nós, natação e salvamento; primeiros socorros; regras de segurança, orientação,
+                    transmissão de sinais, estudo da natureza, entre outros.</p>
+            </div>
+        </div>
+    </div>
+{% endblock content_main %}
+{% block end_scripts %}
+    <script src="{{ STATIC_URL }}institution/js/escotismo.js"></script>
+{% endblock end_scripts %}

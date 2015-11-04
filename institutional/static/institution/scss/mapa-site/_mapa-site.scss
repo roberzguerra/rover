@@ -1,0 +1,255 @@
+@media screen and (min-width: em(320px)),
+screen and (max-width: em(320px)) {
+	main {
+		height: auto;
+		padding: 318px 0 30px 0;
+		background: url('../img/img-banner.jpg') no-repeat top center;
+	}
+
+	.tt-mapa {
+		color: #A3AC1D;
+		font-size: 34px;
+		font-weight: normal;
+		display: block;
+		position: relative;
+		height: 40px;
+		line-height: 40px;
+		width: 265px;
+		margin: 0 auto 40px;
+
+		span {
+			display: block;
+			width: 53px;
+			height: 38px;
+			position: absolute;
+			right: 0;
+			top: 0;
+			background-position: 0 -1453px;
+		}
+	}
+
+	.tt-secao {
+		display: block;
+		line-height: 100%;
+		font-size: 18px;
+		text-align: center;
+		margin-bottom: 24px;
+	}
+
+	.box-mapa {
+		b {
+			color: #333;
+			font-size: 14px;
+			line-height: 100%;
+			display: block;
+			margin: 0 auto 10px;
+			width: 230px;
+		}
+
+		.tt-home {
+			margin-bottom: 24px;
+		}
+
+		li {
+			line-height: 140%;
+			list-style: inside disc;
+		}
+
+		a {
+			color: #333;
+			text-decoration: none;
+			font-size: 14px;
+			display: inline;
+			outline: none;
+
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+	}
+
+	.quero-ser-escoteiro {
+		strong {
+			color: #00853E;
+		}
+
+		ul {
+			width: 230px;
+			margin: 0 auto 25px;
+		}
+
+		.tt-noticia {
+			margin-bottom: 24px;
+		}
+
+		.tt-fotos {
+			margin-bottom: 24px;
+		}
+
+		.tt-loja {
+			margin-bottom: 24px;
+		}
+
+		.tt-contato {
+			margin-bottom: 24px;
+		}
+	}
+
+	.institucional {
+		margin-top: 50px;
+
+		strong {
+			color: #A3AD1D;
+		}
+
+		.tt-escotismo {
+			margin-bottom: 25px;
+		}
+
+		.tt-transparencia {
+			margin-bottom: 25px;
+		}
+
+		ul {
+			width: 230px;
+			margin: 0 auto;
+		}
+
+		li {
+			line-height: 100%;
+			margin-bottom: 8px;
+		}
+
+		.tt-parceiros {
+			margin-top: 25px;
+		}
+	}
+
+	.sou-escoteiro {
+		margin-top: 50px;
+
+		strong {
+			color: #00ACCC;
+		}
+
+		ul {
+			width: 230px;
+			margin: 0 auto 25px;
+ 
+			&.last {
+				margin-bottom: 0;
+			}
+		}
+	}
+	
+	.back-space {
+		padding-left: 15px;
+	}
+}
+
+@media screen and (min-width: em(780px)) {
+	
+	.tt-secao {
+		text-align: left;
+	}
+
+	.content {
+		width: 720px;
+		margin: 0 auto;
+	}
+
+	.quero-ser-escoteiro {
+		width: 240px;
+		float: left;
+	}
+
+	.institucional {
+		width: 240px;
+		float: left;
+		margin-top: 0;
+	}
+	
+	.sou-escoteiro {
+		margin-top: 0;
+		width: 240px;
+		float: left;
+	}
+
+	footer {
+		clear: both;
+	}
+}
+
+@media screen and (min-width: em(950px)) {
+	
+	main {
+		padding: 318px 0 101px;
+	}
+
+	.tt-mapa {
+		margin: 0 auto 72px;
+	}
+
+	.content {
+		width: 875px;
+		position: relative;
+	}
+
+	.box-mapa a {
+		font-size: 11px;
+		display: inline;
+	}
+
+	.box-mapa b {
+		font-size: 11px;
+		width: 100%;
+	}
+
+	.quero-ser-escoteiro {
+		width: 180px;
+		margin-right: 60px;
+
+		ul {
+			width: 100%;
+		}
+
+		// li {
+		// 	list-style: inside disc;
+		// }
+	} 
+
+	.institucional {
+		width: 190px;
+		margin-right: 50px;
+
+		ul {
+			width: 100%;
+		}
+
+		// li {
+		// 	list-style: inside disc;
+		// }
+	}
+
+	.sou-escoteiro {
+		width: 161px;
+
+		ul {
+			width: 100%;
+		}
+
+		// li {
+		// 	list-style: inside disc;
+		// }
+	}
+
+	.box-lado-right {
+		position: absolute;
+		right: 0;
+		top: 44px;
+	}
+
+	.sou-escoteiro .lista-seniores {
+		margin-bottom: 0;
+	}
+}

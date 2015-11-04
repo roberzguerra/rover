@@ -1,0 +1,80 @@
+// MOVIMENT HOME
+.moviment {
+    width: 100%;
+    padding: 35px 0;
+    background-color: #FFF;
+
+    .center {
+        padding: 0;
+    }
+
+    .tt-movimento {
+        color: #A3AD1D;
+        margin: 0 auto 20px;
+        line-height: 29px;
+        text-align: center;
+        font-size: em(24px);
+        width: 250px;
+        padding-bottom: 55px;
+        font-weight: normal;
+        position: relative;
+
+        span {
+            display: block;
+            background-position: 0px -1680px;
+            width: 45px;
+            bottom: 0;
+            left: 50%;
+            margin: 0 0 0 -21px;
+            height: 44px;
+            position: absolute;         
+        }
+    }
+
+    p {
+        text-align: center;
+        max-width: 570px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    .btn-style {
+        background-color: #A3AD1D;
+    }
+
+}
+
+
+@media screen and (min-width: em(760px)) {
+    .moviment {
+        padding: 90px 0 50px;
+
+        .tt-movimento {
+            width: 410px;
+            text-align: left; 
+            padding: 0;
+            line-height: 50px;
+            font-size: em(34px);
+
+            span {
+                right: 0;
+                top: 0;
+                left: auto;
+                margin: 0;
+                bottom: auto;
+            }
+
+        }
+
+        p {
+            padding: 0;
+        }
+
+    }
+}
+
+@media screen and (min-width: em(1280px)) {
+    .moviment{
+        height: 630px;
+    }
+}

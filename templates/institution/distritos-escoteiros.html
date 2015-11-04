@@ -1,0 +1,161 @@
+{% extends 'institution/home.html' %}
+
+
+{% block extra_head_css %}
+    <link rel="stylesheet" href="{{ STATIC_URL }}institution/css/distritos-escoteiros.css">
+{% endblock %}
+
+{% block content_main %}
+    <div class="inner-banner">
+        <img src="http://placehold.it/1920x300" alt="Banner">
+    </div>
+
+    <div class="center">
+        <div class="migalha clearfix">
+            <ul class="section">
+                <li>
+                    <a href="javascript:void(0);" title="Home">Home</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);" title="Home">Institucional</a>
+                </li>
+                <li class="selected">
+                    <a href="javascript:void(0);" title="Distritos Escoteiros">Distritos Escoteiros</a>
+                </li>
+            </ul>
+            <ul class="share clearfix">
+                <li class="share-twitter">
+                    <a href="https://twitter.com/share" class="twitter-share-button" data-via="twitterapi"
+                       data-lang="en">Tweet</a>
+                </li>
+                <li class="share-face">
+                    <div class="fb-like" data-href="https://developers.facebook.com/docs/plugins/"
+                         data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div>
+                </li>
+                <li class="share-email">
+                    <button class="mail btn-email">Enviar por e-mail</button>
+                    <div class="dialog-email">
+                        <form class="form-email" action="" method="POST">
+                            <fieldset>
+                                <label for="txtEmailNome">Teus dados</label>
+                                <input id="txtEmailNome" name="txtEmailNome" type="text" title="Nome">
+                                <input id="txtEmailEmail" name="txtEmailEmail" type="email" title="E-mail">
+                            </fieldset>
+                            <fieldset>
+                                <label for="txtEmailNomeAmigo">Dados do teu amigo</label>
+                                <input id="txtEmailNomeAmigo" name="txtEmailNomeAmigo" type="text" title="Nome">
+                                <input id="txtEmailEmailAmigo" name="txtEmailEmailAmigo" type="email" title="E-mail">
+                            </fieldset>
+                            <button type="submit">Enviar</button>
+                        </form>
+
+                        <div class="dialog-sucesso">
+                            <a href="javascript:void(0);">x</a>
+                            <span>Sua mensagem foi enviada com sucesso.</span>
+                        </div>
+                    </div>
+
+                </li>
+            </ul>
+
+        </div>
+
+        <div class="box-main">
+            <strong class="tt-diretoria">
+                Distritos Escoteiros
+                <span class="titles-bgs ir">Distrito Escoteiro</span>
+            </strong>
+
+            <p class="description">Saiba em que Distrito se encaixa o Grupo Escoteiro da sua cidade e conheça outros
+                Grupos perto de você.</p>
+
+            <form id="formBuscar" class="formBuscar" method="" action="">
+                <fieldset>
+                    <input class="txtBuscar" type="text" name="txtBuscar"/>
+                    <button class="bt-submit ir btn" type="submit">Pesquisar</button>
+                </fieldset>
+            </form>
+
+            <ul class="lista-distritos clearfix">
+                <li>
+                    <a href="distritos-detalhe.html" title="1º Distrito Escoteiro" class="content-img">
+                        <img src="{{ STATIC_URL }}institution/img/img-02.jpg" alt="Distritos Escoteiros">
+                    </a>
+
+                    <div class="content-infos">
+                        <div class="content">
+                            <a href="distritos-detalhe.html" title="1º Distrito Escoteiro"><strong>1º Distrito
+                                Escoteiro</strong></a>
+                            <b>Cidade(s) de abrangência:</b>
+
+                            <p>Porto Alegre</p>
+                        </div>
+                    </div>
+                </li>
+
+                <li>
+                    <a href="distritos-detalhe.html" class="content-img">
+                        <img src="{{ STATIC_URL }}institution/img/img-02.jpg" title="1º Distrito Escoteiro"
+                             alt="Distritos Escoteiros">
+                    </a>
+
+                    <div class="content-infos">
+                        <div class="content">
+                            <a href="distritos-detalhe.html" title="1º Distrito Escoteiro"><strong>1º Distrito
+                                Escoteiro</strong></a>
+                            <b>Cidade(s) de abrangência:</b>
+
+                            <p>Porto Alegre</p>
+                        </div>
+                    </div>
+                </li>
+
+                <li>
+                    <a href="distritos-detalhe.html" title="2º Distrito Escoteiro" class="content-img">
+                        <img src="{{ STATIC_URL }}institution/img/img-02.jpg" alt="Distritos Escoteiros">
+                    </a>
+
+                    <div class="content-infos">
+                        <div class="content">
+                            <a href="distritos-detalhe.html" title="2º Distrito Escoteiro"><strong>2º Distrito
+                                Escoteiro</strong></a>
+                            <b>Cidade(s) de abrangência:</b>
+
+                            <p>Porto Alegre</p>
+                        </div>
+                    </div>
+                </li>
+
+                <li>
+                    <a href="distritos-detalhe.html" title="5º Distrito Escoteiro" class="content-img">
+                        <img src="{{ STATIC_URL }}institution/img/img-3.jpg" alt="Distritos Escoteiros">
+                    </a>
+
+                    <div class="content-infos">
+                        <div class="content">
+                            <a href="distritos-detalhe.html" title="5º Distrito Escoteiro"><strong>5º Distrito
+                                Escoteiro</strong></a>
+                            <b>Cidade(s) de abrangência:</b>
+
+                            <p>Anta Gorda, Arroio Do Meio, Arvorezinha, Barros Cassal, Bom Retiro Do Sul, Boqueirão Do
+                                Leão, Brochier, Canudos Do Vale, Capela De Santana, Capitão, Charqueadas, Colinas,
+                                Coqueiro Baixo, Cruzeiro Do Sul, Doutor Ricardo, Encantado, Estrela, Fazenda Vila Nova,
+                                Fontoura Xavier, Forquetinha, General Câmara, Harmonia, Ilópolis, Lajeado, Maratá,
+                                Marques De Souza, Mato Leitão, Montenegro, Nova Bréscia, Paverama, Poço Das Antas, Pouso
+                                Novo, Progresso, Putinga, Resvalo, Roca Sales, Santa Clara Do Sul, São Jerônimo, São
+                                José Do Herval, São José Do Sul, Sério, Tabai, Taquari, Teutônia, Travesseiro, Triunfo,
+                                Tupandi, Westfalia</p>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+
+            <a href="{% url 'institution:distritos-ajax' %}" class="more btn-style btn-load-district"><span>Carregar mais distritos</span><i
+                    class="btn"></i></a>
+        </div>
+    </div>
+{% endblock content_main %}
+
+{% block end_scripts %}
+    <script src="{{ STATIC_URL }}institution/js/distritos-escoteiros.js"></script>
+{% endblock end_scripts %}

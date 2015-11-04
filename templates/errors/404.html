@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block meta_title %}
+    {% trans "Page not found" %}
+{% endblock %}
+
+{% block title %}
+    {% trans "Page not found" %}
+{% endblock %}
+
+{% block main %}
+    {% spaceless %}
+        {% block page_banner %}
+            {% include "includes/page_banner.html" %}
+        {% endblock page_banner %}
+    {% endspaceless %}
+    <div class="center">
+        <h1>Não encontrado<span> :(</span></h1>
+        <p>Desculpe, mas a página que você está tentando visualizar não existe.</p>
+    </div>
+{% endblock %}

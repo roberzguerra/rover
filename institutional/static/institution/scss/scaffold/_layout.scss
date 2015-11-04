@@ -1,0 +1,637 @@
+// Import Default Styles
+
+@import '_variables';
+@import '_helpers';
+@import '_normalize';
+@import '_h5bp';
+
+// ==========================================================================
+// Loader
+// ==========================================================================
+
+#infscr-loading {
+    img {
+        margin: 0 auto;
+        display: block;
+    }
+
+    div {
+        display: none !important;
+    } 
+}
+
+#loader-canvas {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    height: 321px;
+    width: 254px;
+    margin: -190px 0 0 -128px;
+    z-index: 9999999;
+    background: url("../img/loader-hide.jpg") no-repeat 0 0;
+}
+
+.loading {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 1px;
+    width: 254px;
+    background: url("../img/loader-show.jpg") no-repeat left bottom;
+}
+
+#loader-bg {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 9999998;
+    background: #fff;
+}
+
+#loader-percent {
+    position: fixed;
+    text-align: center;
+    display: block;
+    font-size: 46px;
+    font-weight: bold;
+    color: #333333;
+    z-index: 9999999;
+    height: 40px;
+    width: 100%;
+    line-height: 40px;
+    left: 0;
+    top: 50%;
+    margin-top: 147px;
+}
+
+// ==========================================================================
+// CSS Viewport
+// ==========================================================================
+
+@-ms-viewport {
+    width: device-width;
+}
+
+@viewport {
+    width: device-width;
+}
+
+.center {
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+// BUTTON HOVER ARROW
+
+.btn-style {
+    display: inline-block;
+    background-color: rgba(193,205,34,0.7);
+    width: 100%;
+    height: 60px;
+    border: 1px solid rgba(255,255,255,0.6);
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.6);
+    text-decoration: none;
+    padding: 17px 20px;
+    position: relative;
+    transition: all .2s ease;
+    transform: translateZ(0);
+
+    span {
+        color: #FFF;
+        font-size: em(14px);
+        line-height: 19px;
+        text-transform: uppercase;
+        position: relative;
+        left: 0;
+        transition: all .2s ease-out;
+    }
+
+    i {
+        width: 25px;
+        height: 12px;
+        background-position: 0px -291px;
+        position: absolute;
+        margin-top: -6px;
+        top: 50%;
+        left: 80%;
+        opacity: 1;
+        transition: all .2s ease-out;
+    }
+}
+
+
+// CIRCLE BUTTON HOVER
+
+.circles {
+    margin: 35px auto 0;
+    width: 300px;
+
+    li{
+        list-style: none;
+        width: 300px;
+        height: 380px;
+        display: inline-block;
+        margin-top: 40px;
+
+        &:first-child{
+            margin-top: 0;
+        }
+    }
+
+    .item {
+        width: 100%;
+        height: 302px;
+        border-radius: 50%;
+        position: relative;
+    }
+
+    .circle-1 {
+        .back {
+            a {
+                padding: 0 50px;
+            }
+        }
+    }
+ 
+    .circle-2 {
+
+        .back {
+
+            a {
+                padding: 0 50px; 
+            }
+        }
+    }
+
+    .circle-3 {
+
+        .back {
+
+            a {
+                padding: 0 50px;
+            }
+        }
+    }
+
+    .mask,
+    .infos {
+        position: absolute;
+        width: 272px;
+        height: 272px;
+        border-radius: 50%;
+    }
+
+    .mask {
+        top: 15px;
+        left: 15px;
+        box-shadow: 0 0 0 20px #E4E4E4, inset 0 0 3px #E4E4E4;
+        transition: all 0.4s ease-in-out 0.4s;
+    }
+
+    .infos > div {
+        display: block;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        background-color: #C1CD22;
+        -webkit-backface-visibility: hidden; /*Just for webkit to have a smooth font*/
+    }
+
+    .front {
+        transition: all 0.6s ease-in-out;
+    }
+
+    .back {
+        opacity: 0;
+        filter:alpha(opacity=100);
+        background: #C1CD22;
+        pointer-events: none;
+        transform: scale(1.5);
+        transition: all 0.4s ease-in-out 0.2s;
+        
+        .content-table {
+            display: table;
+            height: 100%;
+        }
+
+        .content-middle {
+            display: table-cell;
+            vertical-align: middle;
+        }
+
+        a {
+            text-decoration: none;
+            display: block;
+            width: 100%;
+            height: auto;
+            padding: 0 85px;
+        } 
+
+        span {
+            color: #333;
+            font-size: 16px;
+            line-height: 120%;
+            transition: all .2s ease-out;
+        }
+    } 
+
+    .btn-style {
+        border: none;
+        box-shadow: none;
+        background-color: $green;
+        margin-top: 12px;
+
+        span {
+            font-size: em(16px);
+        }
+
+        i {
+            left: 60%;
+        }
+    }
+
+    .young .btn-style {
+        padding: 19px 95px;
+    }
+
+    .parents .btn-style {
+        padding: 19px 110px;
+
+        i {
+            left: 55%;
+        }
+    }
+
+    .volunteirs .btn-style {
+        padding: 19px 74px;
+
+        i {
+            left: 67%;
+        }
+    }
+}
+
+// CARREGAR MAIS ~ VOLTAR PARA LISTA
+
+.more,
+.back-list {
+    box-shadow: none;
+    border: none;
+    background: #999;
+    max-width: 940px;
+    padding: 18px 95px;
+    display: block;
+    margin: 0 auto;
+
+    i {
+        left: 73%;
+    }
+
+    span {
+        left: 0px;
+    }
+}
+
+.back-list {
+    max-width: 460px;
+    padding: 18px 55px;
+    text-align: right;
+
+    i {
+        background-position: 0px -439px;
+        left: 12%;
+    }
+}
+
+@media screen and (min-width: em(320px)) { 
+    .circles .back {
+        opacity: 1;
+        filter: alpha(opacity=100);
+        transform: scale(1.0);
+    }
+
+}
+@media screen and (min-width: em(460px)) {
+    .more {
+        max-width: 460px;
+        padding: 18px 128px;
+
+        i{
+            left: 69%;
+        }
+    }
+
+    .back-list{
+        padding: 18px 117px;
+        margin-left: 15px;
+
+        i {
+            left: 16%;
+        }
+    }
+}
+
+@media screen and (min-width: em(760px)) {
+
+    .circles .back {
+        opacity: 0;
+        filter: alpha(opacity=0);
+        transform: scale(1.5);
+    }
+
+    .btn-style{
+        padding: 17px 45px;
+
+        span{
+            font-size: em(16px);
+        }
+    }
+
+    .circles{
+        margin: 35px auto 0;
+        width: 620px;
+        overflow: visible;
+
+        li{
+            margin-top: 0;
+            margin-left: 15px;
+
+            &:first-child{
+                margin-left: 0;
+            }
+        }
+
+        .item{
+            height: 300px;
+        }
+
+        .circle-1 {
+            background: url('../img/circle1.jpg') no-repeat center center;
+        }
+
+        .circle-2 {
+            background: url('../img/circle2.jpg') no-repeat center center;
+        }
+        .circle-3 {
+            background: url('../img/circle3.jpg') no-repeat center center;
+        }
+
+        .volunteirs{
+            margin: 50px 0 0 160px;
+        }
+    }
+
+    .more {
+        padding: 18px 115px;
+
+        i{
+            left: 73%;
+        }
+    }
+
+    .back-list{
+        padding: 18px 75px;
+
+        i{
+            left: 14%;
+        }
+    }
+}
+
+@media screen and (min-width: em(1024px)) {
+
+    .more {
+        max-width: 940px;
+        padding: 18px 348px;
+
+        i{
+            left: 61%;
+        }
+    }
+
+    .back-list{
+        margin-left: 0;
+    }
+}
+
+@media screen and (min-width: em(1280px)) {
+    .center{
+        width: 940px;
+        margin: 0 auto;
+        padding: 0;
+    }
+
+    .btn-style{
+        padding: 17px 65px;
+
+        i{
+            opacity: 0;
+            left: 73%;
+        }
+
+        &:hover{
+
+            span{
+                left: -30px;
+            }
+
+            i{
+                opacity: 1;
+                left: 80%;
+            }
+        }
+    }
+
+    .circles {
+        margin: 35px auto 0;
+        width: auto;
+
+        li{
+            height: 300px;
+            display: inline-block;
+            margin-top: 0;
+        }
+
+        .item{
+            &:hover{
+                .front {
+                    transform: scale(0);
+                    opacity: 0;
+                }
+
+                .back {
+                    transform: scale(1);
+                    opacity: 1;
+                    pointer-events: auto;
+                }
+
+                .mask {
+                    box-shadow: 0 0 0 20px #AEBE18, inset 0 0 3px #AEBE18;
+                }
+            }
+        }
+
+        .btn-style{
+            display: none;
+        }
+
+        .volunteirs{
+            margin: 0px 0 0 15px;
+        }
+    }
+
+    .more{
+        padding: 18px 367px;
+
+        i{
+            left: 58%;
+        }
+
+        span{
+            right: 0px;
+        }
+
+        &:hover {
+            span {
+                right: 20px;
+            }
+
+            i {
+                left: 61%;
+            }
+        }
+    }
+
+    .back-list {
+        padding: 18px 91px;
+
+        i {
+            left: 20%;
+        }
+
+        &:hover {
+            span {
+                left: 20px;
+            }
+
+            i {
+                left: 15%;
+            }
+
+        }
+    }
+
+}
+
+
+.dialog-email {
+    width: 220px;
+    background: #F4F4F4;
+    border: 1px solid #E0E0E0;
+    border-radius: 3px;
+    padding: 15px;
+    position: absolute;
+    right: 0;
+    top: 35px;
+    z-index: 10;
+    display: none;
+
+    &:before {
+        background: url('../img/blt-msg.png') no-repeat 0 -54px;
+        width: 12px;
+        height: 7px;
+        content: '';
+        display: block;
+        position: absolute;
+        top: -7px;
+        right: 20px;
+    }
+
+    .dialog-sucesso {
+        height: 100%;
+        width: 100%;
+        background: #F4F4F4;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        display: none;
+
+        a {
+            height: 30px;
+            width: 30px;
+            border: 1px solid #666;
+            border-radius: 50%;
+            text-align: center;
+            display: block;
+            line-height: 21px;
+            font-size: 20px;
+            text-decoration: none;
+            color: #666;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+
+        span {
+            color: #666;
+            font-size: 20px;
+            line-height: 120%;
+            text-align: center;
+            display: block;
+            padding: 83px 30px 0;
+            width: 100%;
+        }
+    }
+
+    fieldset {
+        padding-bottom: 15px;
+        margin-bottom: 14px;
+        border-bottom: 1px solid #E0E0E0;
+    }
+
+    label {
+        font-size: 11px;
+        display: block;
+        line-height: 100%;
+        color: #666;
+        margin-bottom: 6px;
+
+        &.error {
+            display: none !important;
+        }
+    }
+
+    input {
+        background-color: #fff;
+        height: 22px;
+        font-size: 11px;
+        line-height: 14px;
+        padding: 4px 13px;
+        border: 1px solid #DDDDDD;
+        color: #999;
+        margin-top: 4px;
+        width: 100%;
+
+        &.error {
+            border-color: #FF4A4A;
+        }
+    }
+
+    button {
+        background-color: #00853e;
+        font-size: 13px;
+        text-align: center;
+        height: 24px;
+        width: 100%;
+        border: 0;
+        line-height: 100%;
+        color: #fff;
+        border-radius: 3px;
+    }
+}

@@ -1,0 +1,261 @@
+//ABOUT HOME
+.store {
+    margin-top: 40px;
+
+    h2 {
+        font-size: em(24px);
+        color: #A3AC1D;
+        width: 251px;
+        height: 48px;
+        line-height: 48px;
+        margin: 0 auto;
+        font-weight: normal;
+        position: relative;
+
+        span {
+            position: absolute;
+            right: 0;
+            top: 0;
+            height: 48px;
+            width: 42px;
+            background-position: 0 -1124px;
+        }
+    }
+
+    .list-products {
+        margin: 38px 0 74px;
+        position: relative;
+
+        span {
+            display: block;
+            width: 54px;
+            height: 54px;
+            cursor: pointer;
+            border-radius: 26px;
+            background-color: transparent;
+            border: 2px solid #CCC;
+            position: absolute;
+            bottom: -66px;
+            margin-top: -22px;
+            transition: background-color .2s linear;
+
+            &:hover {
+                background-color: rgba(55,55,55,.1);
+            }
+
+            &.prev-store {
+                background-position: -2px -126px;
+                left: 13px;
+            }
+
+            &.next-store {
+                background-position: -55px -126px;
+                left: auto;
+                right: 13px;
+            }
+        }
+    }
+
+    .products {
+        width: 290px;
+        height: 140px;
+        margin: 0 auto;
+
+        li {
+            list-style: none;
+            float: left !important;
+            overflow: hidden;
+        }
+
+        a {
+            width: 140px;
+            height: 140px;
+            float: left;
+            display: block;
+            margin-right: 10px;
+
+            &.last {
+                margin-right: 0;
+            }
+        }
+    }
+
+    .btn-store {
+        width: 290px;
+        max-width: 460px;
+        border: none;
+        background-color: #C1CD22;
+        display: block;
+        margin: 20px auto 0;
+        padding: 0 40px;
+    
+        span {
+            line-height: 60px;
+            color: #333;
+        }
+
+        i {
+            background: url('../img/bg-arrow.png') no-repeat 0 0;
+        }
+    }
+} 
+
+.carrousel-products {
+    left: 50%;
+    margin-left: -64px;
+    position: absolute;
+    bottom: -46px;
+    width: 111px;
+    display: block;
+
+    a {
+        display: block;
+        border-radius: 100px;
+        text-indent: -5000px;
+        overflow: hidden;
+        width: 12px;
+        height: 12px;
+        border: 1px solid #CCCCCC;
+        background-color: #FFF;
+        float: left;
+        margin-left: 25px;
+ 
+        &.activeSlide {
+            background-color: #C0CD26;
+        }
+    }
+    
+}
+
+@media screen and (min-width: em(760px)) {
+    .store {
+        margin-top: 70px;
+
+        .btn-store {
+            padding: 0 100px;
+
+            i {
+                left: 72%;
+            }
+        }
+    }
+
+    .store h2 {
+        font-size: 34px;
+        width: 328px;
+    }
+    
+    .store .list-products .prev-store {
+        display: none;
+    }
+
+    .store .list-products .next-store {
+        display: none;
+    }
+
+    .store .products {
+        position: relative;
+        overflow: visible !important;
+        height: auto;
+        width: 320px;
+    }
+    
+    .store .list-products {
+        margin: 38px 0 40px;
+    }
+
+    .store .products li {
+        position: relative !important;
+        top: auto !important;
+        left: auto !important;
+        display: block !important;
+        margin: 0 0 20px;
+    }
+
+    .store .products a {
+        margin-right: 20px;
+
+        &.last {
+            margin-right: 20px;
+        }
+    }
+
+    .store .btn-store { 
+        width: 460px;
+    }
+
+    .carrousel-products {
+        display: none;
+    }
+
+}
+
+@media screen and (min-width: em(940px)) {
+    .store .products {
+        height: 140px;
+        width: 940px;
+    }
+    
+    .store .products li {
+        margin: 0px 20px 0 0;
+
+        &:last-child {
+            margin-right: 0;
+        }
+    } 
+
+    .store .products a.last {
+        margin-right: 0;
+    }
+
+}
+
+@media screen and (min-width: em(1024px)) {
+    
+    .store {
+        margin: 100px 0 70px;
+
+        .btn-store {
+            padding: 0 100px;
+
+            i {
+                left: 72%;
+            }
+        }
+    }
+
+}
+
+@media screen and (min-width: em(1280px)) {
+    .store {
+        .list-products {
+
+            span {
+                bottom: auto;
+                top: 50%;
+                left: -70px;
+                margin-top: -22px;
+
+                &.next-store {
+                    left: auto;
+                    right: -70px;
+                }
+            }
+        }
+
+        .btn-store {
+            padding: 0 153px;
+
+            i {
+                left: 68%;
+            }
+
+            &:hover {
+                i {
+                    left: 72%;
+                }
+            }
+        }
+
+    }
+}

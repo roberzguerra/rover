@@ -1,0 +1,283 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block meta_title %}{% trans "Home" %}{% endblock %}
+{% block title %}{% trans "Home" %}{% endblock %}
+
+{% block main %}
+    {% block home_banner %}
+        <div class="banner">
+            <ul class="slider clearfix">
+                <li>
+                    <img src="http://placehold.it/1920x718" alt="Banner">
+
+                    <div class="text">
+                        <p>
+                            Junte-se ao maior movimento juvenil do planeta e construa um mundo melhor. Escoteiros do
+                            Brasil, teste 1, www.escoteirosrs.org.br/2015/congresso/Teste de Texto. Ramo Lobinho, Ramo
+                            Escoteiro, Ramo Sênior e Ramo Pioneiro.
+                        </p>
+                    </div>
+                </li>
+                <li>
+                    <img src="http://placehold.it/1920x718" alt="Banner">
+
+                    <div class="text">
+                        <p>
+                            Junte-se ao maior movimento juvenil do planeta e construa um mundo melhor
+                        </p>
+                    </div>
+                </li>
+                <li>
+                    <img src="http://placehold.it/1920x718" alt="Banner">
+
+                    <div class="text">
+                        <p>
+                            Junte-se ao maior movimento juvenil do planeta e construa um mundo melhor
+                        </p>
+                    </div>
+                </li>
+            </ul>
+            <div class="pagination"></div>
+            <div class="nav-slider">
+                <span class="prev btn ir">Anterior</span>
+                <span class="next btn ir">Próximo</span>
+            </div>
+            <div class="mobile-pagination"></div>
+        </div>
+    {% endblock home_banner %}
+
+
+    <a class="bt-saiba-mais mais-noticias" href="{% url 'blog_post_list' %}" title="Lorem Ipsium">
+        <span>Mais notícias ...</span><i class="arrow ir">Arrow</i>
+    </a>
+
+    <div class="about">
+        <div class="center clearfix">
+            <strong class="tt-about">
+                Nossa história
+                <span class="titles-bgs ir">Nossa História</span>
+            </strong>
+
+            <div class="box-left">
+                <p class="description">Escotismo, fundado por Lorde Robert Stephenson Smyth Baden-Powell, em 1907, é um
+                    movimento mundial, educacional, voluntariado, apartidário, sem fins lucrativos. A sua proposta é o
+                    desenvolvimento do jovem, por meio de um sistema de valores que prioriza a honra, baseado na
+                    Promessa e na Lei escoteira, e através da prática do trabalho em equipe e da vida ao ar livre, fazer
+                    com que o jovem assuma seu próprio crescimento, tornar-se um exemplo de fraternidade, lealdade,
+                    altruísmo, responsabilidade, respeito e disciplina.</p>
+
+                <a class="bt-saiba-mais" href="{% url 'home' %}" title="Lorem Ipsium">
+                    <span>Saiba mais sobre o escotismo</span><i class="arrow ir">Arrow</i>
+                </a>
+            </div>
+
+            <img class="img-homem" src="/static/institution/img/img-homem.jpg" alt="Homem"/>
+        </div>
+
+    </div>
+
+    <div class="moviment">
+        <div class="center">
+            <h2 class="tt-movimento">Missão, Visão e Valores
+                <span class="titles-bgs"></span>
+            </h2>
+
+            <p>
+                Ajude a compor a história de mais de 100 anos de um movimento de cidadania,
+                igualdade e respeito aos demais, à natureza e ao meio-ambiente.
+            </p>
+
+            <ul class="circles clearfix">
+
+                <li class="young">
+                    <div class="item circle-1">
+                        <div class="mask">
+                            <div class="infos">
+                                <div class="front circle-1"></div>
+                                <div class="back">
+                                    <div class="content-table">
+                                        <div class="content-middle">
+                                            <a href="javascript:void(0);">
+                                                <span>O Movimento Escoteiro é um movimento global que produz uma real contribuição na criação de um mundo melhor.</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
+                <li class="parents">
+                    <div class="item circle-2">
+                        <div class="mask">
+                            <div class="infos">
+                                <div class="front circle-2"></div>
+                                <div class="back">
+                                    <div class="content-table">
+                                        <div class="content-middle">
+                                            <a href="javascript:void(0);">
+                                                <span>O Movimento Escoteiro é um movimento global que produz uma real contribuição na criação de um mundo melhor.</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
+                <li class="volunteirs">
+                    <div class="item circle-3">
+                        <div class="mask">
+                            <div class="infos">
+                                <div class="front circle-3"></div>
+                                <div class="back">
+                                    <div class="content-table">
+                                        <div class="content-middle">
+                                            <a href="javascript:void(0);">
+                                                <span>O Movimento Escoteiro é um movimento global que produz uma real contribuição na criação de um mundo melhor.</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+
+    <div class="informations">
+        <img class="img-head" src="/static/institution/img/img-head.png" alt="Chapéu"/>
+
+        <div class="center clearfix">
+            <div class="news box">
+                <div class="top">
+                    <h2 class="titles-bgs">Transparência</h2>
+
+                    <div class="pag-news"></div>
+                </div>
+                <ul class="list-news">
+                    <li>
+                        <a href="javascript:void(0);">
+                            <img src="http://placehold.it/460x260" alt="Notícias">
+                        </a>
+
+                        <div class="text">
+                            <div class="aux">
+                                <p>
+                                    Últimos avisos sobre o Congresso Escoteiro Regional
+                                </p>
+                            </div>
+                        </div>
+                        <a href="javascript:void(0);" class="detail btn-style"><span>VER LISTA DE ARQUIVOS</span><i
+                                class="arrow btn"></i></a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="find box">
+
+                <div class="top">
+                    <h2 class="titles-bgs">Campo Escola</h2>
+                </div>
+
+                <div>
+                    <img src="http://placehold.it/460x260" alt="Grupo">
+
+                    <div class="text">
+                        <div class="aux">
+                            <p>
+                                Veja a lista de Grupos Escoteiros em atividade
+                                no Rio Grande do Sul e escolha o mais perto de você!
+                            </p>
+                        </div>
+                    </div>
+                    <a href="javascript:void(0);" class="detail btn-style"><span>CONHEÇA O LUGAR</span><i
+                            class="arrow btn"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="store">
+        <div class="center clearfix">
+            <h2>
+                Diretoria Regional
+                <span class="titles-bgs ir">Diretoria Regional</span>
+            </h2>
+
+            <div class="list-products equipe-homepage">
+                <span class="next-store btn ir"></span>
+                <ul class="products clearfix">
+
+                    <li>
+                        <a href="javascript:void(0);" title="Diretoria Regional">
+                            <img class="equipe-photo" src="{{ STATIC_URL }}institution/img/img-02.jpg" alt="Nome">
+                        </a>
+                        <a class="last" href="javascript:void(0);" title="Diretoria Regional">
+                            <img class="equipe-photo" src="{{ STATIC_URL }}institution/img/img-02.jpg" alt="Produto">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);" title="Diretoria Regional">
+                            <img class="equipe-photo" src="{{ STATIC_URL }}institution/img/img-02.jpg" alt="Produto">
+                        </a>
+                        <a class="last" href="javascript:void(0);" title="Diretoria Regional">
+                            <img class="equipe-photo" src="{{ STATIC_URL }}institution/img/img-02.jpg" alt="Produto">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);" title="Diretoria Regional">
+                            <img class="equipe-photo" src="{{ STATIC_URL }}institution/img/img-02.jpg" alt="Produto">
+                        </a>
+                    </li>
+
+                </ul>
+                <span class="prev-store btn ir"></span>
+
+                <div class="carrousel-products">
+                </div>
+            </div>
+            <a href="javascript:void(0);" class="btn-store btn-style"><span>Conheça a equipe</span><i class="arrow"></i></a>
+        </div>
+    </div>
+
+{% endblock main %}
+
+
+
+{% comment %}
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block meta_title %}{% trans "Home" %}{% endblock %}
+{% block title %}{% trans "Home" %}{% endblock %}
+
+{% block breadcrumb_menu %}
+<li class="active">{% trans "Home" %}</li>
+{% endblock %}
+
+{% block main %}
+{% blocktrans %}
+<h2>Congratulations!</h2>
+<p>
+    Welcome to your new Mezzanine powered website.
+    Here are some quick links to get you started:
+</p>
+<ul>
+    <li><a href="/admin/">Log in to the admin interface</a></li>
+    <li><a href="http://mezzanine.jupo.org/docs/content-architecture.html">Creating custom page types</a></li>
+    <li><a href="http://mezzanine.jupo.org/docs/frequently-asked-questions.html#templates">Modifying HTML templates</a></li>
+    <li><a href="http://mezzanine.jupo.org/docs/frequently-asked-questions.html#why-isn-t-the-homepage-a-page-object-i-can-edit-via-the-admin">Changing this homepage</a></li>
+    <li><a href="http://mezzanine.jupo.org/docs/frequently-asked-questions.html">Other frequently asked questions</a></li>
+    <li><a href="http://mezzanine.jupo.org/docs/configuration.html#default-settings">Full list of settings</a></li>
+    <li><a href="http://mezzanine.jupo.org/docs/deployment.html">Deploying to a production server</a></li>
+</ul>
+{% endblocktrans %}
+{% endblock %}
+{% endcomment %}

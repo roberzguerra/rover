@@ -1,0 +1,250 @@
+{% extends 'institution/home.html' %}
+
+
+{% block extra_head_css %}
+    <link rel="stylesheet" href="{{ STATIC_URL }}institution/css/campo-escola.css">
+{% endblock extra_head_css %}
+
+{% block content_main %}
+    <div class="inner-banner">
+        <img src="http://placehold.it/1920x300" alt="Banner">
+    </div>
+
+    <div class="center">
+        <div class="migalha clearfix">
+            <ul class="section">
+                <li>
+                    <a href="javascript:void(0);" title="Home">Home</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);" title="Institucional">Institucional</a>
+                </li>
+                <li class="selected">
+                    <a href="javascript:void(0);" title="Campo Escola">Campo Escola</a>
+                </li>
+            </ul>
+            <ul class="share clearfix">
+                <li class="share-twitter">
+                    <a href="https://twitter.com/share" class="twitter-share-button" data-via="twitterapi"
+                       data-lang="en">Tweet</a>
+                </li>
+                <li class="share-face">
+                    <div class="fb-like" data-href="https://developers.facebook.com/docs/plugins/"
+                         data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div>
+                </li>
+                <li class="share-email">
+                    <button class="mail btn-email">Enviar por e-mail</button>
+                    <div class="dialog-email">
+                        <form class="form-email" action="" method="POST">
+                            <fieldset>
+                                <label for="txtEmailNome">Teus dados</label>
+                                <input id="txtEmailNome" name="txtEmailNome" type="text" title="Nome">
+                                <input id="txtEmailEmail" name="txtEmailEmail" type="email" title="E-mail">
+                            </fieldset>
+                            <fieldset>
+                                <label for="txtEmailNomeAmigo">Dados do teu amigo</label>
+                                <input id="txtEmailNomeAmigo" name="txtEmailNomeAmigo" type="text" title="Nome">
+                                <input id="txtEmailEmailAmigo" name="txtEmailEmailAmigo" type="email" title="E-mail">
+                            </fieldset>
+                            <button type="submit">Enviar</button>
+                        </form>
+
+                        <div class="dialog-sucesso">
+                            <a href="javascript:void(0);">x</a>
+                            <span>Sua mensagem foi enviada com sucesso.</span>
+                        </div>
+                    </div>
+
+                </li>
+            </ul>
+
+        </div>
+
+        <div class="box-main">
+            <strong class="tt-campo">
+                Campo escola
+                <span class="titles-bgs ir">Escotismo</span>
+            </strong>
+
+            <div class="box-descricao">
+                <p>O Campo Escola Escoteiro Dr. João Ribeiro dos Santos, está localizado no Parque Saint Hilaire, e
+                    oferece um ambiente saudável e aproprido a prática do escotismo, bem como para a realização do seu
+                    evento, escoteiro ou não.</p>
+
+                <p>Possui uma infraestrutura adequada a eventos acantonados ou acampados. Os ambientes possuem
+                    telheiros, fogões suspensos, luz interna e externa, água potável e áreas abertas. Assim como, salas
+                    de palestras e refeitório, cercamento do Campo Escola Escoteiro e dois caseiros permanentes.</p>
+
+                <p>Consulte o regulamento de uso do Campo Escola Escoteiro, bem como preço e condições, na pasta de <a
+                        href="javascript:void(0);" title="Download">downloads</a> do Campo Escola, onde você também
+                    encontra o documento para a solicitação de uso, ou <a href="javascript:void(0);"
+                                                                          title="Clique aqui">clique aqui</a>.</p>
+
+                <p class="last">Seu endereço é: Avenida Senador Salgado Filho, 2.785, parada 38, bairro Vera Cruz,
+                    Cidade Viamão/RS.</p>
+            </div>
+
+            <div class="gallery">
+                <div id="loading"></div>
+                <div id="slideshow"></div>
+                <div id="caption"></div>
+                <div id="thumbs">
+                    <a class="pageLink prev btn" href="#" title="Prev Page"></a>
+                    <ul class="thumbs noscript clearfix">
+                        <li>
+                            <a class="thumb" href="http://placehold.it/940x530" title="Notícias">
+                                <img src="http://placehold.it/140x140" alt="Notícias"/>
+                            </a>
+
+                            <div class="caption">
+                                <p>Jovens fazendo amarras para concluir uma pioneiria feita de taquara.</p>
+
+                                <p class="num">1 / 12</p>
+                            </div>
+                        </li>
+
+                        <li>
+                            <a class="thumb" href="http://placehold.it/940x530" title="Notícias">
+                                <img src="http://placehold.it/140x140" alt="Notícias"/>
+                            </a>
+
+                            <div class="caption">
+                                <p>Lorem ipsum dolor sit amet, consectetur.</p>
+
+                                <p class="num">2 / 12</p>
+                            </div>
+                        </li>
+
+                        <li>
+                            <a class="thumb" href="http://placehold.it/940x530" title="Notícias">
+                                <img src="http://placehold.it/140x140" alt="Notícias"/>
+                            </a>
+
+                            <div class="caption">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi.</p>
+
+                                <p class="num">3 / 12</p>
+                            </div>
+                        </li>
+
+                        <li>
+                            <a class="thumb" href="http://placehold.it/940x530" title="Notícias">
+                                <img src="http://placehold.it/140x140" alt="Notícias"/>
+                            </a>
+
+                            <div class="caption">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
+
+                                <p class="num">4 / 12</p>
+                            </div>
+                        </li>
+
+                        <li>
+                            <a class="thumb" href="http://placehold.it/940x530" title="Notícias">
+                                <img src="http://placehold.it/140x140" alt="Notícias"/>
+                            </a>
+
+                            <div class="caption">
+                                <p>Lorem ipsum dolor.</p>
+
+                                <p class="num">5 / 12</p>
+                            </div>
+                        </li>
+
+                        <li class="last">
+                            <a class="thumb" href="http://placehold.it/940x530" title="Notícias">
+                                <img src="http://placehold.it/140x140" alt="Notícias"/>
+                            </a>
+
+                            <div class="caption">
+                                <p>Lorem ipsum dolor sit.</p>
+
+                                <p class="num">6 / 12</p>
+                            </div>
+                        </li>
+
+                        <li>
+                            <a class="thumb" href="http://placehold.it/940x530" title="Notícias">
+                                <img src="http://placehold.it/140x140" alt="Notícias"/>
+                            </a>
+
+                            <div class="caption">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+
+                                <p class="num">7 / 12</p>
+                            </div>
+                        </li>
+
+                        <li>
+                            <a class="thumb" href="http://placehold.it/940x530" title="Notícias">
+                                <img src="http://placehold.it/140x140" alt="Notícias"/>
+                            </a>
+
+                            <div class="caption">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt, aliquam.</p>
+
+                                <p class="num">8 / 12</p>
+                            </div>
+                        </li>
+
+                        <li>
+                            <a class="thumb" href="http://placehold.it/940x530" title="Notícias">
+                                <img src="http://placehold.it/140x140" alt="Notícias"/>
+                            </a>
+
+                            <div class="caption">
+                                <p>Lorem ipsum dolor sit amet, consectetur.</p>
+
+                                <p class="num">9 / 12</p>
+                            </div>
+                        </li>
+
+                        <li>
+                            <a class="thumb" href="http://placehold.it/940x530" title="Notícias">
+                                <img src="http://placehold.it/140x140" alt="Notícias"/>
+                            </a>
+
+                            <div class="caption">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+
+                                <p class="num">10 / 12</p>
+                            </div>
+                        </li>
+
+                        <li>
+                            <a class="thumb" href="http://placehold.it/940x530" title="Notícias">
+                                <img src="http://placehold.it/140x140" alt="Notícias"/>
+                            </a>
+
+                            <div class="caption">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
+
+                                <p class="num">11 / 12</p>
+                            </div>
+                        </li>
+
+                        <li class="last">
+                            <a class="thumb" href="http://placehold.it/940x530" title="Notícias">
+                                <img src="http://placehold.it/140x140" alt="Notícias"/>
+                            </a>
+
+                            <div class="caption">
+                                <p>Lorem ipsum dolor sit amet, consectetur.</p>
+
+                                <p class="num">12 / 12</p>
+                            </div>
+                        </li>
+                    </ul>
+                    <a class="pageLink next btn" href="#" title="Next Page"></a>
+                </div>
+                <div id="controls"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="map_canvas"></div>
+{% endblock content_main %}
+
+{% block end_scripts %}
+    <script src="{{ STATIC_URL }}institution/js/campo-escola.js"></script>
+{% endblock end_scripts %}

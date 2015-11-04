@@ -1,0 +1,74 @@
+{% extends 'blog/blog_post_list.html' %}
+
+{% block page_social %}
+{% endblock page_social %}
+
+{% if request.GET.type == 'blog.BlogPost' %}
+    {% block blog_list_post %}
+        {% with results as blog_posts %}
+            {{ block.super }}
+        {% endwith %}
+    {% endblock %}
+{% endif %}
+
+{% comment %}
+{% extends "pages/page.html" %}
+{% load i18n future mezzanine_tags %}
+
+{% block meta_title %}{% trans "Search Results" %}{% endblock %}
+{% block title %}{% trans "Search Results" %}{% endblock %}
+{% block extra_head %}
+<meta name="robots" content="noindex">
+{% endblock %}
+{% endcomment %}
+
+
+{% comment %}
+    {% block breadcrumb_menu %}
+    <li>
+        <a href="{% url "home" %}">{% trans "Home" %}</a>
+    </li>
+    <li class="active">{% trans "Search Results" %}</li>
+    {% endblock %}
+
+{% block page_banner %}
+{% endblock page_banner %}
+{% endcomment %}
+
+
+
+{% comment %}
+{% block content_main %}
+    <div class="center">
+
+        {% block main %}
+
+            <div class="inner-banner"></div>
+
+            {% search_form "blog.BlogPost" %}
+<p>
+{% if results.paginator.count == 0 %}
+{% blocktrans %}
+No results were found in {{ search_type }} matching your query: {{ query }}
+{% endblocktrans %}
+{% else %}
+{% blocktrans with start=results.start_index end=results.end_index total=results.paginator.count %}
+Showing {{ start }} to {{ end }} of {{ total }} results in {{ search_type }} matching your query: {{ query }}
+{% endblocktrans %}
+{% endif %}
+</p>
+
+    <div id="search-results">
+        {% for result in results.object_list %}
+        <h5>{{ forloop.counter0|add:results.start_index }})
+            <a href="{{ result.get_absolute_url }}">{{ result }}</a></h5>
+        <p>{{ result.description|truncatewords_html:20|safe }}</p>
+        <a href="{{ result.get_absolute_url }}">{% trans "read more" %}</a>
+        {% endfor %}
+    </div>
+
+    {% pagination_for results %}
+    {% endblock main %}
+    </div>
+{% endblock content_main %}
+{% endcomment %}

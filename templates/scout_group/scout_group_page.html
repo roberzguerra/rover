@@ -1,0 +1,33 @@
+{% extends 'pages/page.html' %}
+
+{% block meta_title %}{{ district }} {{ scout_group }}{% endblock %}
+
+{% block title %}
+    {{ district }}{{ group_scout }}
+{% endblock %}
+
+{% block breadcrumb_menu %}
+    {{ block.super }}
+    {% if district %}
+        <li id="breadcrumb-menu-district" class="active">{{ district }}</li>
+    {% elif scout_group %}
+        <li id="breadcrumb-menu-district">
+            <a href="{{ scout_group.district.get_absolute_url }}">{{ scout_group.district }}</a>
+        </li>
+        <li id="breadcrumb-menu-scout_group" class="active">{{ scout_group }}</li>
+    {% endif %}
+
+{% endblock breadcrumb_menu %}
+
+
+{% block main %}
+    <ul class="lista-distritos clearfix">
+        <li>
+            {% if district %}
+                {% include 'scout_group/district.html' %}
+            {% elif scout_group %}
+                {% include 'scout_group/scout_group.html' %}
+            {% endif %}
+        </li>
+    </ul>
+{% endblock main %}

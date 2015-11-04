@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+{% load mezzanine_tags keyword_tags pages_tags %}
+
+{% block meta_title %}{{ page.meta_title }}{% endblock %}
+
+{% block meta_keywords %}{% metablock %}
+{% keywords_for page as keywords %}
+{% for keyword in keywords %}
+    {% if not forloop.first %}, {% endif %}
+    {{ keyword }}
+{% endfor %}
+{% endmetablock %}{% endblock %}
+
+{% block meta_description %}{% metablock %}
+{{ page.description }}
+{% endmetablock %}{% endblock %}
+
+{# Facebook #}
+{% block social_title %}{% if page.meta_title %}{{ page.meta_title }}{% else %}{{ block.super }}{% endif %}{% endblock %}
+{% block social_image %}{{ request.scheme }}://{{ request.META.HTTP_HOST }}{% if page.image %}{{ MEDIA_URL }}{{ page.image }}{% else  %}{{ STATIC_URL }}institution/img/logo_escoteiros_rs.png{% endif %}{% endblock social_image %}">
+{% block social_description %}{{ page.description }}{% endblock social_description %}
+
+{% block title %}
+{% editable page.title %}{{ page.title }}{% endeditable %}
+{% endblock %}
+
+{% block content_main %}
+    {% spaceless %}
+        {% block page_banner %}
+            {% include "includes/page_banner.html" %}
+        {% endblock page_banner %}
+    {% endspaceless %}
+
+    <div class="center">
+        {% block pages_children %}
+            {% if page.children.count > 0 %}
+            <div class="page-menu">
+                {% page_menu page %}
+            </div>
+            {% endif %}
+        {% endblock pages_children %}
+
+        {% spaceless %}
+            <div class="migalha clearfix">
+                <ul class="section">
+                    {% block breadcrumb_menu %}
+                        {% page_menu "pages/menus/breadcrumb.html" %}
+                    {% endblock %}
+                </ul>
+                {% block page_social %}
+                    <ul class="share clearfix">
+                        <li class="share-twitter">
+                            <a href="https://twitter.com/share" class="twitter-share-button" {# data-via="Escoteiros" #} data-lang="en">Tweet</a>
+                        </li>
+                        <li class="share-face">
+                            <div class="fb-like" data-href="{{ request.build_absolute_uri }}" data-layout="button_count"
+                                 data-action="like" data-show-faces="false" data-share="true"></div>
+                        </li>
+                        {% comment %}
+                        <!-- IMPLEMENTACAO FUTURA -->
+                        <li class="share-email">
+                            <button class="mail btn-email">Enviar por e-mail</button>
+                            <div class="dialog-email">
+                                <form class="form-email" action="" method="POST">
+                                    <fieldset>
+                                        <label for="txtEmailNome">Teus dados</label>
+                                        <input id="txtEmailNome" name="txtEmailNome" type="text" title="Nome">
+                                        <input id="txtEmailEmail" name="txtEmailEmail" type="email" title="E-mail">
+                                    </fieldset>
+                                    <fieldset>
+                                        <label for="txtEmailNomeAmigo">Dados do teu amigo</label>
+                                        <input id="txtEmailNomeAmigo" name="txtEmailNomeAmigo" type="text" title="Nome">
+                                        <input id="txtEmailEmailAmigo" name="txtEmailEmailAmigo" type="email" title="E-mail">
+                                    </fieldset>
+                                    <button type="submit">Enviar</button>
+                                </form>
+
+                                <div class="dialog-sucesso">
+                                    <a href="javascript:void(0);">x</a>
+                                    <span>Sua mensagem foi enviada com sucesso.</span>
+                                </div>
+                            </div>
+                        </li>
+                        {% endcomment %}
+                    </ul>
+                {% endblock page_social %}
+            </div>
+        {% endspaceless %}
+
+        <div class="box-main">
+        {% block main %}
+
+        {% endblock %}
+        </div>
+    </div>
+{% endblock content_main %}
+

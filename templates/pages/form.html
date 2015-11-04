@@ -1,0 +1,47 @@
+{% extends "pages/page.html" %}
+{% load mezzanine_tags i18n %}
+
+{% block head_begin %}
+{#    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">#}
+    <link rel="stylesheet" href="{{ STATIC_URL }}institution/css/bootstrap.min.css">
+{% endblock head_begin %}
+
+{% block main %}
+
+    <strong class="tt-escotismo">
+        {{ page.form.title }} <span class="titles-bgs ir book">{{ page.form.title }}</span>
+    </strong>
+
+    {% if request.GET.sent %}
+        {% editable page.form.response %}
+        {{ page.form.response|richtext_filters|safe }}
+        {% endeditable %}
+    {% else %}
+        {% with page.form as page_form %}
+            {% editable page_form.content %}
+            {{ page_form.content|richtext_filters|safe }}
+            {% endeditable %}
+        {% endwith %}
+
+
+        <div class="block-form">
+            <form class="mezzanine-form" method="post"{% if form.is_multipart %} enctype="multipart/form-data"{% endif %}>
+                {% errors_for form %}
+                {% fields_for form %}
+                <div class="form-actions">
+                    <input class="btn btn-primary btn-lg" type="submit"
+                        value="{% if page.form.button_text %}{{ page.form.button_text }}{% else %}{% trans "Submit" %}{% endif %}">
+                </div>
+            </form>
+        </div>
+    {% endif %}
+
+{% endblock %}
+
+
+{% block extra_js %}
+{{ block.super }}
+<script>
+$(function() {$('.mezzanine-form :input:visible:enabled:first').focus();});
+</script>
+{% endblock %}

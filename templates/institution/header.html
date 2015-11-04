@@ -1,0 +1,69 @@
+{% load pages_tags mezzanine_tags i18n future staticfiles %}
+<header id="header" role="banner">
+    <ul class="nav-sections clearfix">
+        <li class="wanna-be"><a href="javascript:void(0);">Quero ser Escoteiro<span class="blt"></span></a></li>
+        <li class="institutional selected"><a href="">Institucional<span
+                class="blt"></span></a></li>
+        <li><a href="javascript:void(0);">Sou Escoteiro<span class="blt"></span></a></li>
+    </ul>
+
+    <nav class="menu" role="navegation">
+        <h1 class="logo">
+            <a href="" class="ir">Escoteiros do Brasil - Rio Grande do Sul</a>
+        </h1>
+        <button class="btn-menu"><span></span></button>
+            {% page_menu "pages/menus/dropdown.html" %}
+    </nav>
+</header>
+        {% comment %}
+    <nav class="menu" role="navegation">
+        <ul class="clearfix main-menu">
+            <li><a href="" class="active">Escotismo</a></li>
+            <li><a href="">Transparência</a></li>
+            <li class="open-submenu">
+                <a href="">Institucional</a> <span></span>
+                <div class="submenu">
+                    <ul class="submenu inner">
+                        <li class="first"><a class="selected" href="">Escotismo</a></li>
+                        <li><a href="">Apresentação</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li><a href="">Mapa do site</a></li>
+            <li><a href="javascript:void(0);">Parceiros</a></li>
+        </ul>
+    </nav>
+        {% endcomment %}
+    {# {% search_form "all" %} #}
+    {% comment %}
+    <li><a href="{% url 'institution-escotismo' %}" class="active">Escotismo</a></li>
+    <li><a href="{% url 'institution-transparencia' %}">Transparência</a></li>
+    <li class="open-submenu">
+        <a href="{% url 'institution-institucional' %}">Institucional</a> <span></span>
+        <div class="submenu">
+            <ul class="submenu inner">
+                <li class="first"><a class="selected" href="{% url 'institution-escotismo' %}">Escotismo</a></li>
+                <li><a href="{% url 'institution-content' %}">Apresentação</a></li>
+                <li><a href="{% url 'institution-content' %}">Missão, Visão e Valores</a></li>
+                <li><a href="{% url 'institution-diretoria-regional' %}">Diretoria Regional</a></li>
+                <li><a href="{% url 'institution-equipes-regionais' %}">Comissão Fiscal Regional</a></li>
+                <li><a href="{% url 'institution-equipes-regionais' %}">Comissão de Ética e Disciplina</a></li>
+                <li><a href="{% url 'institution-equipes-regionais' %}">Coordenadorias Regionais</a></li>
+                <li><a href="{% url 'institution-equipes-regionais' %}">Comissários Distritais</a></li>
+                <li><a href="{% url 'institution-campo-escola' %}">Campo Escola</a></li>
+                <li><a href="{% url 'institution-equipes-regionais' %}">Condecorações e Homenagens</a></li>
+                <li><a href="{% url 'institution-equipes-regionais' %}">Formação</a></li>
+                <li><a href="{% url 'institution-equipes-regionais' %}">Imagem e Comunicação</a></li>
+                <li><a href="{% url 'institution-equipes-regionais' %}">Equipe de Método Educativo</a></li>
+                <li><a href="{% url 'institution-equipes-regionais' %}">Equipe Pioneira</a></li>
+                <li><a href="{% url 'institution-equipes-regionais' %}">Rede de Jovens</a></li>
+                <li><a href="{% url 'institution-distritos' %}">Distritos Escoteiros</a></li>
+                <li><a href="{% url 'institution-equipes-regionais' %}">Rede de Jovens</a></li>
+                <li><a href="{% url 'institution-equipes-regionais' %}">Equipe do Escritório</a></li>
+            </ul>
+        </div>
+    </li>
+    <li><a href="{% url 'institution-mapa-site' %}">Mapa do site</a></li>
+    <li><a href="javascript:void(0);">Parceiros</a></li>
+    {% endcomment %}
+

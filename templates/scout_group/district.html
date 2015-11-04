@@ -1,0 +1,45 @@
+{% load mezzanine_tags i18n %}
+
+<a href="" title="{{ district }}" class="content-img">
+    {% if district.logo %}
+        <img src="{{ MEDIA_URL }}{% thumbnail district.logo 182 182 %}" alt="{{ district }}" title="{{ district }}">
+    {% else %}
+        <img src="{{ STATIC_URL }}institution/img/img-02.jpg" alt="{{ district }}" title="{{ district }}">
+    {% endif %}
+</a>
+<div class="content-infos">
+    <a href="{{ district.get_absolute_url }}" class="title" title="{{ district }}">{{ district }}</a>
+    <div class="content">
+        {% if district.coordinator_name %}
+            <p><strong>{% trans 'Coordenador' %}: {{ district.coordinator_name }}</strong></p>
+        {% endif %}
+
+        {% if district.email %}
+            <p>{% trans 'E-mail' %}: {{ district.email }}</p>
+        {% endif %}
+        {% if district.address %}
+            <p>{% trans 'Endereço' %}: {{ district.address }}</p>
+        {% endif %}
+        {% if district.cep %}
+            <p>{% trans 'CEP' %}: {{ district.cep }}</p>
+        {% endif %}
+
+
+        {% if editable_obj %}
+            {% editable district.content %}
+                {{ district.content|richtext_filters|safe }}
+            {% endeditable %}
+        {% endif %}
+
+    </div>
+</div>
+
+{% if not district_only and district.scoutgroup_set.count > 0 %}
+
+    <div class="content-district-groups">
+        <h3 class="title">Grupos Escoteiros:</h3>
+        {% with district.scoutgroup_set.all as scout_group_list %}
+            {% include 'scout_group/scoutgrouppage_content.html' %}
+        {% endwith %}
+    </div>
+{% endif %}

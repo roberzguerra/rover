@@ -1,0 +1,180 @@
+@media screen and (min-width: em(320px)),
+screen and (max-width: em(320px)) {
+
+
+	.tt-diretoria {
+		color: #A3AC1D;
+		font-size: 32px;
+		font-weight: normal;
+		display: block;
+		position: relative;
+		height: 42px;
+		line-height: 42px;
+		width: 299px;
+		margin: 0 auto 40px;
+		letter-spacing: -0.5px;
+
+		span {
+			display: block;
+			width: 43px;
+			height: 48px;
+			position: absolute;
+			right: 0;
+			top: 0;
+			background-position: 0 -1124px;
+		}
+	}
+
+	.descricao {
+		display: block;
+		font-size: 16px;
+		color: #333;
+		text-align: center;
+		line-height: 150%;
+		margin-bottom: 10px;
+
+		&.last {
+			margin-bottom: 0;
+		}
+	}
+
+	.lista-diretoria {
+		margin-top: 40px;
+
+		li {
+			list-style: none;
+			margin-bottom: 40px;
+		}
+	}
+
+	.content-img {
+		width: 180px;
+		height: 180px;
+		margin: 0 auto;
+
+		img {
+			width: 100%;
+			height: auto;
+		}
+	}
+
+	.content-infos {
+		// height: 180px;
+		margin-top: 20px;
+
+		strong {
+			color: #333;
+			font-size: 16px;
+			line-height: 100%;
+			display: block;
+			margin-bottom: 11px;
+			text-align: center;
+		}
+
+		span {
+			display: block;
+			line-height: 100%;
+			color: #333;
+			font-size: 16px;
+			margin-bottom: 11px;
+			text-align: center;
+		}
+
+		a {
+			text-align: center;
+			display: block;
+			line-height: 100%;
+			color: #333;
+			font-size: 16px;
+			text-decoration: none;
+
+			&:active,
+			&:focus,
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+	}
+}
+
+@media screen and (min-width: em(600px)) {
+
+	.lista-diretoria {
+		width: 500px;
+		margin: 62px auto 0;
+
+		li {
+			clear: both;
+			height: 180px;
+			margin-bottom: 40px;
+		}
+	}
+
+	.content-img {
+		float: left;
+	}
+
+	.content-infos {
+		float: left;
+		margin-top: 0;
+		margin-left: 20px;
+		height: 180px;
+		display: table;
+
+		.content {
+			display: table-cell;
+			vertical-align: middle;
+		}
+
+		strong {
+			text-align: left;
+		}
+
+		span {
+			text-align: left;
+		}
+
+		a {
+			text-align: left;
+		}
+	}
+}
+
+@media screen and (min-width: em(950px)) {
+
+	main {
+		padding-bottom: 60px;
+	}
+
+	.tt-diretoria {
+		width: 326px;
+		letter-spacing: 0;
+	}
+
+	.descricao {
+		width: 730px;
+		margin: 0 auto;
+	}
+
+	.lista-diretoria {
+		width: 922px;
+
+		li {
+			clear: none;
+			float: left;
+			margin: 0 34px 40px 0;
+
+			&:nth-child(2) {
+				margin-right: 0;
+			}
+
+			&:nth-child(2n+2) {
+				margin-right: 0;
+			}
+		}
+	}
+
+	footer {
+		clear: both;
+	}
+}

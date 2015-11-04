@@ -1,0 +1,277 @@
+@media screen and (min-width: em(320px)),
+screen and (max-width: em(320px)) {
+
+	.tt-diretoria {
+		color: #A3AC1D;
+		font-size: 32px;
+		letter-spacing: -1px;
+		font-weight: normal;
+		display: block;
+		position: relative;
+		height: auto;
+		line-height: 120%;
+		width: 276px;
+		margin: 0 auto 24px;
+
+		span {
+			display: block;
+			width: 37px;
+			height: 37px;
+			position: absolute;
+			right: -5px;
+			top: 0;
+			background-position: 1px -1180px;
+		}
+	}
+
+	.description {
+		color: #333;
+		font-size: 16px;
+		line-height: 130%;
+		text-align: left;
+	}
+
+	.formBuscar {
+		width: 300px;
+		height: 46px;
+		margin: 21px auto 0;
+	}
+
+	.txtBuscar { 
+		float: left;
+		height: 44px;
+		width: 242px;
+		background-color: #FFF;
+		border: 2px solid #CCC;
+		padding: 0 5px;
+		color: #999;
+		font-size: 16px;
+
+		&.error {
+			border-color: red;
+		}
+	}
+
+	.bt-submit {
+		display: block;
+		height: 44px;
+		width: 58px;
+		padding: 0;
+		float: left;
+		background-color: #EBEBEB;
+		border-top: 2px solid #CCC;
+		border-right: 2px solid #CCC;
+		border-bottom: 2px solid #CCC;
+		background-position: -1px -327px;
+	}
+
+	label.error {
+		display: none !important;
+	}
+
+	.lista-distritos {
+		margin-top: 60px;
+
+		li {
+			list-style: none;
+			margin-bottom: 40px;
+
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+	}
+
+	.content-img {
+		border: 1px solid #E1E1E1;
+		width: 182px;
+		height: 182px;
+		margin: 0 auto;
+
+		img {
+			width: 100%;
+			height: auto;
+		}
+	}
+
+	.content-infos {
+		margin-top: 20px;
+
+        a{
+            text-decoration: none;
+        }
+
+		strong {
+			color: #A3AC1D;
+			line-height: 100%;
+			display: block;
+			margin-bottom: 15px;
+			text-align: center;
+		}
+
+		b {
+			color: #333;
+			text-align: center;
+			font-size: 16px;
+			display: block;
+			line-height: 100%;
+			margin-bottom: 10px;
+		}
+
+		p {
+			text-align: center;
+			line-height: 120%;
+			color: #333;
+			font-size: 16px;
+		}
+	}
+
+}
+
+.btn-load-district {
+    padding: 18px 12%;
+    margin-top: 60px;
+
+    i{
+        left: 80%;
+    }
+}
+
+@media screen and (min-width: em(460px)) {
+
+    .btn-load-district {
+        padding: 18px 20%;
+
+        i{
+            left: 70%;
+        }
+    }
+}
+
+@media screen and (min-width: em(768px)) {
+    .btn-load-district {
+        padding: 18px 34%;
+        max-width: 100%;
+
+        i{
+            left: 63%;
+        }
+    }
+}
+
+@media screen and (min-width: em(1024px)) {
+    .btn-load-district {
+        padding: 18px 37%;
+
+        i{
+            left: 61%;
+        }
+    }
+}
+
+@media screen and (min-width: em(1280px)) {
+    .btn-load-district {
+        padding: 18px 363px;
+
+        i{
+            left: 57%;
+        }
+
+        &:hover{
+            i{
+                left: 61%;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: em(600px)) {
+
+	.tt-diretoria {
+		width: 336px;
+		margin-bottom: 26px;
+		font-size: 34px;
+		letter-spacing: 0;
+	}
+
+	.description {
+		width: 385px;
+		text-align: center;
+		margin: 0 auto;
+	}
+
+	.formBuscar {
+		width: 580px;
+	}
+
+	.txtBuscar {
+		width: 522px;
+		padding: 0 24px;
+	}
+
+	.lista-distritos {
+		margin: 60px auto 0;
+
+		li {
+			clear: both;
+			height: 182px;
+			margin-bottom: 59px;
+		}
+	}
+
+	.content-img {
+		margin: 0 22px 0 0;
+		float: left;
+	}
+
+	.content-infos {
+		height: 182px;
+		width: 377px;
+		float: left;
+		display: table;
+		margin-top: 0;
+
+		strong {
+			text-align: left;
+		}
+
+		b {
+			text-align: left;
+		}
+
+		p {
+			text-align: left;
+		}
+	}
+
+	.content {
+		display: table-cell;
+		vertical-align: middle;
+	}
+
+}
+
+@media screen and (min-width: em(950px)) {
+
+	main {
+		padding-bottom: 101px;
+	}
+
+	.tt-diretoria {
+		span {
+			right: 0;
+		}
+	}
+
+	.formBuscar {
+		width: 622px;
+	}
+
+	.txtBuscar {
+		width: 561px;
+	}
+
+	.content-infos {
+		width: 712px;
+	}
+}

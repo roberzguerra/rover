@@ -1,0 +1,36 @@
+<nav class="menu" role="navegation">
+    <h1 class="logo">
+        <a href="{% url 'institution:homepage' %}" class="ir">Escoteiros do Brasil - Rio Grande do Sul</a>
+    </h1>
+    <button class="btn-menu"><span></span></button>
+
+    <ul class="clearfix main-menu">
+        {% for menu in menu_list %}
+            {% if not menu.submenu %}
+                {% url menu.url_name as menu_url %}
+                <li><a {% if request.META.PATH_INFO == menu_url %}class="active"{% endif %} href="{{ menu_url }}"
+                       title="{{ menu.name }}">{{ menu.name }}</a></li>
+            {% else %}
+                <li class="open-submenu">
+                    {% url menu.url_name as menu_url %}
+                    <a href="{{ menu_url }}" {% if request.META.PATH_INFO == menu_url %}class="active"{% endif %}
+                       title="{{ menu.name }}">Institucional</a><span></span>
+
+                    <div class="submenu">
+                        <ul class="submenu inner">
+                            {% for submenu in menu.submenu %}
+                                <li {% if forloop.first %}class="first"{% endif %}>
+                                    {% url submenu.url_name as submenu_url %}
+                                    <a href="{{ submenu_url }}"
+                                       {% if request.META.PATH_INFO == submenu_url %}class="selected"{% endif %}
+                                       title="{{ submenu.name }}">{{ submenu.name }}</a>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </li>
+            {% endif %}
+        {% endfor %}
+
+    </ul>
+</nav>

@@ -1,0 +1,187 @@
+//ABOUT HOME
+
+@media screen and (min-width: em(320px)),
+screen and (max-width: em(320px)) {
+    
+    main {
+        overflow: hidden;
+    }
+
+    .about {
+        width: 100%;
+        height: auto;
+        background-color: #C1CD22;
+        margin-top: 100px;
+        border-bottom: 3px solid #A2B411;
+        padding: 30px 0;
+    }
+
+    .tt-about {
+        display: block;
+        line-height: 47px;
+        color: #333;
+        font-size: 24px;
+        font-weight: normal; 
+        position: relative;
+        height: 47px;
+        width: 225px;
+        margin: 0 auto 20px;
+
+        span {
+            position: absolute;
+            right: 0;
+            top: 0;
+            background-position: 0 -1505px;
+            display: block;
+            width: 49px;
+            height: 45px;
+        }
+    }
+
+    .description {
+        font-size: 0.875em;
+        color: #333;
+        line-height: 20px;
+    }
+    
+    .bt-saiba-mais { 
+        display: block;
+        text-transform: uppercase;
+        text-align: center;
+        width: 100%;
+        max-width: 382px; 
+        margin: 30px auto 0;
+        color: #333;
+        height: 60px;
+        position: relative;
+        outline: none;
+        padding: 0 20px;
+        text-decoration: none;
+        background-color: transparent;
+        border: 2px solid #6C712C;
+        transition: all 0.2s ease-in-out;
+
+        &:hover {
+            border-color: #333;
+        }
+        
+        span {
+            font-size: em(14px);
+            line-height: 60px;
+            color: #333;
+            height: 100%;
+            display: block;
+            text-align: left;
+            line-height: 57px;
+            transition: all 0.2s ease-out 0s;
+        }
+
+        i {
+            background: url('../img/bg-arrow.png') no-repeat 0 0;
+            height: 12px; 
+            left: 80%;
+            margin-top: -6px;
+            opacity: 1;
+            position: absolute;
+            top: 50%;
+            transition: all 0.2s ease-out 0s;
+            width: 25px;
+            display: block;
+        }
+    }
+
+    .img-homem {
+        height: 600px;
+        width: 438px;
+        position: absolute;
+        right: 190px;
+        top: 0;
+        display: none;
+    }
+}
+
+@media screen and (min-width: em(760px)) {
+    
+    .about {
+        background: url('../img/img-right.png') no-repeat top right #C1CD22;
+        position: relative;
+        height: 600px;
+        padding: 70px 0 30px;
+    }
+
+    .tt-about {
+        margin: 0 0 20px 0;
+        font-size: 34px;
+        width: 275px;
+    }
+
+    .box-left {
+        width: 382px; 
+        float: left;
+    }
+
+    .bt-saiba-mais {
+        width: 100%;
+        text-align: left;
+        padding: 0 0 0 40px;
+        margin: 20px auto 0;
+        
+        span {
+            font-size: 16px;
+            line-height: 59px;
+        }
+
+        i {
+            display: block;
+            left: 81%;
+        }
+    } 
+
+}
+
+@media screen and (min-width: em(950px)) {
+
+    .about {
+        padding: 100px 0 30px 0;
+    }
+
+    .description {
+        font-size: 1em;
+    }
+
+    .bt-saiba-mais {
+        width: 100%;
+        text-align: left;
+        padding: 0 0 0 62px;
+         
+        span {
+            font-size: 16px;
+            left: 70px;
+        }
+        
+        i {
+            display: block;
+            opacity: 0;
+            filter: alpha(opacity=0);
+            left: 73%;
+            margin-top: -4px;
+        }
+
+        &:hover {
+            padding: 0 40px;
+
+            i {
+                left: 82%;
+                opacity: 1;
+                filter: alpha(opacity=100);
+            }
+        }
+    }
+
+}
+
+@media screen and (min-width: em(1100px)) {
+    .img-homem {
+        display: block;
+    }
+}

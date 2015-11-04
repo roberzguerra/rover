@@ -1,0 +1,33 @@
+{% load mezzanine_tags i18n %}
+
+<a href="" title="{{ scout_group }}" class="content-img">
+    {% if scout_group.logo %}
+        <img class="scout-group-logo" src="{{ MEDIA_URL }}{% thumbnail scout_group.logo 182 182 %}" alt="{{ scout_group }}" title="{{ scout_group }}">
+    {% else %}
+        <img src="{{ STATIC_URL }}institution/img/img-02.jpg" alt="{{ scout_group }}" title="{{ scout_group }}">
+    {% endif %}
+</a>
+<div class="content-infos">
+    <a href="{{ scout_group.get_absolute_url }}" class="title" title="{{ scout_group }}">{{ scout_group }}</a>
+    <div class="content">
+        <p><strong>{% trans 'Cidade' %}: {{ scout_group.city }}</strong></p>
+        {% if scout_group.president_name %}
+            <p>{% trans 'Presidente' %}: {{ scout_group.president_name }}</p>
+        {% endif %}
+        {% if scout_group.email %}
+            <p>{% trans 'E-mail' %}: {{ scout_group.email }}</p>
+        {% endif %}
+        {% if scout_group.address %}
+            <p>{% trans 'Endereço' %}: {{ scout_group.address }}</p>
+        {% endif %}
+        {% if scout_group.cep %}
+            <p>{% trans 'CEP' %}: {{ scout_group.cep }}</p>
+        {% endif %}
+
+        {% if editable_obj %}
+            {% editable scout_group.content %}
+                {{ scout_group.content|richtext_filters|safe }}
+            {% endeditable %}
+        {% endif %}
+    </div>
+</div>

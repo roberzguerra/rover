@@ -1,0 +1,81 @@
+{% extends "institution/home.html" %}
+
+
+{% block extra_head_css %}
+    <link rel="stylesheet" href="{{ STATIC_URL }}institution/css/transparencia.css">
+{% endblock extra_head_css %}
+
+
+{% block content_main %}
+    <div class="inner-banner">
+        <img src="http://placehold.it/1920x300" alt="Banner">
+    </div>
+
+    <div class="center">
+        {% include 'institution/head_social.html' %}
+
+        <div class="box-main">
+            <strong class="tt-transparencia">
+                Transparência
+                <span class="titles-bgs ir">Transparência</span>
+            </strong>
+
+            <p class="description">Uma administração transparência é um dos objetivos essenciais da Diretoria Regional
+                dos Escoteiros do Brasil. A ampliação da divulgação das ações de nossa Região Escoteira, a seus
+                associados, além de contribuir para o fortalecimento da democracia, prestigia e desenvolve as noções de
+                propriedade e pertencimento.</p>
+
+            <p class="description">A Diretoria Regional, em uma área específica para este fim, mantém todos os arquivos
+                de domínio público da Região Escoteira do Rio Grande do Sul.</p>
+
+            <div class="box-download clearfix">
+                <strong class="tt-download">Download</strong>
+
+                <p class="sub-tt">Nesta seção você encontrará os principais documentos da União dos Escoteiros do Brasil
+                    - Rio Grande do Sul.</p>
+
+                <ul class="lista-download clearfix">
+                    <li class="first">
+                        <strong>Parecer da Comissão Fiscal</strong>
+                        <b>02/03/2014</b>
+                        <a href="javascript:void(0);" title="Download do arquivo" target="_blank">Parecer_fiscal_2014.pdf</a>
+                    </li>
+
+                    <li>
+                        <strong>Parecer da Comissão Fiscal</strong>
+                        <b>02/03/2014</b>
+                        <a href="javascript:void(0);" title="Download do arquivo" target="_blank">Parecer_fiscal_2014.pdf</a>
+                    </li>
+
+                    <li>
+                        <strong>Parecer da Comissão Fiscal</strong>
+                        <b>02/03/2014</b>
+                        <a href="javascript:void(0);" title="Download do arquivo" target="_blank">Parecer_fiscal_2014.pdf</a>
+                    </li>
+
+                    <li>
+                        <strong>Parecer da Comissão Fiscal</strong>
+                        <b>02/03/2014</b>
+                        <a href="javascript:void(0);" title="Download do arquivo" target="_blank">Parecer_fiscal_2014.pdf</a>
+                    </li>
+
+                    <li>
+                        <strong>Parecer da Comissão Fiscal</strong>
+                        <b>02/03/2014</b>
+                        <a href="javascript:void(0);" title="Download do arquivo" target="_blank">Parecer_fiscal_2014.pdf</a>
+                    </li>
+
+                    <li>
+                        <strong>Parecer da Comissão Fiscal</strong>
+                        <b>02/03/2014</b>
+                        <a href="javascript:void(0);" title="Download do arquivo" target="_blank">Parecer_fiscal_2014.pdf</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endblock content_main %}
+
+{% block end_scripts %}
+    <script src="{{ STATIC_URL }}institution/js/transparencia.js"></script>
+{% endblock end_scripts %}

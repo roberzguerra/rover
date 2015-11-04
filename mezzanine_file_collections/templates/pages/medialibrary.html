@@ -1,0 +1,91 @@
+{% extends "pages/page.html" %}
+
+{% load mezzanine_tags staticfiles %}
+
+{% block pages_children %}
+
+{% endblock pages_children %}
+
+{% block main %}
+
+    <strong class="tt-escotismo">
+        {{ page.title }} <span class="titles-bgs ir book">{{ page.title }}</span>
+    </strong>
+
+<div class="page-download">
+    <div class="content">
+        {% editable page.medialibrary.content %}
+            {{ page.medialibrary.content|richtext_filter|safe }}
+        {% endeditable %}
+    </div>
+
+    {# Listagem de pastas/paginas filhas #}
+    {% if page.children.count > 0 %}
+        <ul class="folder-list">
+        {% for child in page.children.all %}
+            <li><a href="{{ child.get_absolute_url }}" class="link"
+                   alt="{{ child.title }}"
+                   title="{{ child.title }}">
+                <i class="fa fa-folder"></i>
+                <p>{{ child.title }} ({{ child.medialibrary.files.count }})</p>
+            </a>
+            </li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+
+    {# Listagem de arquivos da Página #}
+    {% with page.medialibrary.files.all as files %}
+        {% if files %}
+            <ul class="folder-list">
+            {% for file in files %}
+                <li>
+                    <a target="_blank" href="{{ MEDIA_URL }}{{ file.file }}" class="link"
+                       alt="{{ file.title|default:file.description }}"
+                       title="{{ file.title|default:file.description }}">
+                        {% if file.file.filetype == 'Image' %}
+                            <img class="media-object" src="{{ MEDIA_URL }}{% thumbnail file.file 64 64 %}"
+                                 alt="{{ file.title|default:file.file.filename }}"
+                                 title="{{ file.title|default:file.file.filename }}">
+                        {% else %}
+                            <i class="fa fa-file" alt="{{ file.title|default:file.file.filename }}"
+                                 title="{{ file.title|default:file.file.filename }}"></i>
+                        {% endif %}
+                        <strong>{{ file.title|default:file.file.filename }}</strong>
+                        <p>
+                            {{ file.description }}
+                        </p>
+                    </a>
+                </li>
+            {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+{% comment %}
+    {% block medialibrary %}
+        {% with page.medialibrary.files.all as files %}
+            {% for file in files %}
+            {% block mediafile %}
+                <div class="media" id="media-file-{{ file.id }}">
+                    <a class="pull-left" href="{{ MEDIA_URL }}{{ file.file }}">
+                        {% if file.file.filetype == 'Image' %}
+                            <img class="media-object" src="{{ MEDIA_URL }}{% thumbnail file.file 64 64 %}">
+                        {% else %}
+                            <img class="media-object" src="{{ STATIC_URL }}img/file_icon.png" />
+                        {% endif %}
+                    </a>
+                    <div class="media-body">
+                        <strong><a href="{{ MEDIA_URL }}{{ file.file }}">
+                            {{ file.title|default:file.file.filename }}
+                        </a></strong>
+                        <p>{{ file.description }}</p>
+                    </div>
+                </div>
+            {% endblock %}
+            {% endfor %}
+        {% endwith %}
+    {% endblock %}
+{% endcomment %}
+
+</div>
+{% endblock %}

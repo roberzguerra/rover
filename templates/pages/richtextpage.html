@@ -1,0 +1,13 @@
+{% extends "pages/page.html" %}
+
+{% load mezzanine_tags %}
+
+{% block main %}{{ block.super }}
+<strong class="tt-escotismo">
+    {{ page.title }} <span class="titles-bgs ir book">{{ page.title }}</span>
+</strong>
+{% editable page.richtextpage.content %}
+{{ page.richtextpage.content|richtext_filters|safe }}
+{% endeditable %}
+
+{% endblock %}

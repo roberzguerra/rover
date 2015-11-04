@@ -1,0 +1,14 @@
+{% if lista_links %}
+<ul class="midias clearfix">
+    {% for link in lista_links %}
+        <li><a href="{{ link.url }}" target="_blank" class="{{ link.get_type.css_class }}">{{ link.get_type.name }}</a></li>
+    {% endfor %}
+</ul>
+{% endif %}
+{% comment %}
+<ul class="midias clearfix">
+    <li><a href="javascript:void(0);" class="facebook ir btn">Facebook</a></li>
+    <li><a href="javascript:void(0);" class="twitter ir btn">Twitter</a></li>
+    <li><a href="javascript:void(0);" class="youtube ir btn">YouTube</a></li>
+</ul>
+{% endcomment %}

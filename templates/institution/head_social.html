@@ -1,0 +1,38 @@
+{% load institution_tags %}
+
+<div class="migalha clearfix">
+    {% create_navigation %}
+
+    <ul class="share clearfix">
+        <li class="share-twitter">
+            <a href="https://twitter.com/share" class="twitter-share-button" {# data-via="Escoteiros" #} data-lang="en">Tweet</a>
+        </li>
+        <li class="share-face">
+            <div class="fb-like" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button_count"
+                 data-action="like" data-show-faces="false" data-share="false"></div>
+        </li>
+        <li class="share-email">
+            <button class="mail btn-email">Enviar por e-mail</button>
+            <div class="dialog-email">
+                <form class="form-email" action="" method="POST">
+                    <fieldset>
+                        <label for="txtEmailNome">Teus dados</label>
+                        <input id="txtEmailNome" name="txtEmailNome" type="text" title="Nome">
+                        <input id="txtEmailEmail" name="txtEmailEmail" type="email" title="E-mail">
+                    </fieldset>
+                    <fieldset>
+                        <label for="txtEmailNomeAmigo">Dados do teu amigo</label>
+                        <input id="txtEmailNomeAmigo" name="txtEmailNomeAmigo" type="text" title="Nome">
+                        <input id="txtEmailEmailAmigo" name="txtEmailEmailAmigo" type="email" title="E-mail">
+                    </fieldset>
+                    <button type="submit">Enviar</button>
+                </form>
+
+                <div class="dialog-sucesso">
+                    <a href="javascript:void(0);">x</a>
+                    <span>Sua mensagem foi enviada com sucesso.</span>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>

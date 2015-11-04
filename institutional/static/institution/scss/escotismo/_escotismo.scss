@@ -1,0 +1,199 @@
+@media screen and (min-width: em(320px)),
+screen and (max-width: em(320px)) {
+
+	.tt-escotismo {
+		color: #A3AC1D;
+		font-size: 34px;
+		font-weight: normal;
+		display: block;
+		position: relative;
+		height: 47px;
+		line-height: 47px;
+		width: 216px;
+		margin: 0 auto;
+
+		span {
+			display: block;
+			width: 51px;
+			height: 47px;
+			position: absolute;
+			right: 0;
+			top: 0;
+			background-position: 0 -1009px;
+		}
+	}
+
+	.description {
+		color: #333;
+		font-size: 16px;
+		line-height: 150%;
+		margin-top: 20px;
+		text-align: center;
+	}
+
+	.sub-tt {
+		color: #333;
+		font-size: 16px;
+		line-height: 150%;
+		margin-top: 45px;
+		text-align: center;
+	}
+
+	.box-main .video {
+		position: relative;
+        padding-bottom: 56.25%;   /* 16:9 */
+        height: 0;
+        margin-top: 40px;
+
+        iframe {
+	        position: absolute;
+	        top: 0;
+	        left: 0;
+	        width: 100%;
+	        height: 100%;
+        }
+	}
+
+	.box-promessa {
+		height: auto;
+		width: 100%;
+		margin-top: 40px;
+
+		li {
+			list-style: none;
+			margin-bottom: 40px;
+		}
+
+		strong {
+			color: #A3AC1D;
+			font-size: 26px;
+			font-weight: normal;
+			line-height: 120%;
+			display: block;
+			margin-bottom: 20px;
+		}
+
+		p {
+			color: #333;
+			font-size: 16px;
+			line-height: 150%;
+		}
+
+		b {
+			color: #333;
+			font-size: 16px;
+			display: block;
+			margin-bottom: 10px;
+			line-height: 120%;
+		}
+	}
+
+	.box-lei-escoteira {
+		b {
+			margin-bottom: 15px;
+		}
+
+		p {
+			margin-bottom: 30px;
+
+			&.last {
+				margin-bottom: 0;
+			}
+		}
+	}
+
+	.box-visao {
+		margin-top: 25px;
+
+		strong {
+			color: #A3AC1D;
+			font-size: 26px;
+			font-weight: normal;
+			line-height: 120%;
+			display: block;
+			margin-bottom: 25px;
+		}
+
+		b {
+			display: block;
+			line-height: 100%;
+			color: #333;
+			font-size: 16px;
+			margin-bottom: 20px;
+		}
+
+		p {
+			margin-bottom: 30px;
+
+			&.last {
+				margin-bottom: 0;
+			}
+		}
+
+		ol {
+			margin-bottom: 33px;
+			padding-left: 25px;
+		}
+
+		li {
+			list-style: disc outside;
+			color: #333;
+			margin-bottom: 15px;
+			line-height: 150%;
+		}
+	}
+}
+
+@media screen and (min-width: em(740px)) {
+
+	.description {
+		margin-top: 26px;
+	}
+
+	.sub-tt {
+		text-align: left;
+		margin-top: 62px;
+	}
+
+	.box-main .video {
+		margin-top: 62px;
+	}
+
+	.box-promessa {
+		margin-top: 62px;
+
+		li {
+			margin-bottom: 65px;
+		}
+	}
+
+	.box-lei-escoteira {
+		b {
+			margin-bottom: 21px;
+		}
+	}
+
+	.box-visao {
+		margin-top: 0;
+
+		b {
+			margin-bottom: 17px;
+		}
+
+		ol {
+			padding-left: 75px;
+		}
+
+		.tt {
+			margin-bottom: 5px;
+		}
+	}
+}
+
+@media screen and (min-width: em(950px)) {
+
+	main {
+		padding-bottom: 101px;
+	}
+
+}

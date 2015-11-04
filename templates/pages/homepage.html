@@ -1,0 +1,237 @@
+{% extends "pages/page.html" %}
+{% load mezzanine_tags i18n %}
+
+{####################################################################}
+
+{% block content_main %}
+    {% block main %}
+        {% block slider %}
+            {% include 'includes/slider.html' %}
+        {% endblock slider %}
+
+
+        <a class="bt-saiba-mais mais-noticias" href="{% url 'blog_post_list' %}" title="Lorem Ipsium">
+            <span>Mais notícias ...</span><i class="arrow ir">Arrow</i>
+        </a>
+
+        <div class="about">
+            <div class="center clearfix">
+                <strong class="tt-about">
+                    Nossa história
+                    <span class="titles-bgs ir">Nossa História</span>
+                </strong>
+
+                <div class="box-left">
+                    <p class="description">Escotismo, fundado por Lorde Robert Stephenson Smyth Baden-Powell, em 1907, é um
+                        movimento mundial, educacional, voluntariado, apartidário, sem fins lucrativos. A sua proposta é o
+                        desenvolvimento do jovem, por meio de um sistema de valores que prioriza a honra, baseado na
+                        Promessa e na Lei escoteira, e através da prática do trabalho em equipe e da vida ao ar livre, fazer
+                        com que o jovem assuma seu próprio crescimento, tornar-se um exemplo de fraternidade, lealdade,
+                        altruísmo, responsabilidade, respeito e disciplina.</p>
+
+                    <a class="bt-saiba-mais" href="http://www.escoteirosrs.org.br/escotismo/" title="Lorem Ipsium">
+                        <span>Saiba mais sobre o escotismo</span><i class="arrow ir">Arrow</i>
+                    </a>
+                </div>
+
+                <img class="img-homem" src="/static/institution/img/img-homem.jpg" alt="Homem"/>
+            </div>
+
+        </div>
+
+        <div class="moviment">
+            <div class="center">
+                <h2 class="tt-movimento">Missão, Visão e Valores
+                    <span class="titles-bgs"></span>
+                </h2>
+
+                <p>
+                    Ajude a compor a história de mais de 100 anos de um movimento de cidadania,
+                    igualdade e respeito aos demais, à natureza e ao meio-ambiente.
+                </p>
+
+                <ul class="circles clearfix">
+
+                    <li class="young">
+                        <div class="item circle-1">
+                            <div class="mask">
+                                <div class="infos">
+                                    <div class="front circle-1"></div>
+                                    <div class="back">
+                                        <div class="content-table">
+                                            <div class="content-middle">
+                                                <a href="javascript:void(0);">
+                                                        <span style="text-size: 10px;">Contribuir para a educação de jovens, por meio de um sistema de valores baseado na Promessa e na Lei Escoteira, para ajudar a construir um mundo melhor, onde as pessoas se realizem como indivíduos e desempenhem um papel construtivo na sociedade.</span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="parents">
+                        <div class="item circle-2">
+                            <div class="mask">
+                                <div class="infos">
+                                    <div class="front circle-2"></div>
+                                    <div class="back">
+                                        <div class="content-table">
+                                            <div class="content-middle">
+                                                <a href="javascript:void(0);">
+                                                    <span>Até 2023, o Escotismo será o mais importante movimento educacional juvenil do mundo, possibilitando que 100 milhões de jovens sejam cidadãos ativos que inspirem mudanças positivas em suas comunidades e no mundo baseado em valores comuns.</span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="volunteirs">
+                        <div class="item circle-3">
+                            <div class="mask">
+                                <div class="infos">
+                                    <div class="front circle-3"></div>
+                                    <div class="back">
+                                        <div class="content-table">
+                                            <div class="content-middle">
+                                                <a href="javascript:void(0);">
+                                                    <span>Baseado na Promessa e na Lei escoteira, através da prática do trabalho em equipe e da vida ao ar livre, fazer com que o jovem assuma seu próprio crescimento, tornar-se um exemplo de fraternidade, lealdade, altruísmo, responsabilidade, respeito e disciplina.​</span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+
+        <div class="informations">
+            <img class="img-head" src="/static/institution/img/img-head.png" alt="Chapéu"/>
+
+
+            <div class="center clearfix">
+                {% for blog_post in page.homepage.blog_posts.all %}
+                    <div class="news box">
+                        <div class="top">
+                            <h2 class="titles-bgs">
+                                {% if blog_post.get_category_first %}
+                                    {{ blog_post.get_category_first }}
+                                {% else %}
+                                    Destaque
+                                {% endif %}
+                            </h2>
+                            <div class="pag-news"></div>
+                        </div>
+                        <ul class="list-news">
+                            <li>
+                                <a href="{{ blog_post.get_absolute_url }}">
+                                    {% if blog_post.featured_image %}
+                                        <img class="img-responsive" alt="{{ blog_post }}" title="{{ blog_post }}" src="{{ MEDIA_URL }}{% thumbnail blog_post.featured_image 460 260 %}">
+                                    {% else %}
+                                        <img class="img-responsive" alt="{{ blog_post }}" title="{{ blog_post }}" src="http://placehold.it/460x260" alt="Notícias">
+                                    {% endif %}
+                                </a>
+
+                                <div class="text">
+                                    <div class="aux">
+                                        <p>
+                                            {{ blog_post }}
+                                        </p>
+                                    </div>
+                                </div>
+                                <a href="{{ blog_post.get_absolute_url }}" class="detail btn-style"><span>VER DETALHE DA NOTÍCIA</span><i
+                                        class="arrow btn"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        {% if page.homepage.teams.count > 0 %}
+        <div class="store">
+            <div class="center clearfix">
+                {% for category in page.homepage.teams.all %}
+                    <h2>
+                        {{ category }}
+                        <span class="titles-bgs ir">{{ category }}</span>
+                    </h2>
+
+                    <div class="list-products equipe-homepage">
+                        <span class="next-store btn ir"></span>
+                        <ul class="products clearfix">
+                            {% for person in category.get_people_by_updated_at %}
+                                {% cycle '<li>' '' %}
+                                    <a href="javascript:void(0);" alt="{{ person.get_job_full_name }}" title="{{ person.get_job_full_name }}" class="{% cycle '' 'last' as css_class %}">
+                                        {% if person.mugshot %}
+                                            <img src="{{ MEDIA_URL }}{% thumbnail person.mugshot 140 140 %}" alt="{{ person.get_job_full_name }}" title="{{ person.get_job_full_name }}">
+                                        {% else %}
+                                            <img class="equipe-photo" src="{{ STATIC_URL }}institution/img/img-02.jpg" alt="{{ person.get_job_full_name }}" title="{{ person.get_job_full_name }}">
+                                        {% endif %}
+                                    </a>
+                                {% cycle '' '</li>' %}
+                            {% endfor %}
+                        </ul>
+                        <span class="prev-store btn ir"></span>
+                        <div class="carrousel-products">
+                        </div>
+                    </div>
+
+                    <a href="{{ category.get_first_page_url }}" class="btn-store btn-style"><span>Conheça a equipe</span><i class="arrow"></i></a>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+
+        {% if page.homepage.content %}
+        <div class="store">
+            <div class="center clearfix">
+            {% editable page.homepage.content %}
+            {{ page.homepage.content|richtext_filters|safe }}
+            {% endeditable %}
+            </div>
+        </div>
+            {% comment %}
+            // PARA USAR VIDEOS RESPONSIVOS:
+
+            <figure>
+            <div class="boxVideo">
+                // IFRAME OU INCORPORAÇÃO DO VIDEO
+            </div>
+            </figure>
+
+            CSSS: QUE JÁ ESTA NO INDEX.CSS
+            figure { width: 90%; min-width: 17.5em; margin:0 auto;}
+            figcaption { font: 120% sans-serif; text-align: center;}
+            .boxVideo {
+                position: relative;
+                padding-bottom: 56.25%;
+                padding-top: 25px;
+                height: 0;
+                margin:0 auto;
+            }
+            .boxVideo iframe {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+            }
+            {% endcomment %}
+
+        {% endif %}
+    {% endblock main %}
+{% endblock content_main %}
+
+
+{% block end_scripts %}
+
+{% endblock end_scripts %}

@@ -1,0 +1,355 @@
+@import 'scaffold/_layout';
+
+@import 'modules/_header';
+@import 'modules/_banner';
+@import 'modules/_footer';
+
+@import 'modules/_migalha';
+@import 'modules/_select-personalizado';
+
+// ==========================================================================
+// Main
+// ==========================================================================
+
+.tt-diretoria,
+.tt-grupo-distrito {
+    color: #A3AC1D;
+    font-size: 32px;
+    letter-spacing: -1px;
+    font-weight: normal;
+    display: block;
+    position: relative;
+    height: auto;
+    line-height: 120%;
+    width: 276px;
+    margin: 0 auto 24px;
+
+    span {
+        display: block;
+        width: 37px;
+        height: 37px;
+        position: absolute;
+        right: -5px;
+        top: 0;
+        background-position: 1px -1180px;
+    }
+}
+
+.tt-grupo-distrito {
+    font-size: 26px;
+    width: 100%;
+    text-align: center;
+}
+
+.description {
+    color: #333;
+    font-size: 16px;
+    line-height: 130%;
+    text-align: left;
+}
+
+.lista-distritos {
+    margin: 60px 0 50px;
+
+    li {
+        list-style: none;
+        margin-bottom: 40px;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}
+
+.content-img {
+    border: 1px solid #E1E1E1;
+    width: 182px;
+    height: 182px;
+    margin: 0 auto;
+
+    img {
+        width: 100%;
+        height: auto;
+    }
+}
+
+.content-infos {
+    margin-top: 20px;
+
+    a{
+        text-decoration: none;
+    }
+
+    strong {
+        color: #A3AC1D;
+        line-height: 100%;
+        display: block;
+        margin-bottom: 15px;
+        text-align: center;
+    }
+
+    b {
+        color: #333;
+        text-align: center;
+        font-size: 16px;
+        display: block;
+        line-height: 100%;
+        margin-bottom: 10px;
+    }
+
+    p {
+        text-align: center;
+        line-height: 120%;
+        color: #333;
+        font-size: 16px;
+        padding-bottom: 7px;
+    }
+
+    a{
+        color: #333;
+        text-align: center;
+        font-size: em(16px);
+        display: block;
+        line-height: 100%;
+        margin-top: 10px;
+    }
+}
+
+.box-grupos {
+    margin-top: 35px;
+
+    li {
+        list-style: none;
+        margin-bottom: 45px;
+    }
+
+    .content-img {
+        border: none;
+        width: 140px;
+        height: 140px;
+        margin: 20px auto 0;
+    }
+
+    .content-infos {
+        margin-top: 15px;
+
+        strong {
+            font-size: 20px;
+            color: #00853E;
+            line-height: 130%;
+            margin-bottom: 14px;
+            display: block;
+            font-weight: normal;
+            text-align: center;
+        }
+
+        p {
+            text-align: center;
+            color: #333;
+            font-size: 16px;
+            line-height: 140%;
+
+            a {
+                display: inline;
+                font-size: 16px;
+                text-decoration: none;
+                color: #333;
+
+                &:active,
+                &:focus,
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+
+            &.tt-bairro {
+                margin: 4px 0;
+            }
+        }
+    }
+}
+
+
+
+.back-list {
+    text-align: center;
+    padding: 18px 2px;
+
+    i{
+        opacity: 0;
+        left: 17%;
+    }
+}
+
+@media screen and (min-width: em(460px)) {
+    .back-list {
+        padding: 18px 97px;
+        text-align: right;
+
+        i{
+            opacity: 1;
+        }
+    }
+}
+
+@media screen and (min-width: em(600px)) {
+
+    .tt-diretoria {
+        width: 336px;
+        margin-bottom: 26px;
+        font-size: 34px;
+        letter-spacing: 0;
+    }
+
+    .description {
+        width: 385px;
+        text-align: center;
+        margin: 0 auto;
+    }
+
+    .formBuscar {
+        width: 580px;
+    }
+
+    .txtBuscar {
+        width: 522px;
+        padding: 0 24px;
+    }
+
+    .lista-distritos {
+
+        li {
+            clear: both;
+            margin-top: 40px;
+
+            &:first-child{
+                margin-top: 0;
+            }
+        }
+    }
+
+    .content-img {
+        margin: 0 22px 0 0;
+        float: left;
+    }
+
+    .content-infos {
+        height: 182px;
+        width: 377px;
+        float: left;
+        display: table;
+        margin-top: 0;
+
+        strong, b, p, a{
+            text-align: left;
+        }
+    }
+
+
+    .back-list {
+        margin: 42px auto 0;
+    }
+
+
+    .content {
+        display: table-cell;
+        vertical-align: middle;
+    }
+
+}
+
+@media screen and (min-width: em(768px)) {
+
+    .tt-grupo-distrito {
+        text-align: left;
+    }
+
+    .box-grupos {
+        width: 460px;
+
+        li {
+            width: 413px;
+            position: relative;
+        }
+
+        .content-img {
+            margin: 0;
+            float: left;
+        }
+
+        .content-infos {
+            width: 251px;
+            float: left;
+            margin: 0 0 0 22px;
+
+            strong {
+                text-align: left;
+            }
+
+            p {
+                text-align: left;
+            }
+        }
+    }
+
+
+    .back-list {
+        padding: 18px 70px;
+
+        i{
+            left: 14%;
+        }
+    }
+}
+
+@media screen and (min-width: em(950px)) {
+
+    main {
+        padding-bottom: 101px;
+    }
+
+    .tt-diretoria {
+        span {
+            right: 0;
+        }
+    }
+
+    .back-list {
+        margin: 10px 0 0 0;
+    }
+
+    .content-infos {
+        width: 712px;
+    }
+
+    .box-grupos {
+        width: 950px;
+
+        li {
+            float: left;
+            margin-left: 0;
+
+            &.last {
+                margin-left: 67px;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: em(1280px)) {
+    .back-list {
+        padding: 18px 87px;
+
+        i{
+            left: 20%;
+            opacity: 0;
+        }
+
+        &:hover{
+            i{
+                left: 14%;
+                opacity: 1;
+            }
+        }
+    }
+}

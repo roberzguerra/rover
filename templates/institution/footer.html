@@ -1,0 +1,24 @@
+{% load institutional %}
+<footer id="footer" role="contentinfo">
+    <div class="center clearfix">
+        <div class="infos">
+            {% get_social_links %}
+            <strong class="union">União dos Escoteiros do Brasil<br> Rio Grande do Sul</strong>
+
+            <p class="location"><span></span>Rua Castro Alves, 398<br> Bairro Rio Branco - Porto Alegre</p>
+            <a href="tel:+555132693963" class="phone"><span class="btn"></span>(51) 3330-9784</a>
+            {% include 'pages/menus/footer.html' %}
+        </div>
+        <div class="fundation">
+            {% comment %}
+            <a href="javascript:void(0);" class="map-site">Ver Mapa Completo do Site</a>
+            {% endcomment %}
+            <div class="logos">
+                <a href="http://escoteiros.org.br/" target="_blank" class="brand br ir" alt="Escoteiros do Brasil" title="Escoteiros do Brasil"></a>
+                <a href="http://www.scout.org/" target="_blank" class="brand ir" alt="Scouts" title="Scouts"></a>
+                <a href="https://getupcloud.com/" target="_blank" class="brand apoio-getup" alt="Getup Cloud" title="Getup Cloud"></a>
+            </div>
+        </div>
+    </div>
+
+</footer>

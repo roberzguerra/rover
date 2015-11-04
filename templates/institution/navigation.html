@@ -1,0 +1,10 @@
+<ul class="section">
+    {% for nav in navigation_list %}
+        <li {% if forloop.last %}class="selected"{% endif %}><a href="{% url nav.url_name %}"
+                                                                title="{{ nav.name }}">{{ nav.name }}</a></li>
+    {% endfor %}
+    {% comment %}
+    <li><a href="{% url 'institution:homepage' %}" title="Home">Home</a></li>
+    <li class="selected"><a href="{% url 'institution:escotismo' %}" title="Escotismo">Escotismo</a></li>
+    {% endcomment %}
+</ul>

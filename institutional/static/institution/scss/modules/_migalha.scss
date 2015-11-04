@@ -1,0 +1,145 @@
+// ==========================================================================
+// Migalha
+// ==========================================================================
+.migalha {
+    margin: 20px 0 70px;
+
+    .section{
+        list-style: none;
+        float: left;
+        margin-left: 10px;
+
+        li {
+            height: 21px;
+            float: left;
+            display: block;
+            padding-right: 25px;
+            margin-right: 10px;
+            background: url('../img/blt-migalha.png') no-repeat right 8px;
+
+            a {
+                color: #999;
+                font-size: 14px;
+                text-decoration: none;
+            }
+        }
+
+        .selected {
+            background: transparent;
+            padding-right: 0;
+            margin-right: 0;
+
+            a {
+                color: #333;
+            }
+        }
+    }
+
+    .share{
+        clear: both;
+        padding-top: 20px;
+        width: 273px;
+        margin: 0 auto;
+
+        li{
+            width: 130px;
+            float: left;
+            overflow: hidden;
+            list-style: none;
+            position: relative;
+            margin-right: 10px;
+        }
+
+        .share-face {
+            width: 58px;
+        }
+
+        .share-twitter {
+            width: 60px;
+        }
+
+        .share-email {
+            overflow: visible;
+            margin-right: 0;
+        }
+
+        #twitter-widget-0{
+            max-width: 102px !important;
+            margin-top: 1px;
+        }
+
+        .fb_iframe_widget{
+            margin-top: -1px;
+            width: 130px;
+        }
+
+        .mail{
+            background: url('../img/blt-msg.png') no-repeat 9px 5px rgba(244,244,244,1);
+            border: 1px solid #E0E0E0;
+            border-radius: 3px;
+            display: inline-block;
+            width: 130px;
+            height: 22px;
+            padding-left: 30px;
+            line-height: 14px;
+            font-size: em(11px);
+            color: #666;
+            margin: 0 auto 0;
+            transition: background-color .3s ease-in;
+
+            &:hover{
+                background-color: rgba(244,244,244,.7);
+            }
+
+            &.show-email {
+                transition: none;
+                background-position: 9px -25px;
+                background-color: #CCCCCC;
+                border: 1px solid #B4B4B4;
+                color: #fff;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: em(850px)) {
+    .migalha{
+        .share{
+            float: right;
+            clear: none;
+            padding-top: 0;
+            margin-left: 0;
+            margin-right: 10px;
+            width: auto;
+
+            .mail{
+                margin: 0;
+            }
+
+            li {
+                margin-right: 0;
+            }
+
+            .share-face {
+                width: 130px;
+            }
+
+            .share-twitter {
+                width: 110px;
+            }
+        }
+
+    }
+
+}
+
+@media screen and (min-width: em(1024px)) {
+    .migalha{
+        .section{
+            margin-left: 0;
+        }
+        .share{
+            margin-right: 0;
+        }
+    }
+}
