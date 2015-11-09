@@ -31,6 +31,7 @@ Crie um arquivo local_settings.py em seu repositório do projeto, não versionad
 O Projeto Rover é uma iniciativa dos [Escoteiros do Brasil - Região Rio Grande do Sul](http://escoteirosrs.org.br).
 Do RS para o mundo ;)
 
+[Projeto sob licensa BSD](https://github.com/roberzguerra/rover/blob/master/LICENSE)
 
 <a href="http://mezzanine.jupo.org/"><img src="http://mezzanine.jupo.org/static/img/mezzanine-logo.png" width="54" height="54"></a>
 <a href="http://www.djangoproject.com"><img src="http://mezzanine.jupo.org/static/img/djangopowered126x54_grey.gif" alt="Powered by Django." title="Powered by Django."></a>
