@@ -1,0 +1,10 @@
+{% extends 'blog/blog_post_list.html' %}
+
+{% block page_social %}
+{% endblock page_social %}
+
+{% block blog_list_post %}
+    {% with results as blog_posts %}
+        {{ block.super }}
+    {% endwith %}
+{% endblock %}

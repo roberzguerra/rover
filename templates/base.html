@@ -122,7 +122,8 @@
                 <a href="{% url 'home' %}" class="ir">Escoteiros do Brasil - Rio Grande do Sul</a>
             </h1>
             <button class="btn-menu"><span></span></button>
-                {% page_menu "pages/menus/dropdown.html" %}
+            {% page_menu "pages/menus/dropdown.html" %}
+            {% search_form "all" %}
         </nav>
     </header>
 

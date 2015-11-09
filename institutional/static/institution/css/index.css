@@ -1245,7 +1245,7 @@ header {
 .logo {
     width: 263px;
     height: 58px;
-    margin: 15px auto;
+    margin: 4px auto;
 }
 
 .logo a {
@@ -1321,11 +1321,19 @@ header {
     }
 
     .menu ul {
+        /*
         float: right;
         width: auto;
         max-height: 22px;
         height: 22px;
         margin: 41px 0 37px;
+        border: none;
+        */
+        float: right;
+        width: auto;
+        max-height: 22px;
+        height: 22px;
+        margin: 30px 0 6px;
         border: none;
     }
 
@@ -1457,7 +1465,7 @@ header {
 
     .menu .logo {
         float: left;
-        margin: 15px 0;
+        margin: 4px 0;
     }
 }
 
@@ -2189,9 +2197,9 @@ header {
 }
 
 .search {
-    height: 48px;
+    height: 30px;
     width: 300px;
-    margin: 8px auto 0;
+    margin: 0 auto 0 auto;
 }
 
 .search input {
@@ -2200,7 +2208,7 @@ header {
     color: #999 !important;
     background-color: #FFF;
     width: 252px;
-    height: 48px;
+    height: 30px;
     border: 2px solid #CCC;
     padding: 0 8px;
     float: left;
@@ -2209,7 +2217,7 @@ header {
 
 .search input[type="submit"] {
     background-color: rgba(153, 153, 153, 0.2);
-    background-position: -8px -326px;
+    background-position: -8px -335px;
     width: 46px;
     border-left: none;
     display: block;
@@ -2302,18 +2310,18 @@ header {
     }
 
     .search {
-        width: 420px;
+        width: 452px;
         padding: 0;
-        margin: 8px auto 0;
+        margin: 0 auto 0 auto;
     }
 
     .search input {
         width: 362px;
-        padding: 0 20px;
+        padding: 0 8px;
     }
 
     .search input[type="submit"] {
-        background-position: -1px -326px;
+        background-position: -1px -335px;
         width: 58px;
         padding: 0;
     }
@@ -2365,10 +2373,6 @@ header {
 
     .find .detail:hover i {
         left: 70%;
-    }
-
-    .search {
-        width: 422px;
     }
 }
 
@@ -5127,3 +5131,27 @@ figcaption { font: 120% sans-serif; text-align: center;}
     width: 100%;
     display: block;
   }
+
+/* INICIO RESULTADOS BUSCA ######################################################################### */
+.search-results h5 {
+    font-size: 1.2rem;
+    color: #000;
+    width: auto;
+    display: inline-block;
+}
+.search-results .img-responsive {
+    display: inline-block;
+}
+.search-results .link {
+    color: #000;
+    text-decoration: none;
+}
+.search-results .link:hover {
+    color: #00853E;
+    text-decoration: underline;
+}
+
+.search-results .text-result {
+    border-bottom: 1px solid #CCC;
+}
+/* FIM RESULTADOS BUSCA ######################################################################### */

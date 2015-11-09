@@ -1,14 +1,7 @@
-{% extends 'blog/blog_post_list.html' %}
-
-{% block page_social %}
-{% endblock page_social %}
-
 {% if request.GET.type == 'blog.BlogPost' %}
-    {% block blog_list_post %}
-        {% with results as blog_posts %}
-            {{ block.super }}
-        {% endwith %}
-    {% endblock %}
+    {% include 'blog/search_results_blog.html' %}
+{% else %}
+    {% include 'pages/search_results_all.html' %}
 {% endif %}
 
 {% comment %}
