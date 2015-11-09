@@ -21,15 +21,12 @@
                 </div>
             {% endif %}
         {% else %}
-
             {# QUANDO FOR PESQUISAS GERAIS, com mais de um tipo de item #}
             <input type="text" name="q" class="" title="Pesquisar" placeholder="Pesquisar" value="{{ request.GET.q }}"/>
             <input type="submit" name="submitsearch" class="btn ir">
-
         {% endif %}
     {% endif %}
 </form>
-
 {% comment %}
     <form action="{% url "search" %}" class="navbar-form navbar-right" role="search">
 

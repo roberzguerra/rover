@@ -28,12 +28,10 @@
         {% endblocktrans %}
     {% endif %}
 </p>
-
     <div id="search-results" class="other-news search-results">
         {% for result in results.object_list %}
         <h5>
             <a class="link" href="{{ result.get_absolute_url }}">{{ forloop.counter0|add:results.start_index }}) {{ result }}</a>
-
         </h5>
             {% if result.featured_image %}
                 <img class="img-responsive" alt="{{ result }}" title="{{ result }}" src="{{ MEDIA_URL }}{% thumbnail result.featured_image 80 45 %}">
@@ -41,10 +39,7 @@
         <p class="text-result">{{ result.description|truncatewords_html:20|safe }}<br>
             <a class="link" href="{{ result.get_absolute_url }}">{% trans "read more" %}</a>
         </p>
-
         {% endfor %}
     </div>
-
     {% pagination_for results %}
-
 {% endblock main %}
