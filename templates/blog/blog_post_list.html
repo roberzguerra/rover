@@ -147,11 +147,9 @@
     </div>
 {% endblock blog_list_post %}
 
-
-{% if settings.COMMENTS_DISQUS_SHORTNAME %}
-{% include "generic/includes/disqus_counts.html" %}
-{% endif %}
-
+    {% if settings.COMMENTS_DISQUS_SHORTNAME %}
+        {% include "generic/includes/disqus_counts.html" %}
+    {% endif %}
 {% endblock %}
 
 {% block right_panel %}

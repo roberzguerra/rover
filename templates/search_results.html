@@ -33,7 +33,6 @@ Showing {{ start }} to {{ end }} of {{ total }} results in {{ search_type }} mat
         <a href="{{ result.get_absolute_url }}">{% trans "read more" %}</a>
         {% endfor %}
     </div>
-
     {% pagination_for results %}
     {% endblock main %}
     </div>
