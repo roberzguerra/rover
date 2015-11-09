@@ -1,0 +1,56 @@
+{% load mezzanine_tags i18n future %}
+<form action="{% url "search" %}" class="search clearfix" role="search">
+    {% if search_model_choices %}
+        {% if search_model_choices|length == 1 %}
+            {# QUANDO FOR PESQUISA SOMENTE PARA blog.Blogpost #}
+            {% if search_model_choices.0.1 == 'blog.BlogPost' %}
+                <input type="text" name="q" class="watermark" title="Busca por palavra-chave" placeholder="Busca por palavra-chave" value="{{ request.GET.q }}"/>
+                <input type="submit" name="submitsearch" class="btn ir">
+                <input type="hidden" name="type" value="{{ search_model_choices.0.1 }}">
+                {% else %}
+                <div class="form-group">
+                <select class="form-control" name="type">
+                    <option value="">{% trans "Everything" %}</option>
+                    {% for verbose_name, model in search_model_choices %}
+                    <option value="{{ model }}"
+                        {% if model == request.REQUEST.type  %}selected{% endif %}>
+                        {{ verbose_name }}
+                    </option>
+                    {% endfor %}
+                </select>
+                </div>
+            {% endif %}
+        {% else %}
+            {# QUANDO FOR PESQUISAS GERAIS, com mais de um tipo de item #}
+            <input type="text" name="q" class="" title="Pesquisar" placeholder="Pesquisar" value="{{ request.GET.q }}"/>
+            <input type="submit" name="submitsearch" class="btn ir">
+        {% endif %}
+    {% endif %}
+</form>
+{% comment %}
+    <form action="{% url "search" %}" class="navbar-form navbar-right" role="search">
+    <div class="form-group">
+        <input class="form-control" placeholder="{% trans "Search" %}" type="text" name="q" value="{{ request.REQUEST.q }}">
+    </div>
+    {% if search_model_choices %}
+        {% if search_model_choices|length == 1 %}
+        <input type="hidden" name="type" value="{{ search_model_choices.0.1 }}">
+        {% else %}
+        <div class="form-group">
+        <select class="form-control" name="type">
+            <option value="">{% trans "Everything" %}</option>
+            {% for verbose_name, model in search_model_choices %}
+            <option value="{{ model }}"
+                {% if model == request.REQUEST.type  %}selected{% endif %}>
+                {{ verbose_name }}
+            </option>
+            {% endfor %}
+        </select>
+        </div>
+        {% endif %}
+    {% endif %}
+
+    <input type="submit" class="btn btn-default" value="{% trans "Go" %}">
+
+    </form>
+{% endcomment %}

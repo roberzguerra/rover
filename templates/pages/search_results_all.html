@@ -1,0 +1,45 @@
+{% extends "pages/page.html" %}
+{% load i18n future mezzanine_tags %}
+
+{% block meta_title %}{% trans "Search Results" %}{% endblock %}
+{% block title %}{% trans "Search Results" %}{% endblock %}
+{% block extra_head %}
+    <meta name="robots" content="noindex">
+{% endblock %}
+
+{% block breadcrumb_menu %}
+    <li>
+        <a href="{% url "home" %}">{% trans "Home" %}</a>
+    </li>
+    <li class="active">{% trans "Search Results" %}</li>
+{% endblock %}
+
+{% block main_class %}news-page{% endblock %}
+
+{% block main %}
+<p>
+    {% if results.paginator.count == 0 %}
+        {% blocktrans %}
+        Não foram encontrados resultados para a busca por: {{ query }}
+        {% endblocktrans %}
+        {% else %}
+        {% blocktrans with start=results.start_index end=results.end_index total=results.paginator.count %}
+            Exibindo resultados {{ start }} a {{ end }}, de {{ total }} resultados encontrados para a busca por: <strong>{{ query }}</strong>
+        {% endblocktrans %}
+    {% endif %}
+</p>
+    <div id="search-results" class="other-news search-results">
+        {% for result in results.object_list %}
+        <h5>
+            <a class="link" href="{{ result.get_absolute_url }}">{{ forloop.counter0|add:results.start_index }}) {{ result }}</a>
+        </h5>
+            {% if result.featured_image %}
+                <img class="img-responsive" alt="{{ result }}" title="{{ result }}" src="{{ MEDIA_URL }}{% thumbnail result.featured_image 80 45 %}">
+            {% endif %}
+        <p class="text-result">{{ result.description|truncatewords_html:20|safe }}<br>
+            <a class="link" href="{{ result.get_absolute_url }}">{% trans "read more" %}</a>
+        </p>
+        {% endfor %}
+    </div>
+    {% pagination_for results %}
+{% endblock main %}

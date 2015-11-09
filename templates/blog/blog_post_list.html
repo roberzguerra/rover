@@ -1,0 +1,159 @@
+{#{% extends "base.html" %}#}
+{% extends "pages/page.html" %}
+{% load i18n future mezzanine_tags blog_tags keyword_tags disqus_tags %}
+
+{% block extra_head_css %}
+{#    <link rel="stylesheet" href="{{ STATIC_URL }}institution/css/noticias.css">#}
+{% endblock extra_head_css %}
+
+{% block meta_title %}{% if page %}{{ page.meta_title }}{% else %}{% trans "Notícias" %}{% endif %}{% endblock %}
+
+{% block meta_keywords %}{% metablock %}
+{% keywords_for page as keywords %}
+{% for keyword in keywords %}
+    {% if not forloop.first %}, {% endif %}
+    {{ keyword }}
+{% endfor %}
+{% endmetablock %}{% endblock %}
+
+{% block meta_description %}{% metablock %}
+{{ page.description }}
+{% endmetablock %}{% endblock %}
+
+{% block pages_children %}
+{% endblock pages_children %}
+
+{% block breadcrumb_menu %}
+    {{ block.super }}
+    {% if tag or category or year or month or author %}
+{#    <li id="breadcrumb-menu-post-list"><a href="{% url 'blog_post_list' %}">{% trans 'Notícias' %} </a></li>#}
+    <li id="breadcrumb-menu-{{ blog_post.id }}" class="active">
+        {% spaceless %}
+        {% if tag %}
+            {% trans "Tag:" %} {{ tag }}
+        {% else %}{% if category %}
+            {% trans "Category:" %} {{ category }}
+        {% else %}{% if year or month %}
+            {% if month %}{{ month }}, {% endif %}{{ year }}
+        {% else %}{% if author %}
+            {% trans "Author:" %} {{ author.get_full_name|default:author.username }}
+        {% endif %}{% endif %}{% endif %}{% endif %}
+        {% endspaceless %}
+    </li>
+    {% comment %}
+    {% elif blog_post %}
+        <li id="breadcrumb-menu-post-list"><a href="{% url 'blog_post_list' %}">{% trans 'Notícias' %} </a></li>
+    {% elif not request.GET.q %}
+        <li id="breadcrumb-menu-post-list" class="active">{% trans 'Notícias' %}</li>
+        {% endcomment %}
+    {% endif %}
+
+{% endblock %}
+
+{% block body_class %}branch-escoteiro{% endblock %}
+
+{% block main_class %}news-page{% endblock %}
+
+{% block main %}
+
+    {% block title %}
+        {% if page %}
+            {% editable page.title %}<h2>
+                {{ page.title }}
+                {% if category %}
+                    - {{ category }}
+                {% endif %}
+                <span class="titles-bgs"></span>
+            </h2>{% endeditable %}
+        {% else %}
+            {% editable page.title %}<h2>
+                {% trans "Notícias" %}
+                {% if category %}
+                    - {{ category }}
+                {% endif %}
+                <span class="titles-bgs"></span></h2>
+            {% endeditable %}
+        {% endif %}
+    {% endblock %}
+
+
+    <p class="call">
+        Saiba das novidades mais recentes do Movimento Escoteiro no Rio Grande do Sul e no Brasil.
+    </p>
+    {% search_form "blog.BlogPost" %}
+
+{% if tag or category or year or month or author %}
+    {% block blog_post_list_filterinfo %}
+    <p>
+    {% if tag %}
+        {% trans "Notícias com a Tag" %} {{ tag }}
+    {% else %}{% if category %}
+        {% trans "Notícias com a Categoria" %} {{ category }}
+    {% else %}{% if year or month %}
+        {% trans "Notícias de" %} {% if month %}{{ month }}, {% endif %}
+        {{ year }}
+    {% else %}{% if author %}
+        {% trans "Notícias por" %}
+        {{ author.get_full_name|default:author.username }}
+    {% endif %}{% endif %}{% endif %}{% endif %}
+    {% endblock %}
+    </p>
+{% else %}
+    {% if page %}
+    {% block blog_post_list_pagecontent %}
+    {% if page.get_content_model.content %}
+        {% editable page.get_content_model.content %}
+        {{ page.get_content_model.content|richtext_filters|safe }}
+        {% endeditable %}
+    {% endif %}
+    {% endblock %}
+    {% endif %}
+{% endif %}
+
+{% block blog_list_post %}
+    <div class="other-news">
+        <ul class="list-news clearfix">
+            {% for blog_post in blog_posts.object_list %}
+            {% block blog_post_list_post_title %}
+            {% editable blog_post.title %}
+                <li class="{% cycle '' 'last' %}">
+                    <a href="{{ blog_post.get_absolute_url }}">
+                        {% if settings.BLOG_USE_FEATURED_IMAGE and blog_post.featured_image %}
+                            <img class="img-responsive" alt="{{ blog_post }}" title="{{ blog_post }}" src="{{ MEDIA_URL }}{% thumbnail blog_post.featured_image 460 260 %}">
+                        {% else %}
+                            <img class="img-responsive" alt="{{ blog_post }}" title="{{ blog_post }}" src="http://placehold.it/460x260" alt="Notícias">
+                        {% endif %}
+
+                    {# <img class="img-responsive" src="http://placehold.it/460x260" alt="Notícias"> #}
+                    </a>
+                    <div class="text">
+                        <div class="aux post-meta">
+                            <span>{% blocktrans with sometime=blog_post.publish_date_post_list %}{{ sometime }}{% endblocktrans %}</span>
+                            <p>
+                                {{ blog_post.title }}<br>
+                            </p>
+                        </div>
+                    </div>
+                    <a href="{{ blog_post.get_absolute_url }}" class="detail btn-style"><span>Ver detalhe da notícia</span><i class="arrow btn"></i></a>
+                </li>
+            {% endeditable %}
+            {% endblock %}
+
+            {% empty %}
+                Não existem notícias relacionadas a esta busca.
+            {% endfor %}
+        </ul>
+        {% pagination_for blog_posts %}
+    </div>
+{% endblock blog_list_post %}
+
+    {% if settings.COMMENTS_DISQUS_SHORTNAME %}
+        {% include "generic/includes/disqus_counts.html" %}
+    {% endif %}
+{% endblock %}
+
+{% block right_panel %}
+    {% comment %}
+    {% include "blog/includes/filter_panel.html" %}
+    {% endcomment %}
+{% endblock %}
