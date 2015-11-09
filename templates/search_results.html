@@ -3,33 +3,6 @@
 {% else %}
     {% include 'pages/search_results_all.html' %}
 {% endif %}
-
-{% comment %}
-{% extends "pages/page.html" %}
-{% load i18n future mezzanine_tags %}
-
-{% block meta_title %}{% trans "Search Results" %}{% endblock %}
-{% block title %}{% trans "Search Results" %}{% endblock %}
-{% block extra_head %}
-<meta name="robots" content="noindex">
-{% endblock %}
-{% endcomment %}
-
-
-{% comment %}
-    {% block breadcrumb_menu %}
-    <li>
-        <a href="{% url "home" %}">{% trans "Home" %}</a>
-    </li>
-    <li class="active">{% trans "Search Results" %}</li>
-    {% endblock %}
-
-{% block page_banner %}
-{% endblock page_banner %}
-{% endcomment %}
-
-
-
 {% comment %}
 {% block content_main %}
     <div class="center">
