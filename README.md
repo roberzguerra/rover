@@ -10,7 +10,7 @@ Baseado no CMS Mezzanine, utilizando o framework Django, é um CMS Open Source, 
 Para contribuir com o projeto Rover observe as seguintes diretrizes:
 
 * Antes de enviar ou para sugerir qualquer modificação, discuti-la no [Grupo de Usuários e Desenvolvedores do Projeto Rover](https://groups.google.com/group/projeto-rover).
-* O código partilhado deve ser escrito nos padrões existentes. Para Python (e até certo ponto decente, JavaScript também), seguindo os padrões de codificação Django e (mais importante) PEP 8. Front-end CSS devem aderir às diretrizes Bootstrap CSS.
+* O código partilhado deve ser escrito nos padrões existentes. Para Python (e até certo ponto decente, JavaScript também), seguindo os [padrões de codificação Django](https://docs.djangoproject.com/en/dev/internals/contributing/writing-code/coding-style/) e (mais importante) [PEP 8](https://www.python.org/dev/peps/pep-0008/). Front-end CSS devem aderir às diretrizes [Bootstrap CSS](https://github.com/twbs/bootstrap/blob/master/CONTRIBUTING.md#css).
 * Contribuições devem ser enviadas em uma branch separada, com nome específico referente à sua funcionalidade.
 * Toda e qualquer alteração de código será previamente aprovada pelo moderador do projeto, levando em conta sua relevância e discussões no [Grupo de Usuários e Desenvolvedores do Projeto Rover](https://groups.google.com/group/projeto-rover).
 
