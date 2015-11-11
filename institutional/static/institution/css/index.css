@@ -1245,7 +1245,7 @@ header {
 .logo {
     width: 263px;
     height: 58px;
-    margin: 4px auto;
+    margin: 14px auto;
 }
 
 .logo a {
@@ -1333,7 +1333,7 @@ header {
         width: auto;
         max-height: 22px;
         height: 22px;
-        margin: 30px 0 6px;
+        margin: 10px 0 6px;
         border: none;
     }
 
@@ -1465,7 +1465,7 @@ header {
 
     .menu .logo {
         float: left;
-        margin: 4px 0;
+        margin: 14px 0;
     }
 }
 
@@ -2199,6 +2199,7 @@ header {
 .search {
     height: 30px;
     width: 300px;
+    padding: 10px 0 0 0;
     margin: 0 auto 0 auto;
 }
 
@@ -2311,7 +2312,7 @@ header {
 
     .search {
         width: 452px;
-        padding: 0;
+        padding: 10px 0 0 0;
         margin: 0 auto 0 auto;
     }
 
