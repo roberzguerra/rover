@@ -40,7 +40,7 @@
             <ul class="folder-list">
             {% for file in files %}
                 <li>
-                    <a target="_blank" href="{{ MEDIA_URL }}{{ file.file }}" class="link"
+                    <a target="_blank" href="{{ file.get_absolute_url }}" class="link"
                        alt="{{ file.title|default:file.description }}"
                        title="{{ file.title|default:file.description }}">
                         {% if file.file.filetype == 'Image' %}

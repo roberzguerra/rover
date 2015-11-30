@@ -6,7 +6,8 @@ from django.utils.translation import ugettext_lazy as _
 
 from mezzanine.conf import settings
 from mezzanine.core.fields import FileField
-from mezzanine.core.models import Orderable, RichText
+from mezzanine.core.managers import SearchableManager
+from mezzanine.core.models import Orderable, RichText, Displayable
 from mezzanine.pages.models import Page
 from mezzanine.utils.importing import import_dotted_path
 from mezzanine.utils.models import upload_to
@@ -20,15 +21,16 @@ class MediaLibrary(Page, RichText):
         verbose_name_plural = _("Downloads")
 
 
-class MediaFile(Orderable):
+class MediaFile(Orderable, Displayable):
     """Single file to add in a library."""
 
     library = models.ForeignKey(MediaLibrary, related_name="files")
     file = FileField(_("File"), max_length=200,
             upload_to=upload_to("galleries.GalleryImage.file", "downloads"))
-    title = models.CharField(_("Title"), max_length=50, blank=True)
-    description = models.CharField(_("Description"), max_length=1000,
-                                   blank=True)
+    #title = models.CharField(_("Title"), max_length=50, blank=True)
+    #description = models.CharField(_("Description"), max_length=1000, blank=True)
+    objects = SearchableManager()
+    search_fields = {"title": 5, "description": 1}
 
     class Meta:
         verbose_name = _("Arquivo")
@@ -36,6 +38,12 @@ class MediaFile(Orderable):
 
     def __unicode__(self):
         return self.description
+
+    def get_absolute_url(self):
+        """
+        """
+        return "%s%s" % (settings.MEDIA_URL, self.file)
+        # return reverse("page", kwargs={"slug": slug})
 
     def save(self, *args, **kwargs):
         """

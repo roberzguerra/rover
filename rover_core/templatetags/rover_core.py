@@ -27,3 +27,8 @@ def crop_text(text, value):
         result = u"%s..." % result[:value]
 
     return result
+
+
+@register.filter
+def get_class_name(value):
+    return value.__class__.__name__

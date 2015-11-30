@@ -3,6 +3,7 @@
 from django.utils.translation import ugettext_lazy as _
 from django.db import models
 from mezzanine.core.fields import RichTextField, FileField
+from mezzanine.core.managers import SearchableManager
 from mezzanine.core.models import Displayable, RichText, Slugged
 from mezzanine.pages.models import Page
 from mezzanine.utils.models import AdminThumbMixin
@@ -90,6 +91,9 @@ class ScoutGroup(Displayable, RichText, AdminThumbMixin):
     president_name = models.CharField(verbose_name=_(u"Presidente"), max_length=255)
     image = FileField(verbose_name=_(u"Imagem Destaque"), upload_to="grupos_escoteiros", format="Image", max_length=255,
                      null=True, blank=True, help_text=_(u'Imagem do topo da página, proporção de 1920x300px'))
+
+    objects = SearchableManager()
+    search_fields = {"name": 5, "content": 1}
 
     class Meta:
         ordering = ["number", "name",]

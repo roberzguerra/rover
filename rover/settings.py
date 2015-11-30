@@ -107,7 +107,8 @@ BLOG_USE_FEATURED_IMAGE = True
 BLOG_SLUG = 'noticias'
 BLOG_POST_PER_PAGE = 6
 
-SEARCH_MODEL_CHOICES = ('pages.Page', 'blog.BlogPost', 'scout_group.District', 'scout_group.ScoutGroup')
+SEARCH_MODEL_CHOICES = ('pages.Page', 'blog.BlogPost', 'scout_group.District', 'scout_group.ScoutGroup',
+    'mezzanine_file_collections.MediaFile',)
 
 # Metodo padrao utilizado na geracao das URLs slugs
 SLUGIFY = 'django.template.defaultfilters.slugify'
