@@ -76,7 +76,7 @@ jQuery(function($) {
                 // "insertdatetime media nonbreaking save table contextmenu directionality",
                 // "emoticons template paste textcolor colorpicker textpattern imagetools"
             ],
-            link_list: '/displayable_links.js',
+            //link_list: '/displayable_links.js',
             relative_urls: false,
             convert_urls: false,
             menubar: false,
@@ -121,7 +121,7 @@ jQuery(function($) {
                 // "insertdatetime media nonbreaking save table contextmenu directionality",
                 // "emoticons template paste textcolor colorpicker textpattern imagetools"
             ],
-            link_list: '/displayable_links.js',
+            //link_list: '/displayable_links.js',
             relative_urls: false,
             convert_urls: false,
             menubar: false,
