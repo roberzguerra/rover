@@ -4,6 +4,7 @@ from django.shortcuts import get_object_or_404
 from django.utils.decorators import method_decorator
 from django.utils.translation import ugettext_lazy as _
 from django.views.generic import TemplateView
+from mezzanine.core.models import CONTENT_STATUS_PUBLISHED
 
 from events.models import ACTIVE
 from events.auth import events_permission_required
@@ -26,7 +27,7 @@ class EventHomePageView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super(EventHomePageView, self).get_context_data(**kwargs)
         context.update({
-            'event': get_object_or_404(Event, slug=self.slug)
+            'event': get_object_or_404(Event, slug=self.slug, status=CONTENT_STATUS_PUBLISHED)
             # 'programation_list': Programation.objects.filter(active=ACTIVE).order_by('date_time'),
         })
         return context

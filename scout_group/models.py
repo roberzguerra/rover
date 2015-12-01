@@ -92,7 +92,6 @@ class ScoutGroup(Displayable, RichText, AdminThumbMixin):
     image = FileField(verbose_name=_(u"Imagem Destaque"), upload_to="grupos_escoteiros", format="Image", max_length=255,
                      null=True, blank=True, help_text=_(u'Imagem do topo da página, proporção de 1920x300px'))
 
-    objects = SearchableManager()
     search_fields = {"name": 5, "content": 1}
 
     class Meta:
