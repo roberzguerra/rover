@@ -1074,7 +1074,7 @@ header {
 
 .nav-sections li {
     width: 100%;
-    height: 50px;
+    height: 34px;
     background-color: #00ACCD;
     list-style: none;
     position: relative;
@@ -1085,7 +1085,7 @@ header {
 
 .nav-sections li a {
     font-size: 1.125em;
-    line-height: 50px;
+    line-height: 28px;
     color: rgba(255, 255, 255, 0.8);
     display: block;
     width: 100%;
@@ -1116,6 +1116,10 @@ header {
 
 .nav-sections .institutional {
     background-color: #C1CD22;
+}
+
+.nav-sections .item-4 {
+    background-color: #00853E;
 }
 
 .btn-menu {
@@ -1255,6 +1259,11 @@ header {
     background: url("../img/logo-mobile.png") no-repeat;
 }
 
+.logo a .img-responsive {
+    display: block;
+
+}
+
 @media screen and (min-width: 47.5em) {
     .logo {
         width: 315px;
@@ -1266,7 +1275,7 @@ header {
     }
 
     .nav-sections {
-        height: 50px;
+        height: 36px;
     }
 
     .nav-sections li {
@@ -2311,7 +2320,7 @@ header {
     }
 
     .search {
-        width: 452px;
+        width: 470px;
         padding: 10px 0 0 0;
         margin: 0 auto 0 auto;
     }

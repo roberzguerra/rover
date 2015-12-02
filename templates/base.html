@@ -117,6 +117,9 @@
         <nav class="menu" role="navegation">
             <h1 class="logo">
                 <a href="{% url 'home' %}" class="ir">Escoteiros do Brasil - Rio Grande do Sul</a>
+                {% comment %}
+                <img src="{{ STATIC_URL }}institution/img/logo.png" class="img-responsive" />
+                {% endcomment %}
             </h1>
             {% search_form "all" %}
             <button class="btn-menu"><span></span></button>

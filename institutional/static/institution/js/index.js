@@ -11,7 +11,7 @@
                 slideResize: false,
                 containerResize: false,
                 fit: 1,
-                timeout: 5000,
+                timeout: 0,
                 next: '.next',
                 prev: '.prev',
                 pager: '.pagination'
