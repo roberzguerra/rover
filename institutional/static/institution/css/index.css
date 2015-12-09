@@ -1558,6 +1558,9 @@ header {
     height: 400px;
     position: relative;
 }
+.banner .pagination {
+    width: auto;
+}
 
 .slider {
     width: 100%;
