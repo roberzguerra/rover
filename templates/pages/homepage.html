@@ -6,14 +6,51 @@
 {% block content_main %}
     {% block main %}
         {% block slider %}
-            {% include 'includes/slider.html' %}
+
+<style type="text/css">
+.block-starwars {
+    width: 100%;
+    height: 500px;
+    border:0;
+    display: block;
+
+    position: relative;
+
+    overflow: hidden;
+}
+@media screen and (min-width: 47.5em) {
+    .block-starwars {
+        width: 100%;
+        height: 718px;
+        display: block;
+        border:0;
+        position: relative;
+        overflow: hidden;
+    }
+}
+
+.block-starwars iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border:0;
+}
+
+</style>
+            <div class="banner">
+                <div class="block-starwars">
+                    <iframe src="http://roberzguerra.github.io/starwars/prologue.html" frameborder="0"></iframe>
+                </div>
+            </div>
         {% endblock slider %}
 
-
+        <div>
         <a class="bt-saiba-mais mais-noticias" href="{% url 'blog_post_list' %}" title="Lorem Ipsium">
             <span>Mais notícias ...</span><i class="arrow ir">Arrow</i>
         </a>
-
+        </div>
         <div class="about">
             <div class="center clearfix">
                 <strong class="tt-about">
