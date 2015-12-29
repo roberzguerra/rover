@@ -17,7 +17,7 @@
 
 {# Facebook #}
 {% block social_title %}{% if page.meta_title %}{{ page.meta_title }}{% else %}{{ block.super }}{% endif %}{% endblock %}
-{% block social_image %}{{ request.scheme }}://{{ request.META.HTTP_HOST }}{% if page.image %}{{ MEDIA_URL }}{{ page.image }}{% else  %}{{ STATIC_URL }}institution/img/logo_escoteiros_starwars.png{% endif %}{% endblock social_image %}">
+{% block social_image %}{{ request.scheme }}://{{ request.META.HTTP_HOST }}{% if page.image %}{{ MEDIA_URL }}{{ page.image }}{% else  %}{{ STATIC_URL }}institution/img/logo_escoteiros_rs.png{% endif %}{% endblock social_image %}">
 {% block social_description %}{{ page.description }}{% endblock social_description %}
 
 {% block title %}
