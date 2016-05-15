@@ -100,6 +100,11 @@ jQuery(function($) {
             valid_elements : '*[*]',
             valid_children : "+body[style],p[strong|a|#text]",
 
+            // configuracoes do plugin image
+            image_class_list: [
+                {title: 'Responsivo', value: 'img-responsive'},
+            ],
+
             resize: "both"
         });
 
@@ -142,6 +147,11 @@ jQuery(function($) {
             // permite a tag style dentro do body do tiny_mce
             valid_elements : '*[*]',
             valid_children : "+body[style],p[strong|a|#text]",
+
+            // configuracoes do plugin image
+            image_class_list: [
+                {title: 'Responsivo', value: 'img-responsive'},
+            ],
 
             resize: "both"
         });

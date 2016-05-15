@@ -1,0 +1,245 @@
+{% extends 'events/event_base.html' %}
+{% load i18n bootstrap3 rover_core %}
+
+{% block bootstrap3_title %}{{ event.meta_title }}{% endblock %}
+{% block bootstrap3_extra_head %}
+    <meta name="author" content="Equipe Regional de Imagem e Comunicação">
+    {% if event.meta_description %}
+        <meta name="description" content="{{ event.meta_description }}"/>
+    {% elif event.event_description_short %}
+        <meta name="description" content="{{ event.event_description_short }}"/>
+    {% else %}
+        <meta name="description" content="Eventos, Escoteiros do Brasil - Rio Grande do Sul"/>
+    {% endif %}
+    <meta name="viewport" content="width=device-width">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="http://{{ request.META.HTTP_HOST }}{{ event.get_absolute_url }}">
+    <meta property="og:title" content="{{ event.event_title_menu }}">
+    <meta property="og:description" content="{{ event.event_description_short }}">
+    <meta property="og:image" content="http://{{ request.META.HTTP_HOST }}{{ event.get_event_social_image }}">
+
+    <link href="http://fonts.googleapis.com/css?family=Raleway:100,200,400,600,800" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" media="all" href="{{ STATIC_URL }}events/css/home.css">
+{% endblock %}
+
+{% block bootstrap3_content %}
+
+    {% block menu %}
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                            aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand visible-xs"
+                       href="{{ event.get_absolute_url }}">{{ event.event_title_menu }}</a>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        {% block menu-itens %}
+                            <li>
+                                <a class="navbar-brand hidden-xs" href="{{ event.get_absolute_url }}"
+                                   title="{{ event.event_title_menu }}"
+                                   alt="{{ event.event_title_menu }}">{{ event.event_title_menu }}</a>
+                            </li>
+                            {{ event.eventblock_set.all }}
+                            {% for event.eventblock_set.all in event_block %}
+                                <li>
+                                    <a>
+                                        {{ event_block }}
+                                    </a>
+                                </li>
+                            {% endfor %}
+
+
+                            {% comment %}
+                            <li><a class="navbar-brand hidden-xs" href="{{ event.get_absolute_url }}"
+                                   title="{{ event.event_title_menu }}"
+                                   alt="{{ event.event_title_menu }}">{{ event.event_title_menu }}</a></li>
+                            <li><a href="#home" title="Início" class="navegacao-link">{% trans "Início" %}</a></li>
+                            {% if event.is_information_active %}
+                                <li><a href="#infos-geral" title="{{ event.information_title|text }}"
+                                       class="navegacao-link">{{ event.information_title|text }}</a></li>
+                            {% endif %}
+                            {% if event.is_list_programations_active %}
+                                <li><a href="#programacao" title="{{ event.list_programations_title|text }}"
+                                       class="navegacao-link">{{ event.list_programations_title|text }}</a></li>
+                            {% endif %}
+                            {% if event.is_local_active %}
+                                <li><a href="#location" title="{{ event.local_title|text }}"
+                                       class="navegacao-link">{{ event.local_title|text }}</a></li>
+                            {% endif %}
+                            {% if event.is_observation_active %}
+                                <li><a href="#observation" title="{{ event.observation_title|text }}"
+                                       class="navegacao-link">{{ event.observation_title|text }}</a></li>
+                            {% endif %}
+                            {% endcomment %}
+                        {% endblock %}
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    {% endblock %}
+
+    {% block header %}
+        <header id="home" class="header"
+                style="background: url({{ event.get_event_image_background }}) center center no-repeat;">
+            <div class="wrapper" style="display: block;">
+                <h1 class="logo">
+                    <a class="logo-link" href="{{ event.get_absolute_url }}" title="{{ event.event_title|safe|striptags }}"
+                       itemprop="name"
+                       style="background: url({{ event.get_event_logo }}) no-repeat;">{{ event.event_title }}</a>
+                </h1>
+                <p class="evento-head">{{ event.event_title|safe }}</p>
+                {% comment %}
+                <p class="evento-slogan">Inscrições encerradas!</p>
+                <p style="font-weight:bold; color:#FFF;">Confira a lista dos inscritos por base.</p>
+                <div style="width:100%; text-align:center;"><a href="relação-ramo-escoteiro.pdf" class="call-action-link" target="_blank">Ramo Escoteiro</a></div>
+            {% endcomment %}
+                <br>
+            </div>
+        </header>
+    {% endblock header %}
+
+    {% block content-sections %}
+
+        {% if event.is_information_active %}
+            <section class="section section-about" id="infos-geral">
+                <div class="wrapper">
+                    <h2 class="section-title">{{ event.information_title|safe }}</h2>
+
+                    <div class="about-text" itemprop="description">
+                        {{ event.information_text|safe }}
+                    </div>
+                </div>
+            </section>
+        {% endif %}
+
+        {% comment %}
+            <section class="section section-speakers" id="especialidades">
+                <div class="wrapper">
+
+                </div>
+            </section>
+        {% endcomment %}
+
+        {% if event.is_list_programations_active %}
+            <section class="section section-programacao" id="programacao">
+                <div class="wrapper">
+                    <h2 class="section-title">{{ event.list_programations_title|safe }}</h2>
+
+                    {% if event.get_programation_list %}
+                        <ul class="programacao">
+
+                            {% regroup event.get_programation_list by date_time|date:'Y-m-d' as date_list %}
+                            {# agrupa somente pela data do campo date_time #}
+
+                            {% for date in date_list %}
+                                <p><strong>{{ date.list.0.date_time|date:"d \d\e F \d\e Y" }}</strong></p>
+                                {% for programation in date.list %}
+                                    <li id="programacao-credenciamento" class="programacao-item programacao-item-other">
+                                        <div class="programacao-intro">
+                                            <div class="programacao-intro-board"><span
+                                                    class="programacao-time">{{ programation.date_time|time:'H:i' }}</span><img
+                                                    src="{{ MEDIA_URL }}{{ programation.image }}"
+                                                    class="programacao-image"/></div>
+                                        </div>
+                                        <div class="programacao-slot">
+                                            <div class="programacao-activity">{{ programation.name }}</div>
+                                            {% if programation.content %}
+                                                <p>{{ programation.content|safe }}</p>
+                                            {% else %}
+                                                <p>&nbsp;</p>
+                                            {% endif %}
+                                            </div>
+                                    </li>
+                                {% endfor %}
+                            {% endfor %}
+                        </ul>
+                    {% else %}
+                        <ul class="speakers-list">
+                            <li class="eventos-item" itemprop="performer" itemscope="">
+                                <div class="eventos-info"><h3
+                                        class="eventos-name programacao-vazia">{% trans "Nenhuma programação disponível" %}.</h3>
+                                </div>
+                            </li>
+                        </ul>
+                    {% endif %}
+                </div>
+            </section>
+        {% endif %}
+
+        {% if event.is_local_active %}
+            <section class="section section-location" id="location">
+                <div class="wrapper">
+                    <h2 class="section-title">{{ event.local_title|safe }}</h2>
+
+                    <div class="address" itemprop="address" itemtype="http://schema.org/PostalAddress">
+                        {{ event.local_text|safe }}
+                    </div>
+                </div>
+                {% comment %}<div class="address-map" data-address="Avenida Senador Salgado Filho, 2785 - Viamão"></div>{% endcomment %}
+                <div class="address-map" data-address="{{ event.local_maps_name }}"></div>
+            </section>
+        {% endif %}
+
+        {% if event.is_observation_active %}
+            <section class="section section-inscricoes" id="observation">
+                <div class="wrapper">
+                    <h2 class="section-title">{{ event.observation_title|safe }}</h2>
+
+                    <div class="about-text" itemprop="description">
+                        {{ event.observation_text|safe }}
+                    </div>
+                </div>
+            </section>
+        {% endif %}
+
+        <section class="section section-sponsors" id="sponsors">
+            <div class="wrapper">
+                <h2 class="section-title" style="color:#FFF !important;">Realização</h2>
+                <ul class="partners-list">
+                    <li class="partner-item" itemtype="http://schema.org/Organization">
+                        <img src="{{ STATIC_URL }}events/img/escoteiros-do-brasil.png"
+                             alt="Escoteiros do Brasil - Rio Grande do Sul" class="partner-logo" itemprop="image"/>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+    {% endblock %}
+
+    {% block footer %}
+        <div class="footer">
+            <div class="wrapper">
+                <div class="credits"><a href="http://www.escoteirosrs.org.br/index.php?option=pessoa&id=22&Itemid=269"
+                                        target="_blank">Equipe Regional</a> de Imagem e Comunicação
+                </div>
+            </div>
+        </div>
+    {% endblock %}
+
+{% endblock %}
+
+{% block bootstrap3_extra_script %}
+    <script src="{{ STATIC_URL }}events/js/jquery.easing.min.js"></script>
+    <script src="{{ STATIC_URL }}events/js/home.js"></script>
+    <script type="text/javascript">
+        Events.init();
+        Events.war();
+    </script>
+    {% block extra_script %}
+        <script type="text/javascript">
+            loadScripts('maps.google.com/maps/api/js?sensor=false&callback=mapsAsyncInit');
+        </script>
+    {% endblock %}
+    {# INICIO CODIGOS ANALYTICS #}
+    <script>
+    </script>
+    {# FIM CODIGOS ANALYTICS #}
+{% endblock %}

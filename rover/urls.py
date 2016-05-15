@@ -7,7 +7,7 @@ from django.contrib import admin
 
 from mezzanine.core.views import direct_to_template
 from mezzanine.conf import settings
-
+from ajax_select import urls as ajax_select_urls
 
 admin.autodiscover()
 
@@ -36,6 +36,10 @@ urlpatterns += i18n_patterns('',
     # commented out like the others, so it's the default. You only need
     # one homepage pattern, so if you use a different one, comment this
     # one out.
+
+    # URLS ajax_select
+    url(r'^ajax_select/', include(ajax_select_urls)),
+
 
     #url("^$", direct_to_template, {"template": "index.html"}, name="home"),
     url("^$", "institutional.views.homepage", name="home"),

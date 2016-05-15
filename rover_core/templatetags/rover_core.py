@@ -32,3 +32,7 @@ def crop_text(text, value):
 @register.filter
 def get_class_name(value):
     return value.__class__.__name__
+
+@register.filter
+def get_key(dic, value):
+    return dic[value]

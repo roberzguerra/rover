@@ -1,0 +1,20 @@
+{% load i18n %}
+
+<style type="text/css">
+a.add-another.addlink:link,
+ a.add-another.addlink:visited {
+    background-position: 0 4px;
+}
+
+.event_ajax_select.inline-tabular input[type=text].ui-autocomplete-input {
+    width: 15rem;
+}
+
+</style>
+
+<div class="dynamic-inline">
+    {% include "admin/edit_inline/event_block_tabular.html" %}
+    <p class="add-another" 
+        style="margin:10px; font-weight:bold; text-align:right;">
+        <a href="#">{% trans "Add another" %}</a></p>
+</div>

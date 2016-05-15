@@ -46,6 +46,7 @@ class PersonCategoryAdmin(admin.ModelAdmin):
     unless explicitly specified.
     """
 
+
     fieldsets = ((None, {"fields": ("title",)}),)
     # inlines = (PersonCategoryAdminInline,)
 

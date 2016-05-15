@@ -67,6 +67,7 @@ function getCookie(name) {
     return cookieValue;
 }
 
+/*
 window.mapsAsyncInit = function () {
     var container = document.querySelector('[data-address]')
         , address = container.getAttribute('data-address')
@@ -90,9 +91,10 @@ window.mapsAsyncInit = function () {
         map.setCenter(location);
     })
 };
-
+*/
 // Load Scripts
 // ===========
+
 
 function loadScripts(urls) {
     var script = document.getElementsByTagName('script')[0]

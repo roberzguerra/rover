@@ -21,7 +21,8 @@ ADMIN_MENU_ORDER = (
        "generic.ThreadedComment", ("Biblioteca de Mídia", "fb_browse"),)),
     ("Equipes", ("mezzanine_people.Person", "mezzanine_people.PersonCategory")),
     ("Grupos | Distritos", ("scout_group.District", "scout_group.ScoutGroup")), #"scout_group.ScoutGroup"
-    ("Eventos", ("events.Event", "events.EventProgramation")),
+    #("Eventos", ("events.Event", "events.EventBlock", "events.EventProgramation")),
+    ("Eventos", ("events.Event", "events.Block", "events.Programation")),
     ("Users", ("auth.User", "auth.Group",)),
     ("Site", ("sites.Site", "redirects.Redirect", "conf.Setting")),
 
@@ -137,8 +138,8 @@ MANAGERS = ADMINS
 TIME_ZONE = "America/Sao_Paulo"
 
 # If you set this to True, Django will use timezone-aware datetimes.
-USE_TZ = True
-DATETIME_FORMAT = 'd/m/y H:M:S'
+USE_TZ = False
+DATETIME_FORMAT = 'd/m/y H:i:s'
 DATE_INPUT_FORMATS = ('%d/%m/%Y',)
 
 # Language code for this installation. All choices can be found here:
@@ -296,6 +297,7 @@ INSTALLED_APPS = (
     "bootstrap3",
     "mezzanine_people",
     "mezzanine_file_collections",
+    "ajax_select",
 
     # Criados
     "institutional",

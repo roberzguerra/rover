@@ -1,0 +1,47 @@
+{% load i18n %}
+
+<input type="text" name="{{name}}_text" id="{{html_id}}_text" value="" autocomplete="off" class="event_ajax_select"  {{ extra_attrs }} />
+{% if add_link %}
+	<a href="{{ add_link }}" class="add-another addlink event_ajax_select" id="add_{{ html_id }}" onclick="return showAddAnotherPopup(this);"> {% trans "Adicionar Novo" %}</a>
+{% endif %}
+<input type="hidden" name="{{name}}" id="{{html_id}}" value="{{current_ids}}" data-ajax-select="autocompleteselectmultiple" data-plugin-options="{{ data_plugin_options }}" />
+<div id="{{html_id}}_on_deck" class="results_on_deck"></div>
+{% block extra_script %}{% endblock %}
+{# django admin adds the help text. this is for use outside of the admin #}
+{% block help %}{% if help_text %}<p class="help">{{help_text}}</p>{% endif %}{% endblock %}
+
+<style type="text/css">
+a.event_ajax_select {
+    background-position: 0 50%;
+}
+input[type=text].event_ajax_select {
+    width: 50%;
+}
+.results_on_deck .ui-icon.ui-icon-pencil {
+    float: left;
+    cursor: pointer;
+}
+.results_on_deck .ajax_select_item {
+    float: left;
+}
+
+.results_on_deck > div {
+    margin-bottom: 0.5em;
+    float: left;
+    display: block;
+    width: 100%;
+}
+</style>
+
+<script type="text/javascript">
+function dismissRelatedLookupPopup(win, chosenId) {
+    var name = windowname_to_id(win.name);
+    var elem = document.getElementById(name);
+    if (elem.className.indexOf('vManyToManyRawIdAdminField') != -1 && elem.value) {
+        elem.value += ',' + chosenId;
+    } else {
+        document.getElementById(name).value = chosenId;
+    }
+    win.close();
+}
+</script>

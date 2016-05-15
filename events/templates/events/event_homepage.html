@@ -24,7 +24,6 @@
 {% endblock %}
 
 {% block bootstrap3_content %}
-
     {% block menu %}
         <nav class="navbar navbar-default navbar-fixed-top">
             <div class="container">
@@ -42,26 +41,20 @@
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
                         {% block menu-itens %}
-                            <li><a class="navbar-brand hidden-xs" href="{{ event.get_absolute_url }}"
+                            <li>
+                                <a class="navbar-brand hidden-xs" href="{{ event.get_absolute_url }}"
                                    title="{{ event.event_title_menu }}"
-                                   alt="{{ event.event_title_menu }}">{{ event.event_title_menu }}</a></li>
-                            <li><a href="#home" title="Início" class="navegacao-link">{% trans "Início" %}</a></li>
-                            {% if event.is_information_active %}
-                                <li><a href="#infos-geral" title="{{ event.information_title|text }}"
-                                       class="navegacao-link">{{ event.information_title|text }}</a></li>
-                            {% endif %}
-                            {% if event.is_list_programations_active %}
-                                <li><a href="#programacao" title="{{ event.list_programations_title|text }}"
-                                       class="navegacao-link">{{ event.list_programations_title|text }}</a></li>
-                            {% endif %}
-                            {% if event.is_local_active %}
-                                <li><a href="#location" title="{{ event.local_title|text }}"
-                                       class="navegacao-link">{{ event.local_title|text }}</a></li>
-                            {% endif %}
-                            {% if event.is_observation_active %}
-                                <li><a href="#observation" title="{{ event.observation_title|text }}"
-                                       class="navegacao-link">{{ event.observation_title|text }}</a></li>
-                            {% endif %}
+                                   alt="{{ event.event_title_menu }}">{{ event.event_title_menu }}</a>
+                            </li>
+                            {% for event_block in event.get_all_blocks_published %}
+                                {% with event_block.block as block %}
+                                {% if event_block.show_link_menu and event_block.is_published and block.is_published %}
+                                    <li>
+                                        <a href="#menu_{{ event_block.id }}" title="{{ block.title }}" class="navegacao-link">{{ block.title }}</a>
+                                    </li>
+                                {% endif %}
+                                {% endwith %}
+                            {% endfor %}
                         {% endblock %}
                     </ul>
                 </div>
@@ -80,128 +73,119 @@
                 </h1>
                 <p class="evento-head">{{ event.event_title|safe }}</p>
                 {% comment %}
-                <p class="evento-slogan">Inscrições encerradas!</p>
-                <p style="font-weight:bold; color:#FFF;">Confira a lista dos inscritos por base.</p>
-                <div style="width:100%; text-align:center;"><a href="relação-ramo-escoteiro.pdf" class="call-action-link" target="_blank">Ramo Escoteiro</a></div>
-            {% endcomment %}
+                    <p class="evento-slogan">Inscrições encerradas!</p>
+                    <p style="font-weight:bold; color:#FFF;">Confira a lista dos inscritos por base.</p>
+                    <div style="width:100%; text-align:center;"><a href="relação-ramo-escoteiro.pdf" class="call-action-link" target="_blank">Ramo Escoteiro</a></div>
+                {% endcomment %}
                 <br>
             </div>
         </header>
     {% endblock header %}
 
     {% block content-sections %}
-
-        {% if event.is_information_active %}
-            <section class="section section-about" id="infos-geral">
-                <div class="wrapper">
-                    <h2 class="section-title">{{ event.information_title|safe }}</h2>
-
-                    <div class="about-text" itemprop="description">
-                        {{ event.information_text|safe }}
+        {% for event_block in event.get_all_blocks_published %}
+            {% with event_block.block as block %}
+            {% if event_block.is_published and block.is_published %}
+                {% if event_block.is_type_content %}
+                {# BLOCOS DE EVENTOS #}
+                <section class="section section-about" id="menu_{{ event_block.id }}">
+                    <div class="wrapper">
+                        <h2 class="section-title">{{ block.title }}</h2>
+                        <div class="about-text" itemprop="description">
+                            {{ block.get_content }}
+                        </div>
                     </div>
-                </div>
-            </section>
-        {% endif %}
+                </section>
+                {% elif event_block.is_type_programation %}
+                    {# PROGRAMACOES DE EVENTO #}
+                    <section class="section section-programacao" id="menu_{{ event_block.id }}">
+                        <div class="wrapper">
+                            <h2 class="section-title">{{ block.title }}</h2>
+                            <div class="about-text" itemprop="description">
+                                {{ block.content|safe }}
+                            </div>
+                        </div>
 
-        {% comment %}
-            <section class="section section-speakers" id="especialidades">
-                <div class="wrapper">
+                        {% if event.get_all_programations_published %}
+                            <div class="wrapper wrapper-programacao">
 
-                </div>
-            </section>
-        {% endcomment %}
+                                <ul class="programacao">
+                                    {% with event.get_all_programations_published_by_date_time as context_programation %}
 
-        {% if event.is_list_programations_active %}
-            <section class="section section-programacao" id="programacao">
-                <div class="wrapper">
-                    <h2 class="section-title">{{ event.list_programations_title|safe }}</h2>
+                                        {% for date_time in context_programation.list_dates %}
+                                            {# MONTA O TITULO DA DATA #}
+                                            <p><strong>{{ date_time }}</strong></p>
+                                            {% with context_programation.list_programations|get_key:date_time as list_programations %}
+                                                {% for programation in list_programations %}
+                                                    {# MONTA A PROGRAMACAO #}tin
+                                                    <li id="programacao-credenciamento" class="programacao-item programacao-item-other">
+                                                    <div class="programacao-intro">
+                                                        <div class="programacao-intro-board"><span
+                                                                class="programacao-time">{{ programation.date_time|time:'H:i' }}</span><img
+                                                                src="{{ MEDIA_URL }}{{ programation.image }}"
+                                                                class="programacao-image"/></div>
+                                                    </div>
+                                                    <div class="programacao-slot">
+                                                        <div class="programacao-activity">{{ programation.title }}</div>
+                                                        {% if programation.content %}
+                                                            <p>{{ programation.content|safe }}</p>
+                                                        {% else %}
+                                                            <p>&nbsp;</p>
+                                                        {% endif %}
+                                                        </div>
+                                                </li>
+                                                {% endfor %}
+                                            {% endwith %}
+                                        {% endfor %}
+                                    {% endwith %}
 
-                    {% if event.get_programation_list %}
-                        <ul class="programacao">
+                                </ul>
+                            </div>
+                            {% comment %}
+                            <div class="wrapper">
 
-                            {% regroup event.get_programation_list by date_time|date:'Y-m-d' as date_list %}
-                            {# agrupa somente pela data do campo date_time #}
+                                    <ul class="programacao">
 
-                            {% for date in date_list %}
-                                <p><strong>{{ date.list.0.date_time|date:"d \d\e F \d\e Y" }}</strong></p>
-                                {% for programation in date.list %}
-                                    <li id="programacao-credenciamento" class="programacao-item programacao-item-other">
-                                        <div class="programacao-intro">
-                                            <div class="programacao-intro-board"><span
-                                                    class="programacao-time">{{ programation.date_time|time:'H:i' }}</span><img
-                                                    src="{{ MEDIA_URL }}{{ programation.image }}"
-                                                    class="programacao-image"/></div>
-                                        </div>
-                                        <div class="programacao-slot">
-                                            <div class="programacao-activity">{{ programation.name }}</div>
-                                            {% if programation.content %}
-                                                <p>{{ programation.content|safe }}</p>
-                                            {% else %}
-                                                <p>&nbsp;</p>
-                                            {% endif %}
-                                            </div>
-                                    </li>
-                                {% endfor %}
-                            {% endfor %}
-                        </ul>
-                    {% else %}
-                        <ul class="speakers-list">
-                            <li class="eventos-item" itemprop="performer" itemscope="">
-                                <div class="eventos-info"><h3
-                                        class="eventos-name programacao-vazia">{% trans "Nenhuma programação disponível" %}.</h3>
-                                </div>
-                            </li>
-                        </ul>
-                    {% endif %}
-                </div>
-            </section>
-        {% endif %}
+                                        {% regroup event.get_programation_list by date_time|date:'Y-m-d' as date_list %}
+                                        {# agrupa somente pela data do campo date_time #}
 
-        {% if event.is_local_active %}
-            <section class="section section-location" id="location">
-                <div class="wrapper">
-                    <h2 class="section-title">{{ event.local_title|safe }}</h2>
-
-                    <div class="address" itemprop="address" itemtype="http://schema.org/PostalAddress">
-                        {{ event.local_text|safe }}
-                    </div>
-                </div>
-                {% comment %}<div class="address-map" data-address="Avenida Senador Salgado Filho, 2785 - Viamão"></div>{% endcomment %}
-                <div class="address-map" data-address="{{ event.local_maps_name }}"></div>
-            </section>
-        {% endif %}
-
-        {% if event.is_observation_active %}
-            <section class="section section-inscricoes" id="observation">
-                <div class="wrapper">
-                    <h2 class="section-title">{{ event.observation_title|safe }}</h2>
-
-                    <div class="about-text" itemprop="description">
-                        {{ event.observation_text|safe }}
-                    </div>
-                </div>
-            </section>
-        {% endif %}
-
-        <section class="section section-sponsors" id="sponsors">
-            <div class="wrapper">
-                <h2 class="section-title" style="color:#FFF !important;">Realização</h2>
-                <ul class="partners-list">
-                    <li class="partner-item" itemtype="http://schema.org/Organization">
-                        <img src="{{ STATIC_URL }}events/img/escoteiros-do-brasil.png"
-                             alt="Escoteiros do Brasil - Rio Grande do Sul" class="partner-logo" itemprop="image"/>
-                    </li>
-                </ul>
-            </div>
-        </section>
-
+                                        {% for date in date_list %}
+                                            <p><strong>{{ date.list.0.date_time|date:"d \d\e F \d\e Y" }}</strong></p>
+                                            {% for programation in date.list %}
+                                                <li id="programacao-credenciamento" class="programacao-item programacao-item-other">
+                                                    <div class="programacao-intro">
+                                                        <div class="programacao-intro-board"><span
+                                                                class="programacao-time">{{ programation.date_time|time:'H:i' }}</span><img
+                                                                src="{{ MEDIA_URL }}{{ programation.image }}"
+                                                                class="programacao-image"/></div>
+                                                    </div>
+                                                    <div class="programacao-slot">
+                                                        <div class="programacao-activity">{{ programation.name }}</div>
+                                                        {% if programation.content %}
+                                                            <p>{{ programation.content|safe }}</p>
+                                                        {% else %}
+                                                            <p>&nbsp;</p>
+                                                        {% endif %}
+                                                        </div>
+                                                </li>
+                                            {% endfor %}
+                                        {% endfor %}
+                                    </ul>
+                            </div>
+                            {% endcomment %}
+                        {% endif %}
+                    </section>
+                {% endif %}
+            {% endif %}
+            {% endwith %}
+        {% endfor %}
     {% endblock %}
 
     {% block footer %}
         <div class="footer">
             <div class="wrapper">
-                <div class="credits"><a href="http://www.escoteirosrs.org.br/index.php?option=pessoa&id=22&Itemid=269"
-                                        target="_blank">Equipe Regional</a> de Imagem e Comunicação
+                <div class="credits"><a href="http://escoteirosrs.org.br/pt-br/lista-equipes/equipe-regional-de-imagem-e-comunicacao/"
+                                        target="_blank">Equipe Regional de Imagem e Comunicação</a>
                 </div>
             </div>
         </div>
@@ -218,11 +202,10 @@
     </script>
     {% block extra_script %}
         <script type="text/javascript">
-            loadScripts('maps.google.com/maps/api/js?sensor=false&callback=mapsAsyncInit');
+{#            loadScripts('maps.google.com/maps/api/js?sensor=false&callback=mapsAsyncInit');#}
         </script>
+        {{ event.get_code }}
     {% endblock %}
-    {# INICIO CODIGOS ANALYTICS #}
-    <script>
-    </script>
-    {# FIM CODIGOS ANALYTICS #}
+
+    {% include "includes/footer_scripts.html" %}
 {% endblock %}

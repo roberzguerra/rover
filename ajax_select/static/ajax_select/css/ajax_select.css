@@ -1,0 +1,113 @@
+.results_on_deck .ui-icon-trash {
+  float: left;
+  cursor: pointer;
+}
+.results_on_deck {
+  padding: 0.25em 0;
+}
+form .aligned .results_on_deck {
+  padding-left: 38px;
+  margin-left: 7em;
+}
+.results_on_deck > div {
+  margin-bottom: 0.5em;
+}
+.ui-autocomplete-loading {
+  background:  url('../images/loading-indicator.gif') no-repeat;
+  background-origin: content-box;
+  background-position: right;
+}
+ul.ui-autocomplete {
+	/*
+  this is the dropdown menu.
+
+  if max-width is not set and you are using django-admin
+    then the dropdown is the width of your whole page body (totally wrong).
+
+  this sets max-width at 60% which is graceful at full page or in a popup
+    or on a small width window.
+
+  fixed width is harder see http://stackoverflow.com/questions/4607164/changing-width-of-jquery-ui-autocomplete-widgets-individually
+	*/
+  max-width: 60%;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+}
+ul.ui-autocomplete li {
+  list-style-type: none;
+  padding: 0;
+}
+ul.ui-autocomplete li a {
+  display: block;
+  padding: 2px 3px;
+  cursor: pointer;
+}
+
+
+.ui-autocomplete.ui-menu .ui-menu-item {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    list-style-image: url(data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7);
+}
+
+.ui-autocomplete.ui-menu .ui-menu-item a {
+    text-decoration: none;
+    display: block;
+    padding: 2px .4em;
+    line-height: 1.5;
+    min-height: 0;
+    font-weight: normal;
+}
+
+.ui-autocomplete.ui-corner-all, .ui-corner-bottom, .ui-corner-right, .ui-corner-br {
+    border-bottom-right-radius: 4px;
+}
+.ui-autocomplete.ui-corner-all, .ui-corner-bottom, .ui-corner-left, .ui-corner-bl {
+    border-bottom-left-radius: 4px;
+}
+.ui-autocomplete.ui-corner-all, .ui-corner-top, .ui-corner-right, .ui-corner-tr {
+    border-top-right-radius: 4px;
+}
+.ui-autocomplete.ui-corner-all, .ui-corner-top, .ui-corner-left, .ui-corner-tl {
+    border-top-left-radius: 4px;
+}
+.ui-autocomplete.ui-widget-content {
+    border: 1px solid #aaaaaa;
+    background: #ffffff url(images/ui-bg_flat_75_ffffff_40x100.png) 50% 50% repeat-x;
+    color: #222222;
+}
+.ui-autocomplete.ui-widget {
+    font-family: Verdana,Arial,sans-serif;
+    font-size: 1.1em;
+}
+.ui-autocomplete.ui-menu {
+    list-style: none;
+    padding: 2px;
+    margin: 0;
+    display: block;
+    outline: none;
+}
+.ui-autocomplete .ui-state-hover,
+ .ui-autocomplete .ui-widget-content .ui-state-hover,
+ .ui-autocomplete .ui-widget-header .ui-state-hover,
+ .ui-autocomplete .ui-state-focus,
+ .ui-autocomplete .ui-widget-content .ui-state-focus,
+ .ui-autocomplete .ui-widget-header .ui-state-focus {
+    border: 1px solid #999999;
+    background: #dadada url(images/ui-bg_glass_75_dadada_1x400.png) 50% 50% repeat-x;
+    font-weight: normal;
+    color: #212121;
+}
+
+.results_on_deck .ui-icon.ui-icon-trash {
+    cursor: pointer;
+    color: #309bbf;
+    margin-right: 10px;
+}
+.results_on_deck .ui-icon.ui-icon-pencil {
+    cursor: pointer;
+    color: #309bbf;
+    margin-left: 10px;
+}

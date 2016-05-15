@@ -28,26 +28,27 @@ class EventHomePageView(TemplateView):
         context = super(EventHomePageView, self).get_context_data(**kwargs)
         context.update({
             'event': get_object_or_404(Event, slug=self.slug, status=CONTENT_STATUS_PUBLISHED)
-            # 'programation_list': Programation.objects.filter(active=ACTIVE).order_by('date_time'),
         })
         return context
 
 
 class EventHomepagePreview(TemplateView):
     template_name = 'events/event_homepage.html'
+    object = Event
+    queryset = []
 
     @method_decorator(events_permission_required('events.change_event'))
     def dispatch(self, *args, **kwargs):
         return super(EventHomepagePreview, self).dispatch(*args, **kwargs)
 
     def get(self, request, url=None, *args, **kwargs):
-        self.event_url = url
+        self.slug = url
         return super(EventHomepagePreview, self).get(request, *args, **kwargs)
 
     def get_context_data(self, **kwargs):
         context = super(EventHomepagePreview, self).get_context_data(**kwargs)
         context.update({
-            'event': get_object_or_404(Event, event_url=self.event_url)
+            'event': get_object_or_404(Event, slug=self.slug)
         })
 
         return context

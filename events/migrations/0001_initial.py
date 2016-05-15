@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
+import datetime
 from django.db import models, migrations
 import mezzanine.utils.models
 import mezzanine.core.fields
@@ -79,9 +80,9 @@ class Migration(migrations.Migration):
                 ('short_url', models.URLField(null=True, blank=True)),
                 ('in_sitemap', models.BooleanField(default=True, verbose_name='Show in sitemap')),
                 ('content', mezzanine.core.fields.RichTextField(verbose_name='Content')),
-                ('name', models.CharField(max_length=100, verbose_name='Nome')),
+                ('name', models.CharField(max_length=100, verbose_name='Nome', default="nome")),
                 ('image', mezzanine.core.fields.FileField(help_text='Para n\xe3o distorcer, envie uma imagem com resolu\xe7\xe3o m\xe1xima de 200x200px.', max_length=200, null=True, verbose_name='Imagem', blank=True)),
-                ('date_time', models.DateTimeField(verbose_name='Data e Hora')),
+                ('date_time', models.DateTimeField(verbose_name='Data e Hora', default=datetime.datetime.now())),
                 ('event', models.ForeignKey(blank=True, to='events.Event', help_text='Selecione o Evento desta Programa\xe7\xe3o.', null=True, verbose_name='Evento')),
                 ('site', models.ForeignKey(editable=False, to='sites.Site')),
             ],
