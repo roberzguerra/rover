@@ -27,6 +27,7 @@ class EventBlockLookup(LookupChannel):
     model = Block
 
     def get_query(self, q, request):
+        teste
         return self.model.objects.filter(title__icontains=q)
 
 

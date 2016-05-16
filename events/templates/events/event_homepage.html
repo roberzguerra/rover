@@ -119,21 +119,21 @@
                                                 {% for programation in list_programations %}
                                                     {# MONTA A PROGRAMACAO #}
                                                     <li id="programacao-credenciamento" class="programacao-item programacao-item-other">
-                                                    <div class="programacao-intro">
-                                                        <div class="programacao-intro-board"><span
-                                                                class="programacao-time">{{ programation.date_time|time:'H:i' }}</span><img
-                                                                src="{{ MEDIA_URL }}{{ programation.image }}"
-                                                                class="programacao-image"/></div>
-                                                    </div>
-                                                    <div class="programacao-slot">
-                                                        <div class="programacao-activity">{{ programation.title }}</div>
-                                                        {% if programation.content %}
-                                                            <p>{{ programation.content|safe }}</p>
-                                                        {% else %}
-                                                            <p>&nbsp;</p>
-                                                        {% endif %}
+                                                        <div class="programacao-intro">
+                                                            <div class="programacao-intro-board"><span
+                                                                    class="programacao-time">{{ programation.date_time|time:'H:i' }}</span><img
+                                                                    src="{{ MEDIA_URL }}{{ programation.image }}"
+                                                                    class="programacao-image"/></div>
                                                         </div>
-                                                </li>
+                                                        <div class="programacao-slot">
+                                                            <div class="programacao-activity">{{ programation.title }}</div>
+                                                            {% if programation.content %}
+                                                                <p>{{ programation.content|safe }}</p>
+                                                            {% else %}
+                                                                <p>&nbsp;</p>
+                                                            {% endif %}
+                                                        </div>
+                                                    </li>
                                                 {% endfor %}
                                             {% endwith %}
                                         {% endfor %}
@@ -184,7 +184,7 @@
     {% block footer %}
         <div class="footer">
             <div class="wrapper">
-                <div class="credits"><a href="http://escoteirosrs.org.br/pt-br/lista-equipes/equipe-regional-de-imagem-e-comunicacao/"
+                <div class="credits"><a href="/equipes/comunicacao/"
                                         target="_blank">Equipe Regional de Imagem e Comunicação</a>
                 </div>
             </div>
