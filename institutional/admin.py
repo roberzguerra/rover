@@ -4,16 +4,12 @@ from copy import deepcopy
 from django.utils.translation import ugettext_lazy as _
 from django.contrib import admin
 from django import forms
-from django.template.defaultfilters import slugify
-from filebrowser_safe.fields import FileBrowseFormField, FileBrowseWidget, FileBrowseField
 
-from mezzanine.conf import settings
 from mezzanine.blog.models import BlogPost
-from mezzanine.forms import fields
 from mezzanine.pages.models import Page
 from mezzanine.core.admin import DisplayableAdminForm, TabularDynamicInlineAdmin
 from mezzanine.pages.admin import PageAdmin, PageAdminForm
-from mezzanine.blog.admin import BlogPostAdmin, blogpost_fieldsets
+from mezzanine.blog.admin import BlogPostAdmin, blogpost_fieldsets, blogpost_list_display, blogpost_list_filter
 from mezzanine.utils.models import upload_to
 
 from models import Team, ScoutGroupPage, HomePage, Slide, SocialLinks
@@ -37,9 +33,21 @@ class BlogPostAdminForm(DisplayableAdminForm):
 
 blogpost_fieldsets[0][1]["fields"].insert(4, "image_top")
 
-BlogPostAdmin.form = BlogPostAdminForm
+
+class BlogPostAdminRover(BlogPostAdmin):
+    """
+    Admin class for blog posts.
+    """
+
+    fieldsets = blogpost_fieldsets
+    list_display = ["title", "publish_date", "user", "status", "admin_link", "created"]
+    list_filter = blogpost_list_filter
+    filter_horizontal = ("categories", "related_posts",)
+    form = BlogPostAdminForm
+
+
 admin.site.unregister(BlogPost)
-admin.site.register(BlogPost, BlogPostAdmin)
+admin.site.register(BlogPost, BlogPostAdminRover)
 
 
 class PageAdminInstitutionalForm(PageAdminForm):
