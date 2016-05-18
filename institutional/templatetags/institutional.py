@@ -9,6 +9,8 @@ from django.utils.safestring import mark_safe
 from django import template
 
 from mezzanine.conf import settings
+from mezzanine.utils.views import paginate
+
 from ..models import HomePage
 
 register = template.Library()
@@ -48,3 +50,14 @@ def get_social_links(context=None, *args, **kwargs):
     temp = get_template('institution/footer_social_links.html')
     return temp.render(Context(context))
     # return get_template('institution/footer_social_links.html').render(Context(context))
+
+
+@register.filter
+def list_to_paginate(list_object, request):
+    """
+    Transforma uma lista recebida em objeto para paginação
+    """
+    object_paginate = paginate(list_object, request.GET.get("page", 1),
+                          settings.BLOG_POST_PER_PAGE,
+                          settings.MAX_PAGING_LINKS)
+    return object_paginate

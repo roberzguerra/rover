@@ -1,5 +1,5 @@
 # -*- coding:utf-8 -*-
-from mezzanine.utils.models import upload_to
+from events.models import Event
 from mezzanine_people.models import PersonCategory
 
 try:
@@ -10,7 +10,6 @@ from string import punctuation
 
 from django.utils.translation import ugettext_lazy as _
 from django.contrib.sites.models import Site
-from django.shortcuts import get_object_or_404
 from django.db import models
 from django.contrib.sites.models import Site
 
@@ -18,7 +17,6 @@ from mezzanine.core.fields import FileField
 from mezzanine.core.models import Orderable
 from mezzanine.pages.models import Page, RichText
 from mezzanine.blog.models import BlogPost
-from mezzanine.conf import register_setting
 
 from scout_group.models import ScoutGroup, District
 
@@ -212,3 +210,19 @@ class SocialLinks(Orderable):
     def get_type(self):
         return self.SOCIAL_LiNKS.get(self.type)
 
+
+
+
+class EventPage(Page, RichText):
+    """
+    Modelo de Listagem de eventos
+
+    """
+
+    class Meta:
+        db_table = "institutional_event_page"
+        verbose_name = _(u'Lista de Eventos')
+        verbose_name_plural = _(u'Listas de Eventos')
+
+    def get_all_events_published(self):
+        return Event.objects.published().order_by('created')

@@ -12,7 +12,7 @@ from mezzanine.pages.admin import PageAdmin, PageAdminForm
 from mezzanine.blog.admin import BlogPostAdmin, blogpost_fieldsets, blogpost_list_display, blogpost_list_filter
 from mezzanine.utils.models import upload_to
 
-from models import Team, ScoutGroupPage, HomePage, Slide, SocialLinks
+from models import Team, ScoutGroupPage, HomePage, Slide, SocialLinks, EventPage
 from rover_core.admin import page_fieldsets
 
 
@@ -115,6 +115,16 @@ class ScoutGroupPageAdmin(PageAdmin):
     fieldsets = scout_core_page_fields
 
 
+event_page_fields = deepcopy(page_fieldsets)
+
+class EventPageAdmin(PageAdmin):
+    """
+    Admin para a Pagina de Equipes
+    """
+    fieldsets = event_page_fields
+
+
 admin.site.register(HomePage, HomePageAdmin)
 admin.site.register(Team, TeamAdmin)
 admin.site.register(ScoutGroupPage, ScoutGroupPageAdmin)
+admin.site.register(EventPage, EventPageAdmin)

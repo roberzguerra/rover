@@ -1,0 +1,51 @@
+{% extends "pages/page.html" %}
+
+{% load mezzanine_tags institutional %}
+
+{% block body_class %}branch-escoteiro{% endblock %}
+
+{% block main_class %}news-page{% endblock %}
+
+{% block main %}
+    {% block title %}
+        {% editable page.eventpage.title %}
+            <h2>{{ page.title }}<span class="titles-bgs"></span></h2>
+        {% endeditable %}
+    {% endblock %}
+    {% editable page.eventpage.content %}
+        {{ page.eventpage.content|richtext_filters|safe }}
+    {% endeditable %}
+
+    {% with list_events=page.eventpage.get_all_events_published|list_to_paginate:request %}
+        <div class="other-news">
+            <ul class="list-news clearfix">
+                {% for event in list_events %}
+
+                    <li class="{% cycle '' 'last' %}">
+                        <a href="{{ event.get_absolute_url }}">
+                            {% if settings.BLOG_USE_FEATURED_IMAGE and event.event_social_image %}
+                                <img class="img-responsive" alt="{{ event }}" title="{{ event }}" src="{{ MEDIA_URL }}{% thumbnail event.event_social_image 460 260 %}">
+                            {% else %}
+                                <img class="img-responsive" alt="{{ event }}" title="{{ event }}" src="http://placehold.it/460x260" alt="Evento">
+                            {% endif %}
+                        </a>
+                        <div class="text">
+                            <div class="aux post-meta">
+{#                                    <span>{% blocktrans with sometime=blog_post.publish_date_post_list %}{{ sometime }}{% endblocktrans %}</span>#}
+                                <p>
+                                    {{ event.title }}<br>
+                                </p>
+                            </div>
+                        </div>
+                        <a href="{{ event.get_absolute_url }}" class="detail btn-style"><span>Ver Site do Evento</span><i class="arrow btn"></i></a>
+                    </li>
+                {% empty %}
+                    Não existem Eventos cadastrados.
+                {% endfor %}
+            </ul>
+            {% pagination_for list_events %}
+
+        </div>
+    {% endwith %}
+
+{% endblock %}
