@@ -14,7 +14,7 @@
     <meta name="viewport" content="width=device-width">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="http://{{ request\.META.HTTP_HOST }}{{ event.get_absolute_url }}">
+    <meta property="og:url" content="http://{{ request.META.HTTP_HOST }}{{ event.get_absolute_url }}">
     <meta property="og:title" content="{{ event.event_title_menu }}">
     <meta property="og:description" content="{{ event.event_description_short }}">
     <meta property="og:image" content="http://{{ request.META.HTTP_HOST }}{{ event.get_event_social_image }}">
