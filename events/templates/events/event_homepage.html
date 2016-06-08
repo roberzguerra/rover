@@ -13,6 +13,8 @@
     {% endif %}
     <meta name="viewport" content="width=device-width">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    {# Facebook #}
+    <meta property="fb:app_id" content="1032068476884666" />
     <meta property="og:type" content="website">
     <meta property="og:url" content="http://{{ request.META.HTTP_HOST }}{{ event.get_absolute_url }}">
     <meta property="og:title" content="{{ event.event_title_menu }}">
@@ -24,6 +26,22 @@
 {% endblock %}
 
 {% block bootstrap3_content %}
+    <script>
+      window.fbAsyncInit = function() {
+        FB.init({
+          appId      : '1032068476884666',
+          xfbml      : true,
+          version    : 'v2.6'
+        });
+      };
+      (function(d, s, id){
+         var js, fjs = d.getElementsByTagName(s)[0];
+         if (d.getElementById(id)) {return;}
+         js = d.createElement(s); js.id = id;
+         js.src = "//connect.facebook.net/pt_BR/sdk.js";
+         fjs.parentNode.insertBefore(js, fjs);
+       }(document, 'script', 'facebook-jssdk'));
+    </script>
     {% block menu %}
         <nav class="navbar navbar-default navbar-fixed-top">
             <div class="container">
@@ -83,6 +101,11 @@
     {% endblock header %}
 
     {% block content-sections %}
+        <section class="section section-social" id="menu_social">
+            <div class="wrapper" style="text-align: center;">
+                <div class="fb-like" data-share="true" data-width="450" data-show-faces="true"></div>
+            </div>
+        </section>
         {% for event_block in event.get_all_blocks_published %}
             {% with event_block.block as block %}
             {% if event_block.is_published and block.is_published %}
