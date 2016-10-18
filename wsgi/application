@@ -3,9 +3,9 @@ from __future__ import unicode_literals
 import os
 import sys
 
-#sys.path.append(os.path.join(os.environ['OPENSHIFT_REPO_DIR'], 'rover'))
+#sys.path.append(os.path.join(os.environ['HOME'], 'rover'))
 
-sys.path.append(os.environ.get('OPENSHIFT_REPO_DIR'))
+sys.path.append(os.environ.get('HOME'))
 #sys.path.append('/var/www/html/rover/')
 os.environ['DJANGO_SETTINGS_MODULE'] = 'rover.settings'
 from django.core.wsgi import get_wsgi_application
