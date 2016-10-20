@@ -5,8 +5,8 @@ import sys
 
 #sys.path.append(os.path.join(os.environ['HOME'], 'rover'))
 
-sys.path.append(os.environ.get('HOME'))
-#sys.path.append('/var/www/html/rover/')
+#sys.path.append(os.environ.get('HOME'))
+sys.path.append('/var/www/html/rover/')
 os.environ['DJANGO_SETTINGS_MODULE'] = 'rover.settings'
 from django.core.wsgi import get_wsgi_application
 application = get_wsgi_application()
